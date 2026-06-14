@@ -1,0 +1,529 @@
+route_id,route_name,weekday_avg_boardings,weekday_boardings_per_revenue_hour,weekday_boardings_per_revenue_mile,saturday_avg_boardings,saturday_boardings_per_revenue_hour,saturday_boardings_per_revenue_mile,sunday_avg_boardings,sunday_boardings_per_revenue_hour,sunday_boardings_per_revenue_mile,month,source_pdf
+2,Bellaire,7590,31.56,2.88,5995,30.6,2.71,4915,25.09,2.22,October 2024,RS17348_October 2024 ridership report
+3,Langley / Little York,2262,18.62,1.42,1869,15.46,1.17,1437,11.89,0.9,October 2024,RS17348_October 2024 ridership report
+4,Beechnut,8743,27.2,2.17,5462,23.09,1.69,4231,17.89,1.31,October 2024,RS17348_October 2024 ridership report
+5,Southmore,1265,18.57,1.58,621,12.39,0.91,564,11.25,0.83,October 2024,RS17348_October 2024 ridership report
+6,Jensen / Greens,3895,20.4,1.4,2661,19.4,1.26,2262,16.49,1.07,October 2024,RS17348_October 2024 ridership report
+7,West Airport,946,27.37,2.04,494,14.64,1.1,397,11.77,0.88,October 2024,RS17348_October 2024 ridership report
+8,West Bellfort,3391,35.41,2.7,2149,29.13,2.57,2014,27.29,2.41,October 2024,RS17348_October 2024 ridership report
+9,Gulfton / Holman,2473,22.86,2.04,1639,18.04,1.37,1319,14.53,1.1,October 2024,RS17348_October 2024 ridership report
+10,Willowbend,650,16.26,1.55,347,11.99,1.19,232,8.02,0.8,October 2024,RS17348_October 2024 ridership report
+11,Almeda / Lyons,2345,17.21,1.35,1687,12.49,0.97,1389,10.29,0.8,October 2024,RS17348_October 2024 ridership report
+14,Hiram Clarke,1598,21.99,1.82,1127,19.56,1.64,956,16.61,1.4,October 2024,RS17348_October 2024 ridership report
+20,Canal / Memorial,2695,15.57,1.29,1669,13.8,1.06,1628,13.46,1.03,October 2024,RS17348_October 2024 ridership report
+23,Clay - W 43rd,462,13.13,1.31,352,10.98,1.09,300,9.33,0.92,October 2024,RS17348_October 2024 ridership report
+25,Richmond,7489,26.38,2.31,5318,23.39,2.04,4433,19.49,1.7,October 2024,RS17348_October 2024 ridership report
+26,Long Point / Cavalcade,3753,18.59,1.45,2431,22.53,1.91,1946,18.03,1.53,October 2024,RS17348_October 2024 ridership report
+27,Shepherd,2695,16.58,1.43,1581,21.51,1.65,1397,19.0,1.46,October 2024,RS17348_October 2024 ridership report
+28,OST - Wayside,2889,24.12,2.4,1932,23.63,1.92,1730,21.16,1.72,October 2024,RS17348_October 2024 ridership report
+29,Cullen / Hirsch,3474,22.15,1.67,2602,16.41,1.31,2231,14.07,1.12,October 2024,RS17348_October 2024 ridership report
+30,Clinton / Ella,870,12.15,0.86,554,7.75,0.55,500,6.99,0.49,October 2024,RS17348_October 2024 ridership report
+32,Renwick,1353,15.95,1.49,1080,13.38,1.19,890,11.02,0.98,October 2024,RS17348_October 2024 ridership report
+35,San Felipe,511,14.31,1.5,340,9.55,1.0,335,9.41,0.99,October 2024,RS17348_October 2024 ridership report
+36,Kempwood,3385,20.58,1.59,2445,15.86,1.2,2264,14.69,1.11,October 2024,RS17348_October 2024 ridership report
+38,Manchester - Lawndale,139,8.57,0.72,115,8.07,0.68,82,5.76,0.49,October 2024,RS17348_October 2024 ridership report
+39,Katy Freeway,280,9.01,0.59,218,7.61,0.5,170,5.93,0.39,October 2024,RS17348_October 2024 ridership report
+40,Telephone / Heights,4236,20.61,1.65,2864,17.54,1.4,2494,15.27,1.22,October 2024,RS17348_October 2024 ridership report
+41,Kirby / Polk,1304,14.34,1.32,842,9.26,0.85,883,9.71,0.9,October 2024,RS17348_October 2024 ridership report
+44,Acres Homes,2614,15.49,1.11,2063,14.27,1.04,1569,10.85,0.79,October 2024,RS17348_October 2024 ridership report
+45,Tidwell,4673,22.96,1.72,3039,27.93,1.93,2570,23.62,1.64,October 2024,RS17348_October 2024 ridership report
+46,Gessner,7670,35.22,3.08,5665,29.23,2.39,4843,24.98,2.04,October 2024,RS17348_October 2024 ridership report
+47,Hillcroft,3822,27.19,2.58,2242,31.55,2.38,1966,27.66,2.09,October 2024,RS17348_October 2024 ridership report
+48,Market,492,13.82,1.33,336,9.44,0.91,258,7.24,0.7,October 2024,RS17348_October 2024 ridership report
+49,Chimney Rock / S Post Oak,2893,22.6,1.87,2061,20.36,1.56,1617,15.98,1.22,October 2024,RS17348_October 2024 ridership report
+50,Broadway,2348,20.0,1.69,1545,25.67,1.96,1366,22.7,1.73,October 2024,RS17348_October 2024 ridership report
+51,Hardy - Kelley,754,14.27,1.42,438,9.73,0.84,387,8.58,0.74,October 2024,RS17348_October 2024 ridership report
+52,Hardy /  Ley,1974,18.74,1.43,1423,14.92,1.05,1275,13.36,0.94,October 2024,RS17348_October 2024 ridership report
+54,Scott,6075,28.66,2.36,4152,25.57,1.94,3428,21.11,1.6,October 2024,RS17348_October 2024 ridership report
+56,Airline / Montrose,5411,19.18,1.61,4349,23.53,1.92,4214,22.8,1.86,October 2024,RS17348_October 2024 ridership report
+58,Hammerly,518,16.6,1.48,382,12.63,1.13,286,9.45,0.84,October 2024,RS17348_October 2024 ridership report
+59,Aldine Mail,395,12.21,1.0,286,10.19,0.82,258,9.2,0.74,October 2024,RS17348_October 2024 ridership report
+60,Cambridge,1695,26.72,2.99,654,11.8,1.32,600,10.83,1.22,October 2024,RS17348_October 2024 ridership report
+63,Fondren,4896,36.88,3.61,3444,29.53,2.65,2838,24.33,2.18,October 2024,RS17348_October 2024 ridership report
+64,Lincoln City,96,3.63,0.36,77,2.94,0.29,54,2.05,0.2,October 2024,RS17348_October 2024 ridership report
+65,Bissonnet,6278,29.22,2.56,3816,25.03,2.03,2983,19.56,1.59,October 2024,RS17348_October 2024 ridership report
+66,Quitman,446,13.29,1.02,290,9.85,0.75,240,8.14,0.62,October 2024,RS17348_October 2024 ridership report
+2,Bellaire,7501,31.19,2.85,5526,28.2,2.49,4438,22.65,2.0,November 2024,RS17501_November 2024 ridership report
+3,Langley / Little York,2247,18.49,1.41,1779,14.71,1.12,1472,12.18,0.92,November 2024,RS17501_November 2024 ridership report
+4,Beechnut,8770,27.28,2.18,4950,20.93,1.53,4188,17.71,1.3,November 2024,RS17501_November 2024 ridership report
+5,Southmore,1228,18.02,1.54,619,12.36,0.91,587,11.73,0.87,November 2024,RS17501_November 2024 ridership report
+6,Jensen / Greens,3923,20.54,1.41,2708,19.74,1.28,2203,16.06,1.04,November 2024,RS17501_November 2024 ridership report
+7,West Airport,830,24.01,1.79,535,15.84,1.19,446,13.2,0.99,November 2024,RS17501_November 2024 ridership report
+8,West Bellfort,3437,35.88,2.74,2037,27.61,2.44,1793,24.31,2.14,November 2024,RS17501_November 2024 ridership report
+9,Gulfton / Holman,2329,21.53,1.92,1482,16.32,1.24,1312,14.44,1.1,November 2024,RS17501_November 2024 ridership report
+10,Willowbend,698,17.46,1.67,312,10.78,1.07,274,9.46,0.94,November 2024,RS17501_November 2024 ridership report
+11,Almeda / Lyons,2231,16.38,1.28,1527,11.31,0.88,1338,9.9,0.77,November 2024,RS17501_November 2024 ridership report
+14,Hiram Clarke,1634,22.48,1.86,1077,18.7,1.57,1004,17.44,1.47,November 2024,RS17501_November 2024 ridership report
+20,Canal / Memorial,2617,15.12,1.25,1683,13.91,1.07,1433,11.85,0.91,November 2024,RS17501_November 2024 ridership report
+23,Clay - W 43rd,447,12.69,1.26,347,10.81,1.07,262,8.16,0.81,November 2024,RS17501_November 2024 ridership report
+25,Richmond,7512,26.46,2.31,5006,22.01,1.92,4221,18.56,1.62,November 2024,RS17501_November 2024 ridership report
+26,Long Point / Cavalcade,3799,18.81,1.47,2314,21.44,1.82,2042,18.92,1.6,November 2024,RS17501_November 2024 ridership report
+27,Shepherd,2855,17.57,1.51,1586,21.58,1.66,1330,18.09,1.39,November 2024,RS17501_November 2024 ridership report
+28,OST - Wayside,2476,20.68,2.06,1916,23.43,1.9,1733,21.19,1.72,November 2024,RS17501_November 2024 ridership report
+29,Cullen / Hirsch,3429,21.86,1.65,2612,16.47,1.31,2194,13.83,1.1,November 2024,RS17501_November 2024 ridership report
+30,Clinton / Ella,845,11.8,0.84,542,7.57,0.54,492,6.87,0.49,November 2024,RS17501_November 2024 ridership report
+32,Renwick,1246,14.69,1.38,1003,12.43,1.11,831,10.3,0.92,November 2024,RS17501_November 2024 ridership report
+35,San Felipe,455,12.75,1.34,335,9.43,0.99,303,8.53,0.89,November 2024,RS17501_November 2024 ridership report
+36,Kempwood,3258,19.81,1.53,2550,16.54,1.25,2098,13.61,1.03,November 2024,RS17501_November 2024 ridership report
+38,Manchester - Lawndale,143,8.76,0.74,97,6.79,0.57,82,5.76,0.49,November 2024,RS17501_November 2024 ridership report
+39,Katy Freeway,301,9.66,0.64,213,7.45,0.49,160,5.6,0.37,November 2024,RS17501_November 2024 ridership report
+40,Telephone / Heights,4089,19.9,1.59,2783,17.05,1.36,2469,15.12,1.21,November 2024,RS17501_November 2024 ridership report
+41,Kirby / Polk,1297,14.27,1.32,890,9.79,0.9,891,9.8,0.9,November 2024,RS17501_November 2024 ridership report
+44,Acres Homes,2584,15.31,1.1,1855,12.83,0.94,1687,11.67,0.85,November 2024,RS17501_November 2024 ridership report
+45,Tidwell,4623,22.71,1.7,2958,27.19,1.88,2201,20.23,1.4,November 2024,RS17501_November 2024 ridership report
+46,Gessner,7573,34.78,3.04,5594,28.86,2.36,4695,24.22,1.98,November 2024,RS17501_November 2024 ridership report
+47,Hillcroft,3906,27.78,2.64,2205,31.02,2.34,1817,25.56,1.93,November 2024,RS17501_November 2024 ridership report
+48,Market,546,15.34,1.47,303,8.52,0.82,272,7.66,0.74,November 2024,RS17501_November 2024 ridership report
+49,Chimney Rock / S Post Oak,2899,22.65,1.87,1811,17.89,1.37,1607,15.88,1.21,November 2024,RS17501_November 2024 ridership report
+50,Broadway,2285,19.46,1.64,1471,24.44,1.87,1415,23.52,1.79,November 2024,RS17501_November 2024 ridership report
+51,Hardy - Kelley,758,14.36,1.42,460,10.21,0.88,455,10.09,0.87,November 2024,RS17501_November 2024 ridership report
+52,Hardy /  Ley,2010,19.09,1.45,1413,14.81,1.05,1218,12.76,0.9,November 2024,RS17501_November 2024 ridership report
+54,Scott,6112,28.84,2.38,4095,25.22,1.92,3278,20.19,1.53,November 2024,RS17501_November 2024 ridership report
+56,Airline / Montrose,5441,19.28,1.62,4288,23.2,1.9,4136,22.38,1.83,November 2024,RS17501_November 2024 ridership report
+58,Hammerly,509,16.3,1.45,354,11.7,1.04,310,10.24,0.91,November 2024,RS17501_November 2024 ridership report
+59,Aldine Mail,417,12.9,1.06,264,9.4,0.76,263,9.37,0.76,November 2024,RS17501_November 2024 ridership report
+60,Cambridge,1606,25.31,2.83,676,12.19,1.37,562,10.15,1.14,November 2024,RS17501_November 2024 ridership report
+63,Fondren,4762,35.88,3.52,3318,28.45,2.55,2810,24.09,2.16,November 2024,RS17501_November 2024 ridership report
+64,Lincoln City,87,3.3,0.33,73,2.79,0.27,54,2.06,0.2,November 2024,RS17501_November 2024 ridership report
+65,Bissonnet,6240,29.04,2.55,3702,24.28,1.97,2948,19.33,1.57,November 2024,RS17501_November 2024 ridership report
+66,Quitman,433,12.88,0.99,315,10.68,0.82,273,9.27,0.71,November 2024,RS17501_November 2024 ridership report
+2,Bellaire,7263,30.21,2.76,5591,28.54,2.52,4515,23.04,2.04,December 2024,RS17755_December 2024 ridership report
+3,Langley / Little York,2154,17.73,1.35,1611,13.33,1.01,1433,11.85,0.9,December 2024,RS17755_December 2024 ridership report
+4,Beechnut,7610,23.67,1.89,4893,20.68,1.51,4067,17.19,1.26,December 2024,RS17755_December 2024 ridership report
+5,Southmore,1156,16.96,1.45,608,12.15,0.9,509,10.16,0.75,December 2024,RS17755_December 2024 ridership report
+6,Jensen / Greens,3636,19.04,1.31,3021,22.02,1.43,2313,16.86,1.09,December 2024,RS17755_December 2024 ridership report
+7,West Airport,751,21.72,1.62,486,14.4,1.08,436,12.91,0.97,December 2024,RS17755_December 2024 ridership report
+8,West Bellfort,3216,33.57,2.56,2281,30.92,2.73,1661,22.51,1.99,December 2024,RS17755_December 2024 ridership report
+9,Gulfton / Holman,2078,19.21,1.72,1354,14.91,1.14,1161,12.78,0.97,December 2024,RS17755_December 2024 ridership report
+10,Willowbend,603,15.09,1.44,326,11.28,1.12,259,8.95,0.89,December 2024,RS17755_December 2024 ridership report
+11,Almeda / Lyons,2210,16.22,1.27,1436,10.63,0.82,1199,8.88,0.69,December 2024,RS17755_December 2024 ridership report
+14,Hiram Clarke,1565,21.54,1.78,1003,17.42,1.46,974,16.92,1.42,December 2024,RS17755_December 2024 ridership report
+20,Canal / Memorial,2605,15.05,1.24,1665,13.77,1.06,1485,12.28,0.94,December 2024,RS17755_December 2024 ridership report
+23,Clay - W 43rd,419,11.9,1.18,328,10.21,1.01,289,9.0,0.89,December 2024,RS17755_December 2024 ridership report
+25,Richmond,6696,23.59,2.06,4663,20.51,1.79,3964,17.43,1.52,December 2024,RS17755_December 2024 ridership report
+26,Long Point / Cavalcade,3638,18.02,1.41,2342,21.7,1.84,1900,17.61,1.49,December 2024,RS17755_December 2024 ridership report
+27,Shepherd,2593,15.95,1.37,1762,23.97,1.84,1297,17.64,1.36,December 2024,RS17755_December 2024 ridership report
+28,OST - Wayside,2682,22.4,2.23,1820,22.26,1.81,1618,19.79,1.61,December 2024,RS17755_December 2024 ridership report
+29,Cullen / Hirsch,3280,20.91,1.58,2520,15.89,1.27,2202,13.89,1.11,December 2024,RS17755_December 2024 ridership report
+30,Clinton / Ella,761,10.63,0.75,525,7.34,0.52,439,6.13,0.43,December 2024,RS17755_December 2024 ridership report
+32,Renwick,1228,14.48,1.36,987,12.23,1.09,909,11.26,1.0,December 2024,RS17755_December 2024 ridership report
+35,San Felipe,444,12.43,1.31,358,10.06,1.05,268,7.54,0.79,December 2024,RS17755_December 2024 ridership report
+36,Kempwood,3185,19.37,1.48,2180,14.14,1.06,2173,14.1,1.06,December 2024,RS17755_December 2024 ridership report
+38,Manchester - Lawndale,120,7.36,0.62,108,7.54,0.64,93,6.52,0.55,December 2024,RS17755_December 2024 ridership report
+39,Katy Freeway,254,8.16,0.54,180,6.3,0.41,134,4.67,0.31,December 2024,RS17755_December 2024 ridership report
+40,Telephone / Heights,3769,18.34,1.46,2643,16.19,1.29,2281,13.97,1.11,December 2024,RS17755_December 2024 ridership report
+41,Kirby / Polk,1209,13.3,1.23,949,10.44,0.96,879,9.67,0.89,December 2024,RS17755_December 2024 ridership report
+44,Acres Homes,2501,14.81,1.07,1815,12.55,0.92,1741,12.04,0.88,December 2024,RS17755_December 2024 ridership report
+45,Tidwell,4454,21.88,1.64,2788,25.63,1.77,2267,20.84,1.44,December 2024,RS17755_December 2024 ridership report
+46,Gessner,7405,34.0,2.97,5610,28.94,2.37,4411,22.76,1.86,December 2024,RS17755_December 2024 ridership report
+47,Hillcroft,3594,25.57,2.43,2017,28.38,2.14,1793,25.23,1.9,December 2024,RS17755_December 2024 ridership report
+48,Market,477,13.41,1.29,292,8.2,0.79,255,7.16,0.69,December 2024,RS17755_December 2024 ridership report
+49,Chimney Rock / S Post Oak,2700,21.09,1.75,1875,18.53,1.42,1410,13.93,1.07,December 2024,RS17755_December 2024 ridership report
+50,Broadway,2232,19.01,1.6,1364,22.66,1.73,1283,21.32,1.63,December 2024,RS17755_December 2024 ridership report
+51,Hardy - Kelley,735,13.92,1.38,450,9.98,0.86,389,8.64,0.74,December 2024,RS17755_December 2024 ridership report
+52,Hardy /  Ley,1887,17.91,1.36,1387,14.53,1.03,1172,12.29,0.87,December 2024,RS17755_December 2024 ridership report
+54,Scott,5767,27.21,2.24,3716,22.89,1.74,3322,20.46,1.55,December 2024,RS17755_December 2024 ridership report
+56,Airline / Montrose,5231,18.54,1.56,3963,21.45,1.75,3630,19.64,1.61,December 2024,RS17755_December 2024 ridership report
+58,Hammerly,464,14.87,1.32,325,10.73,0.96,296,9.79,0.87,December 2024,RS17755_December 2024 ridership report
+59,Aldine Mail,378,11.68,0.96,233,8.32,0.67,222,7.91,0.64,December 2024,RS17755_December 2024 ridership report
+60,Cambridge,1256,19.8,2.21,648,11.7,1.31,555,10.01,1.12,December 2024,RS17755_December 2024 ridership report
+63,Fondren,4856,36.59,3.59,3290,28.2,2.53,2584,22.15,1.99,December 2024,RS17755_December 2024 ridership report
+64,Lincoln City,81,3.06,0.3,91,3.47,0.34,57,2.17,0.21,December 2024,RS17755_December 2024 ridership report
+65,Bissonnet,6182,28.77,2.52,3829,25.12,2.04,2895,18.99,1.54,December 2024,RS17755_December 2024 ridership report
+66,Quitman,416,12.38,0.95,283,9.6,0.73,217,7.35,0.56,December 2024,RS17755_December 2024 ridership report
+2,Bellaire,6795,28.26,2.58,5309,27.1,2.4,3655,18.65,1.65,January 2025,RS17967_January 2025 ridership report
+3,Langley / Little York,1982,16.31,1.25,1715,14.19,1.08,1280,10.59,0.8,January 2025,RS17967_January 2025 ridership report
+4,Beechnut,7742,24.08,1.92,4622,19.54,1.43,3477,14.7,1.08,January 2025,RS17967_January 2025 ridership report
+5,Southmore,1161,16.98,1.45,635,12.68,0.94,487,9.73,0.72,January 2025,RS17967_January 2025 ridership report
+6,Jensen / Greens,3498,18.32,1.25,2836,20.67,1.34,1952,14.23,0.91,January 2025,RS17967_January 2025 ridership report
+7,West Airport,701,20.27,1.51,480,14.22,1.07,363,10.75,0.81,January 2025,RS17967_January 2025 ridership report
+8,West Bellfort,3179,33.19,2.53,2402,32.56,2.87,1561,21.15,1.87,January 2025,RS17967_January 2025 ridership report
+9,Gulfton / Holman,2015,18.62,1.67,1348,14.84,1.13,1022,11.25,0.86,January 2025,RS17967_January 2025 ridership report
+10,Willowbend,625,15.65,1.49,358,12.39,1.23,238,8.22,0.82,January 2025,RS17967_January 2025 ridership report
+11,Almeda / Lyons,2051,15.07,1.18,1392,10.31,0.8,1146,8.49,0.66,January 2025,RS17967_January 2025 ridership report
+14,Hiram Clarke,1637,17.34,1.46,1123,19.49,1.64,1414,18.49,1.39,January 2025,RS17967_January 2025 ridership report
+20,Canal / Memorial,2388,12.58,1.05,1654,13.67,1.05,1210,10.01,0.77,January 2025,RS17967_January 2025 ridership report
+23,Clay - W 43rd,416,11.8,1.17,327,10.17,1.01,238,7.41,0.73,January 2025,RS17967_January 2025 ridership report
+25,Richmond,6278,22.11,1.84,4884,21.48,1.88,3687,16.22,1.34,January 2025,RS17967_January 2025 ridership report
+26,Long Point / Cavalcade,3289,16.29,1.27,2343,21.71,1.84,1578,9.11,0.71,January 2025,RS17967_January 2025 ridership report
+27,Shepherd,2455,20.11,1.73,1652,22.47,1.73,1080,14.69,1.13,January 2025,RS17967_January 2025 ridership report
+28,OST - Wayside,2601,19.5,1.97,1796,21.96,1.79,1230,15.04,1.22,January 2025,RS17967_January 2025 ridership report
+29,Cullen / Hirsch,3105,19.71,1.49,2735,17.25,1.38,2047,12.91,1.03,January 2025,RS17967_January 2025 ridership report
+30,Clinton / Ella,759,10.6,0.75,521,7.28,0.51,407,5.69,0.4,January 2025,RS17967_January 2025 ridership report
+32,Renwick,1241,14.63,1.37,935,11.58,1.03,762,9.44,0.84,January 2025,RS17967_January 2025 ridership report
+35,San Felipe,397,11.11,1.17,329,9.26,0.97,255,7.16,0.75,January 2025,RS17967_January 2025 ridership report
+36,Kempwood,2991,18.19,1.39,2554,16.57,1.24,1955,12.68,0.95,January 2025,RS17967_January 2025 ridership report
+38,Manchester - Lawndale,118,7.24,0.61,108,7.54,0.64,75,5.26,0.44,January 2025,RS17967_January 2025 ridership report
+39,Katy Freeway,267,8.58,0.57,199,6.94,0.46,134,4.67,0.31,January 2025,RS17967_January 2025 ridership report
+40,Telephone / Heights,3640,17.54,1.41,2629,16.1,1.28,1846,11.03,0.9,January 2025,RS17967_January 2025 ridership report
+41,Kirby / Polk,1234,13.57,1.25,974,10.71,0.99,763,8.39,0.77,January 2025,RS17967_January 2025 ridership report
+44,Acres Homes,2443,14.47,1.04,1656,11.45,0.84,1480,10.23,0.75,January 2025,RS17967_January 2025 ridership report
+45,Tidwell,4245,20.85,1.56,2739,25.18,1.74,1846,16.97,1.18,January 2025,RS17967_January 2025 ridership report
+46,Gessner,6660,30.58,2.67,5435,28.04,2.29,3901,20.13,1.65,January 2025,RS17967_January 2025 ridership report
+47,Hillcroft,3520,22.22,2.13,2069,29.12,2.2,1588,14.91,1.12,January 2025,RS17967_January 2025 ridership report
+48,Market,436,12.25,1.2,328,9.21,0.89,239,6.72,0.66,January 2025,RS17967_January 2025 ridership report
+49,Chimney Rock / S Post Oak,2497,19.51,1.62,1683,16.63,1.27,1181,11.67,0.89,January 2025,RS17967_January 2025 ridership report
+50,Broadway,2133,18.17,1.53,1334,22.16,1.69,1046,17.38,1.33,January 2025,RS17967_January 2025 ridership report
+51,Hardy - Kelley,702,13.3,1.32,386,8.57,0.74,303,6.72,0.58,January 2025,RS17967_January 2025 ridership report
+52,Hardy /  Ley,1710,16.24,1.23,1304,13.67,0.97,1069,11.2,0.79,January 2025,RS17967_January 2025 ridership report
+54,Scott,5565,26.26,2.16,4309,26.54,2.02,2683,16.52,1.26,January 2025,RS17967_January 2025 ridership report
+56,Airline / Montrose,4877,16.64,1.45,4067,22.01,1.8,3349,17.91,1.48,January 2025,RS17967_January 2025 ridership report
+58,Hammerly,450,14.42,1.28,308,10.18,0.91,253,8.37,0.75,January 2025,RS17967_January 2025 ridership report
+59,Aldine Mail,321,9.94,0.82,215,7.68,0.62,188,6.7,0.54,January 2025,RS17967_January 2025 ridership report
+60,Cambridge,1536,23.46,2.62,702,12.67,1.42,508,9.16,1.03,January 2025,RS17967_January 2025 ridership report
+63,Fondren,4282,32.26,3.16,3363,28.83,2.59,2206,18.91,1.7,January 2025,RS17967_January 2025 ridership report
+64,Lincoln City,84,3.19,0.31,84,3.21,0.32,55,2.08,0.2,January 2025,RS17967_January 2025 ridership report
+65,Bissonnet,5575,25.95,2.28,3675,24.11,1.96,2448,13.07,1.04,January 2025,RS17967_January 2025 ridership report
+66,Quitman,389,11.6,0.89,286,9.7,0.74,204,6.91,0.53,January 2025,RS17967_January 2025 ridership report
+2,Bellaire,7292,30.33,2.77,5512,28.13,2.49,4358,22.24,1.97,February 2025,RS18119_February 2025 ridership report
+3,Langley / Little York,2043,16.82,1.28,1803,14.92,1.13,1441,11.92,0.91,February 2025,RS18119_February 2025 ridership report
+4,Beechnut,8405,26.14,2.09,4899,20.71,1.52,4129,17.46,1.28,February 2025,RS18119_February 2025 ridership report
+5,Southmore,1283,18.76,1.61,756,15.1,1.11,520,10.39,0.77,February 2025,RS18119_February 2025 ridership report
+6,Jensen / Greens,3745,19.61,1.34,2722,19.84,1.29,2249,16.39,1.05,February 2025,RS18119_February 2025 ridership report
+7,West Airport,848,24.52,1.83,514,15.23,1.14,387,11.47,0.86,February 2025,RS18119_February 2025 ridership report
+8,West Bellfort,3452,36.04,2.75,2272,30.8,2.72,1734,23.51,2.07,February 2025,RS18119_February 2025 ridership report
+9,Gulfton / Holman,2227,20.58,1.84,1388,15.28,1.16,1098,12.09,0.92,February 2025,RS18119_February 2025 ridership report
+10,Willowbend,681,17.05,1.63,326,11.26,1.12,279,9.65,0.96,February 2025,RS18119_February 2025 ridership report
+11,Almeda / Lyons,2057,15.12,1.18,1489,11.03,0.86,1188,8.8,0.68,February 2025,RS18119_February 2025 ridership report
+14,Hiram Clarke,1816,19.24,1.61,1332,23.13,1.94,1072,14.01,1.05,February 2025,RS18119_February 2025 ridership report
+20,Canal / Memorial,2631,13.86,1.15,1707,14.11,1.08,1287,10.64,0.82,February 2025,RS18119_February 2025 ridership report
+23,Clay - W 43rd,459,13.04,1.3,359,11.19,1.11,272,8.49,0.84,February 2025,RS18119_February 2025 ridership report
+25,Richmond,6655,23.44,1.95,4651,20.45,1.79,3649,16.05,1.33,February 2025,RS18119_February 2025 ridership report
+26,Long Point / Cavalcade,3494,17.3,1.35,2515,23.31,1.97,1896,10.94,0.85,February 2025,RS18119_February 2025 ridership report
+27,Shepherd,2508,20.54,1.76,1768,24.06,1.85,1366,18.59,1.43,February 2025,RS18119_February 2025 ridership report
+28,OST - Wayside,2755,20.65,2.08,1711,20.92,1.7,1632,19.96,1.62,February 2025,RS18119_February 2025 ridership report
+29,Cullen / Hirsch,3354,21.3,1.61,2668,16.82,1.34,2065,13.02,1.04,February 2025,RS18119_February 2025 ridership report
+30,Clinton / Ella,806,11.26,0.8,561,7.84,0.55,482,6.73,0.48,February 2025,RS18119_February 2025 ridership report
+32,Renwick,1347,15.88,1.49,1086,13.46,1.2,864,10.7,0.95,February 2025,RS18119_February 2025 ridership report
+35,San Felipe,430,12.05,1.27,286,8.03,0.84,242,6.8,0.71,February 2025,RS18119_February 2025 ridership report
+36,Kempwood,3144,19.12,1.46,2434,15.8,1.19,2122,13.77,1.03,February 2025,RS18119_February 2025 ridership report
+38,Manchester - Lawndale,133,8.17,0.69,97,6.76,0.57,91,6.39,0.54,February 2025,RS18119_February 2025 ridership report
+39,Katy Freeway,307,9.86,0.65,176,6.13,0.4,148,5.18,0.34,February 2025,RS18119_February 2025 ridership report
+40,Telephone / Heights,3901,18.8,1.52,2765,16.93,1.35,2363,14.12,1.15,February 2025,RS18119_February 2025 ridership report
+41,Kirby / Polk,1251,13.76,1.27,1005,11.05,1.02,885,9.73,0.9,February 2025,RS18119_February 2025 ridership report
+44,Acres Homes,2511,14.87,1.07,1988,13.75,1.01,1597,11.04,0.81,February 2025,RS18119_February 2025 ridership report
+45,Tidwell,4516,22.19,1.66,2881,26.48,1.83,2498,22.96,1.59,February 2025,RS18119_February 2025 ridership report
+46,Gessner,7088,32.55,2.85,5310,27.39,2.24,4291,22.14,1.81,February 2025,RS18119_February 2025 ridership report
+47,Hillcroft,3929,24.8,2.38,2220,31.23,2.36,1937,18.19,1.37,February 2025,RS18119_February 2025 ridership report
+48,Market,507,14.25,1.39,305,8.57,0.82,282,7.93,0.78,February 2025,RS18119_February 2025 ridership report
+49,Chimney Rock / S Post Oak,2688,21.0,1.74,1857,18.35,1.4,1370,13.54,1.04,February 2025,RS18119_February 2025 ridership report
+50,Broadway,2241,19.1,1.61,1424,23.67,1.81,1191,19.79,1.51,February 2025,RS18119_February 2025 ridership report
+51,Hardy - Kelley,614,11.62,1.15,487,10.8,0.93,408,9.05,0.78,February 2025,RS18119_February 2025 ridership report
+52,Hardy /  Ley,1740,16.52,1.26,1479,15.5,1.09,1172,12.28,0.87,February 2025,RS18119_February 2025 ridership report
+54,Scott,6228,29.38,2.42,4236,26.09,1.98,3255,20.05,1.52,February 2025,RS18119_February 2025 ridership report
+56,Airline / Montrose,5245,17.9,1.56,4370,23.65,1.93,3958,21.16,1.75,February 2025,RS18119_February 2025 ridership report
+58,Hammerly,472,15.14,1.35,310,10.24,0.91,267,8.83,0.79,February 2025,RS18119_February 2025 ridership report
+59,Aldine Mail,341,10.54,0.87,277,9.9,0.8,291,10.39,0.84,February 2025,RS18119_February 2025 ridership report
+60,Cambridge,1650,25.21,2.82,672,12.12,1.36,591,10.67,1.2,February 2025,RS18119_February 2025 ridership report
+63,Fondren,4741,35.72,3.5,3732,31.99,2.87,2836,24.31,2.18,February 2025,RS18119_February 2025 ridership report
+64,Lincoln City,83,3.16,0.31,62,2.36,0.23,60,2.28,0.22,February 2025,RS18119_February 2025 ridership report
+65,Bissonnet,5985,27.85,2.44,3588,23.54,1.91,3372,18.0,1.43,February 2025,RS18119_February 2025 ridership report
+66,Quitman,409,12.17,0.93,382,12.96,0.99,222,7.52,0.57,February 2025,RS18119_February 2025 ridership report
+2,Bellaire,7034,29.25,2.67,5675,28.96,2.56,4727,24.13,2.13,March 2025,RS18774_March 2025 ridership report
+3,Langley / Little York,2048,16.86,1.29,1692,14.0,1.06,1481,12.25,0.93,March 2025,RS18774_March 2025 ridership report
+4,Beechnut,8121,25.26,2.01,5133,21.7,1.59,4528,19.14,1.4,March 2025,RS18774_March 2025 ridership report
+5,Southmore,1153,16.86,1.44,720,14.37,1.06,481,9.61,0.71,March 2025,RS18774_March 2025 ridership report
+6,Jensen / Greens,3762,19.7,1.34,2718,19.81,1.29,2180,15.89,1.02,March 2025,RS18774_March 2025 ridership report
+7,West Airport,727,21.04,1.57,496,14.68,1.1,400,11.85,0.89,March 2025,RS18774_March 2025 ridership report
+8,West Bellfort,3460,36.12,2.76,2351,31.86,2.81,1922,26.05,2.3,March 2025,RS18774_March 2025 ridership report
+9,Gulfton / Holman,2117,19.57,1.75,1473,16.22,1.24,1234,13.58,1.04,March 2025,RS18774_March 2025 ridership report
+10,Willowbend,632,15.83,1.51,314,10.86,1.08,245,8.48,0.84,March 2025,RS18774_March 2025 ridership report
+11,Almeda / Lyons,1993,14.64,1.14,1455,10.77,0.84,1247,9.24,0.72,March 2025,RS18774_March 2025 ridership report
+14,Hiram Clarke,1846,19.55,1.64,1349,23.41,1.97,1123,14.68,1.1,March 2025,RS18774_March 2025 ridership report
+20,Canal / Memorial,2602,13.71,1.14,1783,14.75,1.13,1477,12.21,0.94,March 2025,RS18774_March 2025 ridership report
+23,Clay - W 43rd,423,12.0,1.19,358,11.15,1.1,279,8.69,0.86,March 2025,RS18774_March 2025 ridership report
+25,Richmond,6548,23.06,1.91,4798,21.1,1.84,4047,17.8,1.48,March 2025,RS18774_March 2025 ridership report
+26,Long Point / Cavalcade,3475,17.21,1.35,2812,26.06,2.21,2257,13.03,1.02,March 2025,RS18774_March 2025 ridership report
+27,Shepherd,2471,20.24,1.74,1700,23.13,1.78,1428,19.43,1.49,March 2025,RS18774_March 2025 ridership report
+28,OST - Wayside,2826,21.19,2.14,2000,24.46,1.99,1654,20.23,1.64,March 2025,RS18774_March 2025 ridership report
+29,Cullen / Hirsch,3082,19.57,1.48,2479,15.63,1.25,2209,13.93,1.11,March 2025,RS18774_March 2025 ridership report
+30,Clinton / Ella,791,11.05,0.78,574,8.03,0.57,496,6.94,0.49,March 2025,RS18774_March 2025 ridership report
+32,Renwick,1365,16.09,1.51,1158,14.35,1.28,978,12.11,1.08,March 2025,RS18774_March 2025 ridership report
+35,San Felipe,400,11.2,1.18,321,9.01,0.94,275,7.72,0.81,March 2025,RS18774_March 2025 ridership report
+36,Kempwood,3150,19.15,1.47,2456,15.93,1.2,2194,14.24,1.07,March 2025,RS18774_March 2025 ridership report
+38,Manchester - Lawndale,120,7.38,0.62,83,5.82,0.49,80,5.63,0.47,March 2025,RS18774_March 2025 ridership report
+39,Katy Freeway,275,8.84,0.58,178,6.2,0.41,121,4.24,0.28,March 2025,RS18774_March 2025 ridership report
+40,Telephone / Heights,3859,18.6,1.5,2852,17.47,1.39,2342,13.99,1.14,March 2025,RS18774_March 2025 ridership report
+41,Kirby / Polk,1294,14.23,1.31,1087,11.96,1.1,952,10.47,0.97,March 2025,RS18774_March 2025 ridership report
+44,Acres Homes,2413,14.29,1.03,1908,13.2,0.97,1536,10.62,0.78,March 2025,RS18774_March 2025 ridership report
+45,Tidwell,4406,21.64,1.62,2760,25.37,1.76,2422,22.26,1.54,March 2025,RS18774_March 2025 ridership report
+46,Gessner,7184,32.99,2.89,5452,28.13,2.3,4606,23.76,1.94,March 2025,RS18774_March 2025 ridership report
+47,Hillcroft,3819,24.11,2.31,2539,35.72,2.7,2159,20.27,1.53,March 2025,RS18774_March 2025 ridership report
+48,Market,476,13.39,1.31,365,10.26,0.99,328,9.21,0.9,March 2025,RS18774_March 2025 ridership report
+49,Chimney Rock / S Post Oak,2647,20.68,1.71,1852,18.3,1.4,1439,14.21,1.09,March 2025,RS18774_March 2025 ridership report
+50,Broadway,2190,18.65,1.57,1475,24.52,1.87,1264,21.0,1.6,March 2025,RS18774_March 2025 ridership report
+51,Hardy - Kelley,650,12.31,1.22,438,9.72,0.84,392,8.71,0.75,March 2025,RS18774_March 2025 ridership report
+52,Hardy /  Ley,1722,16.35,1.24,1394,14.6,1.03,1245,13.05,0.92,March 2025,RS18774_March 2025 ridership report
+54,Scott,5640,26.61,2.19,4017,24.74,1.88,3163,19.48,1.48,March 2025,RS18774_March 2025 ridership report
+56,Airline / Montrose,5401,18.43,1.61,4450,24.08,1.97,3950,21.12,1.75,March 2025,RS18774_March 2025 ridership report
+58,Hammerly,454,14.55,1.3,349,11.54,1.03,260,8.59,0.77,March 2025,RS18774_March 2025 ridership report
+59,Aldine Mail,385,11.9,0.98,311,11.11,0.9,301,10.74,0.87,March 2025,RS18774_March 2025 ridership report
+60,Cambridge,1518,23.19,2.59,692,12.49,1.4,556,10.03,1.13,March 2025,RS18774_March 2025 ridership report
+63,Fondren,4923,37.09,3.63,3401,29.15,2.62,3073,26.34,2.37,March 2025,RS18774_March 2025 ridership report
+64,Lincoln City,82,3.12,0.31,43,1.64,0.16,50,1.9,0.19,March 2025,RS18774_March 2025 ridership report
+65,Bissonnet,5934,27.62,2.42,4126,27.07,2.2,3263,17.42,1.39,March 2025,RS18774_March 2025 ridership report
+66,Quitman,412,12.28,0.94,304,10.32,0.79,257,8.73,0.67,March 2025,RS18774_March 2025 ridership report
+2,Bellaire,7445,30.96,2.83,5443,27.78,2.46,4558,23.26,2.06,April 2025,RS18918_April 2025 ridership report
+3,Langley / Little York,2087,17.18,1.31,1537,12.72,0.97,1370,11.33,0.86,April 2025,RS18918_April 2025 ridership report
+4,Beechnut,8472,26.35,2.1,5039,21.3,1.56,4236,17.91,1.31,April 2025,RS18918_April 2025 ridership report
+5,Southmore,1219,17.82,1.51,772,15.42,1.12,476,9.51,0.69,April 2025,RS18918_April 2025 ridership report
+6,Jensen / Greens,3889,20.36,1.39,2750,20.05,1.29,2351,17.14,1.1,April 2025,RS18918_April 2025 ridership report
+7,West Airport,937,27.1,2.02,474,14.02,1.05,412,12.21,0.92,April 2025,RS18918_April 2025 ridership report
+8,West Bellfort,3522,36.77,2.81,2373,32.16,2.84,1982,26.86,2.37,April 2025,RS18918_April 2025 ridership report
+9,Gulfton / Holman,2276,21.04,1.88,1494,16.44,1.25,1204,13.26,1.01,April 2025,RS18918_April 2025 ridership report
+10,Willowbend,701,17.55,1.68,324,11.2,1.11,287,9.91,0.98,April 2025,RS18918_April 2025 ridership report
+11,Almeda / Lyons,2115,15.54,1.22,1349,9.99,0.78,1149,8.51,0.66,April 2025,RS18918_April 2025 ridership report
+14,Hiram Clarke,1941,20.56,1.73,1283,16.78,1.26,1098,14.35,1.08,April 2025,RS18918_April 2025 ridership report
+20,Canal / Memorial,2690,14.17,1.18,1822,15.07,1.16,1621,13.4,1.03,April 2025,RS18918_April 2025 ridership report
+23,Clay - W 43rd,417,11.83,1.18,282,8.77,0.87,310,9.66,0.96,April 2025,RS18918_April 2025 ridership report
+25,Richmond,6964,24.53,2.14,4733,20.81,1.82,4031,17.73,1.55,April 2025,RS18918_April 2025 ridership report
+26,Long Point / Cavalcade,3692,18.28,1.43,2593,14.97,1.17,2330,13.45,1.05,April 2025,RS18918_April 2025 ridership report
+27,Shepherd,2594,21.25,1.82,1780,24.21,1.86,1393,18.95,1.46,April 2025,RS18918_April 2025 ridership report
+28,OST - Wayside,2837,21.27,2.15,1801,22.02,1.79,1590,19.44,1.58,April 2025,RS18918_April 2025 ridership report
+29,Cullen / Hirsch,3269,20.76,1.57,2413,15.21,1.21,2097,13.22,1.05,April 2025,RS18918_April 2025 ridership report
+30,Clinton / Ella,792,11.06,0.78,514,7.19,0.51,528,7.39,0.52,April 2025,RS18918_April 2025 ridership report
+32,Renwick,1483,17.49,1.64,1205,14.92,1.33,985,12.21,1.09,April 2025,RS18918_April 2025 ridership report
+35,San Felipe,411,11.51,1.22,304,8.54,0.9,289,8.12,0.86,April 2025,RS18918_April 2025 ridership report
+36,Kempwood,3173,19.29,1.52,2356,15.28,1.18,2171,14.08,1.09,April 2025,RS18918_April 2025 ridership report
+38,Manchester - Lawndale,132,8.09,0.68,85,5.92,0.5,50,3.5,0.3,April 2025,RS18918_April 2025 ridership report
+39,Katy Freeway,306,9.82,0.65,168,5.87,0.39,127,4.45,0.29,April 2025,RS18918_April 2025 ridership report
+40,Telephone / Heights,4112,19.81,1.6,2858,17.08,1.4,2518,15.05,1.23,April 2025,RS18918_April 2025 ridership report
+41,Kirby / Polk,1388,15.26,1.41,1042,11.47,1.06,931,10.24,0.94,April 2025,RS18918_April 2025 ridership report
+44,Acres Homes,2582,15.3,1.1,1752,12.11,0.89,1653,11.43,0.84,April 2025,RS18918_April 2025 ridership report
+45,Tidwell,4620,22.7,1.7,2663,24.48,1.7,2532,23.27,1.61,April 2025,RS18918_April 2025 ridership report
+46,Gessner,7499,34.44,3.01,5431,28.02,2.29,4811,24.82,2.03,April 2025,RS18918_April 2025 ridership report
+47,Hillcroft,4220,26.64,2.56,2545,23.9,1.8,2114,19.85,1.5,April 2025,RS18918_April 2025 ridership report
+48,Market,513,14.41,1.41,333,9.37,0.92,319,8.95,0.88,April 2025,RS18918_April 2025 ridership report
+49,Chimney Rock / S Post Oak,2770,21.64,1.79,1786,17.65,1.35,1466,14.48,1.11,April 2025,RS18918_April 2025 ridership report
+50,Broadway,2269,19.33,1.63,1291,21.45,1.64,1224,20.34,1.55,April 2025,RS18918_April 2025 ridership report
+51,Hardy - Kelley,672,12.73,1.26,447,9.92,0.85,414,9.18,0.79,April 2025,RS18918_April 2025 ridership report
+52,Hardy /  Ley,1859,17.65,1.34,1383,14.49,1.02,1267,13.28,0.94,April 2025,RS18918_April 2025 ridership report
+54,Scott,5844,27.57,2.27,3774,23.24,1.77,3349,20.63,1.57,April 2025,RS18918_April 2025 ridership report
+56,Airline / Montrose,5970,20.37,1.78,4644,24.83,2.05,4651,24.87,2.06,April 2025,RS18918_April 2025 ridership report
+58,Hammerly,459,14.7,1.31,341,11.27,1.0,249,8.23,0.73,April 2025,RS18918_April 2025 ridership report
+59,Aldine Mail,383,11.85,0.97,326,11.63,0.94,272,9.7,0.78,April 2025,RS18918_April 2025 ridership report
+60,Cambridge,1660,25.37,2.83,749,13.51,1.52,682,12.31,1.38,April 2025,RS18918_April 2025 ridership report
+63,Fondren,4694,35.37,3.47,3271,28.04,2.52,2693,23.09,2.07,April 2025,RS18918_April 2025 ridership report
+64,Lincoln City,82,3.13,0.31,55,2.07,0.2,52,1.99,0.2,April 2025,RS18918_April 2025 ridership report
+65,Bissonnet,6410,29.83,2.62,3954,21.1,1.68,3233,17.25,1.37,April 2025,RS18918_April 2025 ridership report
+66,Quitman,410,12.21,0.94,298,10.11,0.77,247,8.38,0.64,April 2025,RS18918_April 2025 ridership report
+2,Bellaire,7428,30.89,2.82,5554,28.35,2.51,4614,23.55,2.08,May 2025,RS19272_May 2025 ridership report
+3,Langley / Little York,2194,18.06,1.38,1749,14.47,1.1,1667,13.79,1.05,May 2025,RS19272_May 2025 ridership report
+4,Beechnut,7911,24.61,1.96,5228,22.1,1.62,4243,17.94,1.31,May 2025,RS19272_May 2025 ridership report
+5,Southmore,1237,18.09,1.53,754,15.07,1.1,529,10.56,0.77,May 2025,RS19272_May 2025 ridership report
+6,Jensen / Greens,3946,20.66,1.41,2818,20.55,1.32,2341,17.06,1.1,May 2025,RS19272_May 2025 ridership report
+7,West Airport,878,25.39,1.9,492,14.56,1.09,430,12.72,0.96,May 2025,RS19272_May 2025 ridership report
+8,West Bellfort,3413,35.63,2.72,2394,32.45,2.86,1964,26.62,2.35,May 2025,RS19272_May 2025 ridership report
+9,Gulfton / Holman,2079,19.22,1.72,1311,14.43,1.1,1195,13.15,1.0,May 2025,RS19272_May 2025 ridership report
+10,Willowbend,711,17.79,1.7,323,11.15,1.11,284,9.83,0.98,May 2025,RS19272_May 2025 ridership report
+11,Almeda / Lyons,2169,15.93,1.25,1392,10.31,0.8,1294,9.58,0.74,May 2025,RS19272_May 2025 ridership report
+14,Hiram Clarke,1870,19.81,1.66,1364,17.84,1.34,1168,15.27,1.15,May 2025,RS19272_May 2025 ridership report
+20,Canal / Memorial,2686,14.15,1.18,1687,13.95,1.07,1523,12.6,0.97,May 2025,RS19272_May 2025 ridership report
+23,Clay - W 43rd,445,12.63,1.26,409,12.74,1.26,359,11.19,1.11,May 2025,RS19272_May 2025 ridership report
+25,Richmond,6681,23.53,2.06,4713,20.73,1.81,4231,18.61,1.63,May 2025,RS19272_May 2025 ridership report
+26,Long Point / Cavalcade,3379,16.74,1.31,2822,16.28,1.27,2240,12.93,1.01,May 2025,RS19272_May 2025 ridership report
+27,Shepherd,2536,20.78,1.78,1695,23.06,1.77,1458,19.83,1.52,May 2025,RS19272_May 2025 ridership report
+28,OST - Wayside,2919,21.88,2.21,2016,24.65,2.0,1713,20.94,1.7,May 2025,RS19272_May 2025 ridership report
+29,Cullen / Hirsch,3324,21.11,1.6,2661,16.78,1.34,2247,14.17,1.13,May 2025,RS19272_May 2025 ridership report
+30,Clinton / Ella,806,11.26,0.8,563,7.87,0.56,513,7.18,0.51,May 2025,RS19272_May 2025 ridership report
+32,Renwick,1471,17.35,1.63,1165,14.44,1.29,1039,12.87,1.15,May 2025,RS19272_May 2025 ridership report
+35,San Felipe,410,11.48,1.22,344,9.67,1.02,371,10.44,1.1,May 2025,RS19272_May 2025 ridership report
+36,Kempwood,3031,18.43,1.46,2508,16.27,1.26,2077,13.47,1.04,May 2025,RS19272_May 2025 ridership report
+38,Manchester - Lawndale,131,8.04,0.68,89,6.23,0.53,95,6.63,0.56,May 2025,RS19272_May 2025 ridership report
+39,Katy Freeway,277,8.9,0.59,197,6.88,0.45,150,5.25,0.35,May 2025,RS19272_May 2025 ridership report
+40,Telephone / Heights,4027,19.41,1.57,2876,17.18,1.4,2442,14.59,1.19,May 2025,RS19272_May 2025 ridership report
+41,Kirby / Polk,1297,14.27,1.32,1069,11.75,1.08,959,10.55,0.97,May 2025,RS19272_May 2025 ridership report
+44,Acres Homes,2537,15.03,1.08,2033,14.06,1.03,1747,12.08,0.88,May 2025,RS19272_May 2025 ridership report
+45,Tidwell,4555,22.38,1.68,3068,28.2,1.95,2558,23.51,1.63,May 2025,RS19272_May 2025 ridership report
+46,Gessner,7274,33.4,2.92,5478,28.26,2.31,5102,26.32,2.15,May 2025,RS19272_May 2025 ridership report
+47,Hillcroft,4000,25.25,2.42,2581,24.23,1.83,1906,17.9,1.35,May 2025,RS19272_May 2025 ridership report
+48,Market,525,14.76,1.44,346,9.72,0.95,335,9.41,0.92,May 2025,RS19272_May 2025 ridership report
+49,Chimney Rock / S Post Oak,2835,22.15,1.83,1893,18.71,1.43,1970,19.46,1.49,May 2025,RS19272_May 2025 ridership report
+50,Broadway,2208,18.81,1.59,1422,23.64,1.8,1300,21.61,1.65,May 2025,RS19272_May 2025 ridership report
+51,Hardy - Kelley,651,12.33,1.22,445,9.87,0.85,390,8.66,0.75,May 2025,RS19272_May 2025 ridership report
+52,Hardy /  Ley,1831,17.39,1.32,1428,14.96,1.06,1218,12.76,0.9,May 2025,RS19272_May 2025 ridership report
+54,Scott,5877,27.73,2.29,4058,24.99,1.9,3338,20.55,1.56,May 2025,RS19272_May 2025 ridership report
+56,Airline / Montrose,5769,19.69,1.72,4462,23.86,1.97,4151,22.19,1.84,May 2025,RS19272_May 2025 ridership report
+58,Hammerly,483,15.46,1.38,254,8.4,0.75,310,10.24,0.91,May 2025,RS19272_May 2025 ridership report
+59,Aldine Mail,389,12.03,0.99,310,11.07,0.89,265,9.44,0.76,May 2025,RS19272_May 2025 ridership report
+60,Cambridge,1532,23.41,2.62,679,12.25,1.37,671,12.11,1.36,May 2025,RS19272_May 2025 ridership report
+63,Fondren,4583,34.53,3.38,3448,29.56,2.65,2596,22.26,2.0,May 2025,RS19272_May 2025 ridership report
+64,Lincoln City,77,2.94,0.29,48,1.84,0.18,52,1.98,0.19,May 2025,RS19272_May 2025 ridership report
+65,Bissonnet,6412,29.84,2.62,3998,21.34,1.7,3301,17.62,1.4,May 2025,RS19272_May 2025 ridership report
+66,Quitman,424,12.63,0.97,338,11.45,0.87,251,8.52,0.65,May 2025,RS19272_May 2025 ridership report
+2,Bellaire,6887,28.64,2.62,4964,25.34,2.24,4111,20.98,1.85,June 2025,RS19714_June 2025 ridership report
+3,Langley / Little York,1978,14.22,1.11,1737,13.18,0.99,1450,11.0,0.82,June 2025,RS19714_June 2025 ridership report
+4,Beechnut,7367,22.92,1.83,5064,21.41,1.57,3913,16.54,1.21,June 2025,RS19714_June 2025 ridership report
+5,Southmore,1084,15.86,1.34,698,13.94,1.02,556,11.1,0.81,June 2025,RS19714_June 2025 ridership report
+6,Jensen / Greens,3801,19.9,1.36,2763,20.14,1.29,2329,16.98,1.09,June 2025,RS19714_June 2025 ridership report
+7,West Airport,675,19.53,1.46,455,13.47,1.01,376,11.12,0.84,June 2025,RS19714_June 2025 ridership report
+8,West Bellfort,3292,34.37,2.62,2128,28.84,2.54,1881,25.49,2.25,June 2025,RS19714_June 2025 ridership report
+9,Gulfton / Holman,1890,17.47,1.57,1274,14.02,1.07,1165,12.83,0.98,June 2025,RS19714_June 2025 ridership report
+10,Willowbend,584,14.63,1.4,358,12.39,1.23,300,10.39,1.03,June 2025,RS19714_June 2025 ridership report
+11,Almeda / Lyons,2186,16.06,1.26,1580,11.7,0.91,1299,9.62,0.75,June 2025,RS19714_June 2025 ridership report
+14,Hiram Clarke,1824,19.32,1.62,1324,17.32,1.3,1134,14.83,1.11,June 2025,RS19714_June 2025 ridership report
+20,Canal / Memorial,2579,13.58,1.13,1778,14.7,1.13,1496,12.37,0.95,June 2025,RS19714_June 2025 ridership report
+23,Clay - W 43rd,461,13.09,1.3,300,9.35,0.92,311,9.7,0.96,June 2025,RS19714_June 2025 ridership report
+25,Richmond,6277,22.11,1.93,5084,22.36,1.95,4165,18.31,1.6,June 2025,RS19714_June 2025 ridership report
+26,Long Point / Cavalcade,3304,16.36,1.28,2809,16.21,1.27,2065,11.92,0.93,June 2025,RS19714_June 2025 ridership report
+27,Shepherd,2390,19.51,1.68,1824,21.33,1.91,1450,16.95,1.52,June 2025,RS19714_June 2025 ridership report
+28,OST - Wayside,2822,20.51,2.09,1841,22.58,1.83,1592,19.53,1.58,June 2025,RS19714_June 2025 ridership report
+29,Cullen / Hirsch,3260,20.7,1.57,2688,16.95,1.35,2116,13.35,1.06,June 2025,RS19714_June 2025 ridership report
+30,Clinton / Ella,754,10.53,0.75,581,8.13,0.58,501,7.01,0.5,June 2025,RS19714_June 2025 ridership report
+32,Renwick,1442,17.0,1.59,1097,13.59,1.21,962,11.91,1.06,June 2025,RS19714_June 2025 ridership report
+35,San Felipe,387,10.83,1.15,276,7.75,0.82,253,7.11,0.75,June 2025,RS19714_June 2025 ridership report
+36,Kempwood,2861,17.4,1.37,2534,16.44,1.27,2107,13.67,1.06,June 2025,RS19714_June 2025 ridership report
+38,Manchester - Lawndale,101,6.23,0.53,98,6.84,0.58,87,6.09,0.51,June 2025,RS19714_June 2025 ridership report
+39,Katy Freeway,277,8.9,0.59,177,6.17,0.41,162,5.68,0.37,June 2025,RS19714_June 2025 ridership report
+40,Telephone / Heights,3671,17.69,1.43,2765,16.52,1.35,2382,14.24,1.16,June 2025,RS19714_June 2025 ridership report
+41,Kirby / Polk,1232,13.55,1.25,1129,12.41,1.15,959,10.54,0.97,June 2025,RS19714_June 2025 ridership report
+44,Acres Homes,2520,14.93,1.07,1805,12.48,0.91,1787,12.36,0.9,June 2025,RS19714_June 2025 ridership report
+45,Tidwell,4392,21.58,1.62,2513,17.44,1.29,2846,19.75,1.46,June 2025,RS19714_June 2025 ridership report
+46,Gessner,6439,29.51,2.59,5403,27.87,2.28,4196,21.65,1.77,June 2025,RS19714_June 2025 ridership report
+47,Hillcroft,3492,22.04,2.12,2372,22.27,1.68,1840,17.28,1.3,June 2025,RS19714_June 2025 ridership report
+48,Market,495,13.92,1.36,350,9.84,0.96,332,9.34,0.91,June 2025,RS19714_June 2025 ridership report
+49,Chimney Rock / S Post Oak,2316,18.09,1.5,1891,18.68,1.43,1437,14.2,1.09,June 2025,RS19714_June 2025 ridership report
+50,Broadway,2084,17.76,1.5,1376,22.87,1.75,1171,19.46,1.49,June 2025,RS19714_June 2025 ridership report
+51,Hardy - Kelley,656,12.29,1.23,429,9.52,0.82,435,9.65,0.83,June 2025,RS19714_June 2025 ridership report
+52,Hardy /  Ley,1744,16.57,1.26,1462,15.32,1.08,1273,13.34,0.94,June 2025,RS19714_June 2025 ridership report
+54,Scott,5212,24.59,2.03,4060,25.0,1.9,3461,21.31,1.62,June 2025,RS19714_June 2025 ridership report
+56,Airline / Montrose,5219,17.81,1.55,4078,21.81,1.8,3854,20.61,1.7,June 2025,RS19714_June 2025 ridership report
+58,Hammerly,473,15.15,1.35,324,10.71,0.95,298,9.86,0.88,June 2025,RS19714_June 2025 ridership report
+59,Aldine Mail,372,11.52,0.95,309,11.02,0.89,237,8.47,0.68,June 2025,RS19714_June 2025 ridership report
+60,Cambridge,1450,22.15,2.47,733,13.22,1.48,620,11.18,1.25,June 2025,RS19714_June 2025 ridership report
+63,Fondren,4113,31.04,3.04,3118,26.73,2.4,2530,21.69,1.95,June 2025,RS19714_June 2025 ridership report
+64,Lincoln City,73,2.78,0.27,73,2.76,0.27,57,2.16,0.21,June 2025,RS19714_June 2025 ridership report
+65,Bissonnet,5623,26.17,2.3,3930,20.97,1.67,3052,16.29,1.3,June 2025,RS19714_June 2025 ridership report
+66,Quitman,398,11.87,0.91,319,10.82,0.83,265,8.99,0.69,June 2025,RS19714_June 2025 ridership report
+2,Bellaire,6476,26.93,2.46,5396,27.54,2.43,4222,21.55,1.91,July 2025,RS20055_July 2025 ridership report
+3,Langley / Little York,2151,15.46,1.2,1669,12.66,0.95,1336,10.14,0.76,July 2025,RS20055_July 2025 ridership report
+4,Beechnut,7037,21.9,1.75,4808,20.33,1.49,3921,16.58,1.21,July 2025,RS20055_July 2025 ridership report
+5,Southmore,1066,15.59,1.32,720,14.37,1.05,551,11.0,0.8,July 2025,RS20055_July 2025 ridership report
+6,Jensen / Greens,3865,20.24,1.38,2844,20.73,1.33,2458,17.92,1.15,July 2025,RS20055_July 2025 ridership report
+7,West Airport,597,17.28,1.29,441,13.06,0.98,350,10.38,0.78,July 2025,RS20055_July 2025 ridership report
+8,West Bellfort,3184,33.24,2.54,2187,29.64,2.61,1939,26.28,2.32,July 2025,RS20055_July 2025 ridership report
+9,Gulfton / Holman,1821,16.83,1.51,1357,14.94,1.14,1199,13.2,1.01,July 2025,RS20055_July 2025 ridership report
+10,Willowbend,590,14.77,1.41,307,10.62,1.05,255,8.81,0.88,July 2025,RS20055_July 2025 ridership report
+11,Almeda / Lyons,2138,15.71,1.23,1500,11.11,0.86,1409,10.44,0.81,July 2025,RS20055_July 2025 ridership report
+14,Hiram Clarke,1746,18.5,1.55,1263,16.51,1.24,1134,14.83,1.11,July 2025,RS20055_July 2025 ridership report
+20,Canal / Memorial,2476,13.04,1.08,1678,13.88,1.07,1352,11.18,0.86,July 2025,RS20055_July 2025 ridership report
+23,Clay - W 43rd,390,11.08,1.1,307,9.56,0.94,285,8.89,0.88,July 2025,RS20055_July 2025 ridership report
+25,Richmond,6112,21.53,1.88,4754,20.9,1.83,3949,17.37,1.52,July 2025,RS20055_July 2025 ridership report
+26,Long Point / Cavalcade,3480,17.23,1.35,2691,15.53,1.21,2207,12.74,0.99,July 2025,RS20055_July 2025 ridership report
+27,Shepherd,2278,18.6,1.6,1705,19.93,1.78,1506,17.61,1.57,July 2025,RS20055_July 2025 ridership report
+28,OST - Wayside,2909,21.15,2.15,1915,23.49,1.9,1704,20.9,1.69,July 2025,RS20055_July 2025 ridership report
+29,Cullen / Hirsch,3022,19.19,1.45,2322,14.64,1.17,2119,13.36,1.07,July 2025,RS20055_July 2025 ridership report
+30,Clinton / Ella,774,10.81,0.77,570,7.97,0.56,532,7.44,0.53,July 2025,RS20055_July 2025 ridership report
+32,Renwick,1328,15.65,1.47,1060,13.13,1.17,949,11.76,1.05,July 2025,RS20055_July 2025 ridership report
+35,San Felipe,367,10.27,1.09,302,8.48,0.9,235,6.6,0.7,July 2025,RS20055_July 2025 ridership report
+36,Kempwood,2946,17.91,1.42,2309,14.98,1.16,2208,14.33,1.11,July 2025,RS20055_July 2025 ridership report
+38,Manchester - Lawndale,93,5.69,0.48,95,6.66,0.56,71,4.97,0.42,July 2025,RS20055_July 2025 ridership report
+39,Katy Freeway,291,9.35,0.62,186,6.48,0.43,157,5.49,0.36,July 2025,RS20055_July 2025 ridership report
+40,Telephone / Heights,3588,17.29,1.39,2599,15.53,1.27,2309,13.8,1.13,July 2025,RS20055_July 2025 ridership report
+41,Kirby / Polk,1179,12.97,1.2,1036,11.4,1.05,882,9.7,0.9,July 2025,RS20055_July 2025 ridership report
+44,Acres Homes,2503,14.83,1.07,1928,13.33,0.98,1673,11.57,0.85,July 2025,RS20055_July 2025 ridership report
+45,Tidwell,4048,19.89,1.49,2777,19.28,1.42,2311,16.04,1.18,July 2025,RS20055_July 2025 ridership report
+46,Gessner,6377,29.23,2.56,5290,27.29,2.23,4116,21.24,1.74,July 2025,RS20055_July 2025 ridership report
+47,Hillcroft,3397,21.45,2.06,2205,20.7,1.56,2059,19.34,1.46,July 2025,RS20055_July 2025 ridership report
+48,Market,504,14.15,1.38,302,8.48,0.83,302,8.49,0.83,July 2025,RS20055_July 2025 ridership report
+49,Chimney Rock / S Post Oak,2434,19.01,1.57,1841,18.19,1.39,1449,14.32,1.1,July 2025,RS20055_July 2025 ridership report
+50,Broadway,1974,16.82,1.42,1311,21.79,1.66,1295,21.52,1.64,July 2025,RS20055_July 2025 ridership report
+51,Hardy - Kelley,670,12.55,1.26,409,9.09,0.78,442,9.8,0.84,July 2025,RS20055_July 2025 ridership report
+52,Hardy /  Ley,1647,15.65,1.19,1386,14.53,1.03,1219,12.78,0.9,July 2025,RS20055_July 2025 ridership report
+54,Scott,5043,23.79,1.96,3757,23.14,1.76,3295,20.3,1.54,July 2025,RS20055_July 2025 ridership report
+56,Airline / Montrose,5046,17.22,1.5,4024,21.52,1.78,4039,21.6,1.79,July 2025,RS20055_July 2025 ridership report
+58,Hammerly,458,14.69,1.31,328,10.84,0.97,259,8.54,0.76,July 2025,RS20055_July 2025 ridership report
+59,Aldine Mail,356,11.01,0.9,291,10.39,0.84,252,9.0,0.73,July 2025,RS20055_July 2025 ridership report
+60,Cambridge,1414,21.6,2.41,645,11.65,1.31,613,11.05,1.24,July 2025,RS20055_July 2025 ridership report
+63,Fondren,3841,28.99,2.84,2904,24.89,2.24,2529,21.68,1.95,July 2025,RS20055_July 2025 ridership report
+64,Lincoln City,74,2.81,0.28,81,3.07,0.3,75,2.84,0.28,July 2025,RS20055_July 2025 ridership report
+65,Bissonnet,5366,24.98,2.19,3920,20.92,1.66,3259,17.39,1.38,July 2025,RS20055_July 2025 ridership report
+66,Quitman,367,10.93,0.84,272,9.22,0.7,207,7.01,0.54,July 2025,RS20055_July 2025 ridership report
+2,Bellaire,7070,29.4,2.69,5155,26.31,2.33,4191,21.39,1.89,August 2025,RS20901_August 2025 ridership report
+3,Langley / Little York,2323,16.7,1.3,1850,14.03,1.05,1620,12.29,0.92,August 2025,RS20901_August 2025 ridership report
+4,Beechnut,8137,25.32,2.02,5063,21.4,1.57,4199,17.75,1.3,August 2025,RS20901_August 2025 ridership report
+5,Southmore,1147,16.77,1.42,706,14.1,1.03,597,11.92,0.87,August 2025,RS20901_August 2025 ridership report
+6,Jensen / Greens,3995,20.92,1.43,2857,20.83,1.34,2362,17.22,1.11,August 2025,RS20901_August 2025 ridership report
+7,West Airport,800,23.15,1.73,501,14.84,1.11,383,11.34,0.85,August 2025,RS20901_August 2025 ridership report
+8,West Bellfort,3252,33.95,2.59,2255,30.56,2.7,1945,26.36,2.32,August 2025,RS20901_August 2025 ridership report
+9,Gulfton / Holman,2152,19.9,1.78,1384,15.23,1.16,1227,13.51,1.03,August 2025,RS20901_August 2025 ridership report
+10,Willowbend,707,17.7,1.69,364,12.58,1.25,310,10.7,1.06,August 2025,RS20901_August 2025 ridership report
+11,Almeda / Lyons,2182,16.03,1.25,1513,11.2,0.87,1275,9.44,0.73,August 2025,RS20901_August 2025 ridership report
+14,Hiram Clarke,1867,19.78,1.66,1344,17.58,1.32,1270,16.61,1.25,August 2025,RS20901_August 2025 ridership report
+20,Canal / Memorial,2669,14.06,1.17,1734,14.34,1.1,1460,12.08,0.93,August 2025,RS20901_August 2025 ridership report
+23,Clay - W 43rd,460,13.06,1.3,326,10.16,1.0,321,9.99,0.99,August 2025,RS20901_August 2025 ridership report
+25,Richmond,6640,23.39,2.04,4743,20.86,1.82,4059,17.85,1.56,August 2025,RS20901_August 2025 ridership report
+26,Long Point / Cavalcade,3459,17.01,1.33,2677,15.45,1.21,2105,12.15,0.95,August 2025,RS20901_August 2025 ridership report
+27,Shepherd,2470,20.16,1.74,1661,19.42,1.74,1422,16.62,1.49,August 2025,RS20901_August 2025 ridership report
+28,OST - Wayside,2908,21.14,2.15,1935,23.73,1.92,1737,21.3,1.73,August 2025,RS20901_August 2025 ridership report
+29,Cullen / Hirsch,3227,20.49,1.55,2582,16.28,1.3,2191,13.82,1.1,August 2025,RS20901_August 2025 ridership report
+30,Clinton / Ella,824,11.52,0.82,580,8.1,0.57,540,7.55,0.53,August 2025,RS20901_August 2025 ridership report
+32,Renwick,1502,17.71,1.66,1155,14.31,1.28,1019,12.62,1.13,August 2025,RS20901_August 2025 ridership report
+35,San Felipe,417,11.68,1.24,316,8.89,0.94,288,8.09,0.85,August 2025,RS20901_August 2025 ridership report
+36,Kempwood,3049,18.54,1.47,2332,15.13,1.17,2112,13.71,1.06,August 2025,RS20901_August 2025 ridership report
+38,Manchester - Lawndale,111,6.81,0.57,104,7.27,0.61,109,7.66,0.65,August 2025,RS20901_August 2025 ridership report
+39,Katy Freeway,295,9.49,0.63,220,7.68,0.5,208,7.28,0.48,August 2025,RS20901_August 2025 ridership report
+40,Telephone / Heights,3803,18.33,1.48,2832,16.92,1.38,2593,15.49,1.27,August 2025,RS20901_August 2025 ridership report
+41,Kirby / Polk,1258,13.83,1.28,1084,11.92,1.1,983,10.81,1.0,August 2025,RS20901_August 2025 ridership report
+44,Acres Homes,2642,15.65,1.13,1736,12.01,0.88,1711,11.83,0.87,August 2025,RS20901_August 2025 ridership report
+45,Tidwell,4491,22.06,1.65,3003,20.84,1.54,2716,18.85,1.39,August 2025,RS20901_August 2025 ridership report
+46,Gessner,6809,31.21,2.73,5256,27.12,2.22,4013,20.71,1.69,August 2025,RS20901_August 2025 ridership report
+47,Hillcroft,3774,23.82,2.29,2574,22.77,1.82,2188,19.36,1.55,August 2025,RS20901_August 2025 ridership report
+48,Market,557,15.66,1.53,328,9.22,0.9,300,8.43,0.82,August 2025,RS20901_August 2025 ridership report
+49,Chimney Rock / S Post Oak,2671,20.84,1.73,1918,18.95,1.45,1590,15.72,1.2,August 2025,RS20901_August 2025 ridership report
+50,Broadway,2091,17.82,1.5,1395,23.18,1.77,1295,21.52,1.64,August 2025,RS20901_August 2025 ridership report
+51,Hardy - Kelley,681,12.75,1.28,458,10.17,0.88,422,9.36,0.81,August 2025,RS20901_August 2025 ridership report
+52,Hardy /  Ley,1785,16.95,1.29,1432,15.01,1.06,1290,13.52,0.95,August 2025,RS20901_August 2025 ridership report
+54,Scott,5955,28.09,2.32,3963,24.41,1.85,3486,21.47,1.63,August 2025,RS20901_August 2025 ridership report
+56,Airline / Montrose,5370,18.33,1.6,4066,21.74,1.8,4195,22.43,1.85,August 2025,RS20901_August 2025 ridership report
+58,Hammerly,475,15.22,1.36,340,11.23,1.0,271,8.95,0.8,August 2025,RS20901_August 2025 ridership report
+59,Aldine Mail,380,11.75,0.96,310,11.06,0.89,271,9.66,0.78,August 2025,RS20901_August 2025 ridership report
+60,Cambridge,1495,22.85,2.55,691,12.46,1.4,605,10.92,1.23,August 2025,RS20901_August 2025 ridership report
+63,Fondren,4218,31.84,3.11,3152,27.02,2.43,2493,21.37,1.92,August 2025,RS20901_August 2025 ridership report
+64,Lincoln City,80,3.02,0.3,60,2.29,0.23,67,2.55,0.25,August 2025,RS20901_August 2025 ridership report
+65,Bissonnet,5877,27.35,2.4,4028,21.5,1.71,3251,17.35,1.38,August 2025,RS20901_August 2025 ridership report
+66,Quitman,366,10.91,0.84,259,8.8,0.67,229,7.77,0.59,August 2025,RS20901_August 2025 ridership report
+2,Bellaire,7441,30.94,2.83,5236,26.73,2.36,4383,22.37,1.98,September 2025,RS21258_September 2025 ridership report
+3,Langley / Little York,2406,17.3,1.35,1872,14.2,1.06,1597,12.11,0.91,September 2025,RS21258_September 2025 ridership report
+4,Beechnut,8806,27.4,2.18,5302,22.41,1.64,4185,17.69,1.29,September 2025,RS21258_September 2025 ridership report
+5,Southmore,1351,19.75,1.67,760,15.18,1.11,594,11.85,0.86,September 2025,RS21258_September 2025 ridership report
+6,Jensen / Greens,4079,21.36,1.47,3008,21.93,1.42,2399,17.49,1.14,September 2025,RS21258_September 2025 ridership report
+7,West Airport,901,26.06,1.95,507,15.03,1.13,413,12.23,0.92,September 2025,RS21258_September 2025 ridership report
+8,West Bellfort,3535,36.91,2.82,2243,30.4,2.68,1822,24.69,2.18,September 2025,RS21258_September 2025 ridership report
+9,Gulfton / Holman,2490,23.01,1.98,1419,15.62,1.15,1128,12.42,0.91,September 2025,RS21258_September 2025 ridership report
+10,Willowbend,760,19.02,1.82,386,13.34,1.32,311,10.76,1.07,September 2025,RS21258_September 2025 ridership report
+11,Almeda / Lyons,2462,18.09,1.41,1640,12.14,0.94,1389,10.29,0.8,September 2025,RS21258_September 2025 ridership report
+14,Hiram Clarke,1879,19.91,1.67,1344,17.58,1.32,1175,15.36,1.15,September 2025,RS21258_September 2025 ridership report
+20,Canal / Memorial,2786,14.68,1.22,1834,15.16,1.16,1561,12.91,0.99,September 2025,RS21258_September 2025 ridership report
+23,Clay - W 43rd,493,13.99,1.39,337,10.5,1.04,319,9.94,0.98,September 2025,RS21258_September 2025 ridership report
+25,Richmond,7245,25.52,2.2,4916,21.62,1.86,3969,17.45,1.5,September 2025,RS21258_September 2025 ridership report
+26,Long Point / Cavalcade,3589,17.65,1.38,2668,15.4,1.2,2167,12.51,0.98,September 2025,RS21258_September 2025 ridership report
+27,Shepherd,2594,21.18,1.82,1607,18.79,1.68,1398,16.35,1.46,September 2025,RS21258_September 2025 ridership report
+28,OST - Wayside,3022,21.97,2.23,2078,25.49,2.07,1606,19.69,1.6,September 2025,RS21258_September 2025 ridership report
+29,Cullen / Hirsch,3371,21.41,1.62,2452,15.46,1.23,2179,13.74,1.1,September 2025,RS21258_September 2025 ridership report
+30,Clinton / Ella,865,12.08,0.85,605,8.46,0.6,487,6.81,0.48,September 2025,RS21258_September 2025 ridership report
+32,Renwick,1599,18.85,1.77,1151,14.26,1.27,1030,12.76,1.14,September 2025,RS21258_September 2025 ridership report
+35,San Felipe,435,12.17,1.29,298,8.38,0.88,241,6.78,0.72,September 2025,RS21258_September 2025 ridership report
+36,Kempwood,3192,19.41,1.53,2329,15.11,1.17,1935,12.55,0.97,September 2025,RS21258_September 2025 ridership report
+38,Manchester - Lawndale,121,7.46,0.63,121,8.5,0.72,96,6.72,0.57,September 2025,RS21258_September 2025 ridership report
+39,Katy Freeway,299,9.6,0.63,198,6.92,0.46,183,6.41,0.42,September 2025,RS21258_September 2025 ridership report
+40,Telephone / Heights,4167,20.08,1.62,2788,16.66,1.36,2501,14.95,1.22,September 2025,RS21258_September 2025 ridership report
+41,Kirby / Polk,1330,14.63,1.35,1116,12.27,1.13,1008,11.09,1.02,September 2025,RS21258_September 2025 ridership report
+44,Acres Homes,2750,16.29,1.17,1913,13.23,0.97,1750,12.1,0.89,September 2025,RS21258_September 2025 ridership report
+45,Tidwell,4851,23.83,1.79,3279,22.76,1.68,2717,18.86,1.39,September 2025,RS21258_September 2025 ridership report
+46,Gessner,7111,32.59,2.86,5432,28.03,2.29,4305,22.21,1.82,September 2025,RS21258_September 2025 ridership report
+47,Hillcroft,3669,23.16,2.22,2348,20.77,1.66,2005,17.73,1.42,September 2025,RS21258_September 2025 ridership report
+48,Market,561,15.76,1.54,307,8.63,0.84,271,7.61,0.74,September 2025,RS21258_September 2025 ridership report
+49,Chimney Rock / S Post Oak,2790,21.77,1.8,1899,18.77,1.44,1554,15.35,1.17,September 2025,RS21258_September 2025 ridership report
+50,Broadway,2331,19.85,1.67,1438,23.89,1.82,1193,19.82,1.51,September 2025,RS21258_September 2025 ridership report
+51,Hardy - Kelley,693,12.98,1.3,516,11.45,0.99,408,9.06,0.78,September 2025,RS21258_September 2025 ridership report
+52,Hardy /  Ley,1940,18.43,1.4,1539,16.13,1.14,1320,13.83,0.98,September 2025,RS21258_September 2025 ridership report
+54,Scott,6561,30.95,2.55,4111,25.32,1.92,3402,20.95,1.59,September 2025,RS21258_September 2025 ridership report
+56,Airline / Montrose,5481,18.71,1.63,4284,22.9,1.89,4122,22.04,1.82,September 2025,RS21258_September 2025 ridership report
+58,Hammerly,483,15.47,1.38,306,10.1,0.9,290,9.59,0.86,September 2025,RS21258_September 2025 ridership report
+59,Aldine Mail,395,12.23,1.0,295,10.53,0.85,250,8.93,0.72,September 2025,RS21258_September 2025 ridership report
+60,Cambridge,1714,26.19,2.93,824,14.87,1.67,659,11.89,1.33,September 2025,RS21258_September 2025 ridership report
+63,Fondren,4682,35.34,3.46,3264,27.98,2.51,2660,22.81,2.05,September 2025,RS21258_September 2025 ridership report
+64,Lincoln City,82,3.12,0.31,59,2.26,0.22,47,1.78,0.18,September 2025,RS21258_September 2025 ridership report
+65,Bissonnet,6236,29.02,2.55,4259,22.73,1.81,3470,18.52,1.47,September 2025,RS21258_September 2025 ridership report
+66,Quitman,401,11.95,0.92,277,9.4,0.72,220,7.46,0.57,September 2025,RS21258_September 2025 ridership report

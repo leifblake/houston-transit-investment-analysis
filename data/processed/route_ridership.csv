@@ -1,0 +1,6 @@
+route_long_name,route_type,route_text_color,route_color,agency_id,route_id,route_url,route_desc,route_short_name,avg_weekday_boardings
+Richmond,3,FFFFFF,004080,HOU,25,https://assets-cdn-prod.azureedge.us/assets/docs/default-source/bus-route-schedules/25-richmond-bus-route-schedule.pdf,,25,7489
+Gessner,3,FFFFFF,004080,HOU,46,https://assets-cdn-prod.azureedge.us/assets/docs/default-source/bus-route-schedules/46-gessner-bus-route-schedule.pdf,,46,7670
+Westheimer,3,FFFFFF,004080,HOU,82,https://assets-cdn-prod.azureedge.us/assets/docs/default-source/bus-route-schedules/82-westheimer-bus-route-schedule.pdf,,82,14054
+Bellaire,3,FFFFFF,004080,HOU,2,https://assets-cdn-prod.azureedge.us/assets/docs/default-source/bus-route-schedules/2-bellaire-bus-route-schedule.pdf,,2,7590
+Beechnut,3,FFFFFF,004080,HOU,4,https://assets-cdn-prod.azureedge.us/assets/docs/default-source/bus-route-schedules/4-beechnut-bus-route-schedule.pdf,,4,8743

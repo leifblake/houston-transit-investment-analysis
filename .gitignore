@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+
+# Vite / React
+website/node_modules/
+website/dist/
+
+# Large raw data files
+data/raw/
+*.zip
+*.pdf
+
+# Optional huge generated files
+data/raw/metro_gtfs/merged/stop_times.txt
