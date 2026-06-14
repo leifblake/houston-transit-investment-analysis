@@ -1,9 +1,10 @@
+import { useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import SectionCard from "./components/SectionCard";
+import SectionModal from "./components/SectionModal";
 import Footer from "./components/Footer";
 import "./styles/main.css";
-
 
 const sections = [
   ["01", "Why Transit Matters", "The history of Houston's growth, policy decisions, and the roots of unequal transit access."],
@@ -20,20 +21,30 @@ const sections = [
 ];
 
 export default function App() {
+  const [activeSection, setActiveSection] = useState(null);
+
   return (
     <div className="site-shell">
       <Header />
+
       <main>
         <Hero />
+
         <section className="card-grid" aria-label="Project sections">
-          {sections.map(([number, title, description]) => (
-            <SectionCard
-              key={number}
-              number={number}
-              title={title}
-              description={description}
-            />
-          ))}
+          {sections.map(([number, title, description]) => {
+            const section = { number, title, description };
+
+            return (
+              <SectionCard
+                key={number}
+                number={number}
+                title={title}
+                description={description}
+                onClick={() => setActiveSection(section)}
+              />
+            );
+          })}
+
           <article className="final-card">
             <h2>A Better Connected Houston</h2>
             <p>Data. Equity. Investment. Moving Houston forward.</p>
@@ -41,7 +52,13 @@ export default function App() {
           </article>
         </section>
       </main>
+
       <Footer />
+
+      <SectionModal
+        section={activeSection}
+        onClose={() => setActiveSection(null)}
+      />
     </div>
   );
 }
