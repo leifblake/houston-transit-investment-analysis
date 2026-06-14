@@ -230,21 +230,21 @@ a {
 
 .hero-image-wrap {
   position: relative;
-  min-height: 660px;
+  min-height: 620px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   overflow: visible;
-  margin-left: -4.5rem;
+  margin-left: -2.75rem;
   z-index: 1;
 }
 
 .hero-image {
-  width: min(1010px, 128%);
+  width: min(850px, 112%);
   max-width: none;
   display: block;
   filter: none;
-  transform: scale(1.04) translateY(0.75rem);
+  transform: translateY(0.5rem);
   transform-origin: center;
 }
 
@@ -426,13 +426,13 @@ a {
   }
 
   .hero-image-wrap {
-    min-height: 590px;
-    margin-left: -2.75rem;
+    min-height: 540px;
+    margin-left: -1.5rem;
   }
 
   .hero-image {
-    width: min(880px, 122%);
-    transform: scale(1.02) translateY(0.75rem);
+    width: min(760px, 108%);
+    transform: translateY(0.5rem);
   }
 }
 

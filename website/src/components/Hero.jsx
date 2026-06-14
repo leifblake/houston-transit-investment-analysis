@@ -23,7 +23,7 @@ export default function Hero() {
 
       <div className="hero-image-wrap">
         <img
-          src="/images/metro_website_logo_rmbg.png"
+          src={`${import.meta.env.BASE_URL}images/metro_website_logo_rmbg.png`}
           alt="Stylized Houston METRO bus with Houston skyline"
           className="hero-image"
         />
