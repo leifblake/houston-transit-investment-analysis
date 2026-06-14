@@ -55,10 +55,13 @@ export default function App() {
 
       <Footer />
 
+      {activeSection && (
       <SectionModal
         section={activeSection}
         onClose={() => setActiveSection(null)}
       />
+      )}
+      
     </div>
   );
 }
