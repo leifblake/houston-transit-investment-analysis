@@ -768,6 +768,7 @@ body.modal-open {
     repeating-linear-gradient(0deg, rgba(7, 27, 51, 0.08) 0 1px, transparent 1px 20px),
     repeating-linear-gradient(90deg, rgba(7, 27, 51, 0.08) 0 1px, transparent 1px 20px),
     var(--paper);
+    height: fit-content;
 }
 
 .freeway-card {
@@ -1038,11 +1039,98 @@ body.modal-open {
 }
 
 .map-gallery-frame img {
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
+  background: var(--paper);
 }
 
 .map-gallery p {
   margin: 0;
   line-height: 1.55;
+}
+
+/* INTERSTATE GALLERY */
+
+.interstate-gallery-card {
+  padding: 0;
+  overflow: hidden;
+  min-height: 460px;
+}
+
+.interstate-gallery {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.1rem, 2vw, 1.6rem);
+}
+
+.interstate-gallery .map-gallery-topline span {
+  background: var(--metro-blue);
+}
+
+.interstate-gallery h3 {
+  margin: 0 0 1rem;
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--metro-blue-dark);
+}
+
+.interstate-gallery-frame {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: #e9e9e9;
+  margin-bottom: 1rem;
+}
+
+.interstate-gallery-frame img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.interstate-caption {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.interstate-caption strong {
+  color: var(--ink);
+}
+
+/* LONG HEADING ADJUSTMENT */
+
+.modal-chapter h2.long-heading {
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 0.92;
+}
+
+/* MOBILE */
+
+@media (max-width: 980px) {
+  .interstate-gallery-card {
+    min-height: auto;
+  }
+
+  .interstate-gallery-frame {
+    height: 240px;
+  }
+}
+
+@media (max-width: 640px) {
+  .interstate-gallery-frame {
+    height: 200px;
+  }
+
+  .interstate-caption {
+    font-size: 0.82rem;
+  }
 }
