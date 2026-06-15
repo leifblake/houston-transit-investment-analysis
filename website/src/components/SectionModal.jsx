@@ -263,22 +263,49 @@ export default function SectionModal({ section, onClose }) {
             <MapGallery />
           </aside>
 
-          <aside className="book-quote-card">
+            <aside className="book-quote-card">
             <p className="quote-label">Idea Card / The Color of Law</p>
+
             <blockquote>
-                Segregation was not simply private choice. It was reinforced by public policy.
+                Segregation was not simply private choice. It was reinforced by public
+                policy.
             </blockquote>
+
+            <ul className="book-quote-list">
+                <li>Housing policy shaped who could access stable neighborhoods.</li>
+                <li>Public investment flowed unevenly across the city.</li>
+                <li>Transit gaps today often sit on top of older housing inequities.</li>
+            </ul>
+
             <p className="book-quote-source">
                 — Richard Rothstein, <em>The Color of Law</em>
             </p>
+
             <div className="book-quote-divider" />
-            <p className="book-quote-highlight">
-                "Segregation by intentional government action is not de facto. Rather, it is what courts call de jure: segregation by law and public policy."
-            </p>
+
+            <blockquote>
+                Segregation by intentional government action is not de facto. Rather, it is
+                what courts call de jure: segregation by law and public policy.
+            </blockquote>
+
             <ul className="book-quote-list">
-                <li>Federal housing programs directed investment toward some neighborhoods and away from others.</li>
-                <li>Highway construction often reinforced patterns created by redlining and disinvestment.</li>
-                <li>Transit access today reflects decades of planning decisions about who could live where and how people could move through the city.</li>
+                <li>Redlining was not just a private market failure.</li>
+                <li>Government-backed lending systems helped formalize unequal access.</li>
+                <li>Those patterns affected wealth, mobility, and neighborhood services.</li>
+            </ul>
+
+            <div className="book-quote-divider" />
+
+            <blockquote>
+                The core argument of this book is that African Americans were
+                unconstitutionally denied the means and the right to integration in
+                middle-class neighborhoods.
+            </blockquote>
+
+            <ul className="book-quote-list">
+                <li>Access to housing shaped access to schools, jobs, and public services.</li>
+                <li>Transportation planning inherited these unequal geographies.</li>
+                <li>Equity analysis should ask who benefits from future investment.</li>
             </ul>
             </aside>
 
