@@ -266,15 +266,21 @@ export default function SectionModal({ section, onClose }) {
           <aside className="book-quote-card">
             <p className="quote-label">Idea Card / The Color of Law</p>
             <blockquote>
-              Segregation was not simply private choice. It was reinforced by
-              public policy.
+                Segregation was not simply private choice. It was reinforced by public policy.
             </blockquote>
-            <p>
-              Richard Rothstein’s core argument helps frame why transit access
-              today cannot be separated from housing discrimination, lending
-              policy, and public investment decisions.
+            <p className="book-quote-source">
+                — Richard Rothstein, <em>The Color of Law</em>
             </p>
-          </aside>
+            <div className="book-quote-divider" />
+            <p className="book-quote-highlight">
+                "Segregation by intentional government action is not de facto. Rather, it is what courts call de jure: segregation by law and public policy."
+            </p>
+            <ul className="book-quote-list">
+                <li>Federal housing programs directed investment toward some neighborhoods and away from others.</li>
+                <li>Highway construction often reinforced patterns created by redlining and disinvestment.</li>
+                <li>Transit access today reflects decades of planning decisions about who could live where and how people could move through the city.</li>
+            </ul>
+            </aside>
 
           <div className="modal-chapter">
             <p className="chapter-kicker">02 / Housing Policy</p>
