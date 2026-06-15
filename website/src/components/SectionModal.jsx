@@ -6,7 +6,7 @@ const metroSystemMap = `${import.meta.env.BASE_URL}images/metro_system_map.png`;
 
 const interstateImages = [
   {
-    label: "Test",
+    label: "Freeway Construction Archive",
     title: "Gulf Freeway Traffic",
     src: `${import.meta.env.BASE_URL}images/interstate_1.jpg`,
     alt: "Cars traveling on Houston's Gulf Freeway in 1959",
@@ -14,7 +14,7 @@ const interstateImages = [
       "10/04/1959 — Traffic on Houston’s Gulf Freeway, an early symbol of the city’s freeway-oriented growth. Photo by Pete Vazquez / Houston Chronicle.",
   },
   {
-    label: "Interstate 2",
+    label: "Freeway Construction Archive",
     title: "Gulf Freeway Postcard",
     src: `${import.meta.env.BASE_URL}images/interstate_2.jpg`,
     alt: "Vintage postcard aerial view of the Gulf Freeway in Houston",
@@ -22,7 +22,7 @@ const interstateImages = [
       "HOUSTON — Vintage postcard showing an aerial view of the Gulf Freeway. Photo by Lake County Museum/Getty Images; Curt Teich Postcard Archives/Getty Images.",
   },
   {
-    label: "Interstate 3",
+    label: "Freeway Construction Archive",
     title: "Griggs Road Overpass",
     src: `${import.meta.env.BASE_URL}images/interstate_3.jpg`,
     alt: "Gulf Freeway overpass construction at Griggs Road and railroad tracks",
@@ -30,7 +30,7 @@ const interstateImages = [
       "11/17/1949 — Gulf Freeway jumping Griggs Road: overpass at Griggs and T. & N.O. Railroad tracks. Photo filed: Gulf Freeway — Houston.",
   },
   {
-    label: "Interstate 4",
+    label: "Freeway Construction Archive",
     title: "East End Aerial",
     src: `${import.meta.env.BASE_URL}images/interstate_4.jpg`,
     alt: "Aerial view of East End area near Gulf Freeway construction",
@@ -38,7 +38,7 @@ const interstateImages = [
       "02/1955 — Aerial view of the East End area near Gulf Freeway construction. Houston Chronicle Files.",
   },
   {
-    label: "Interstate 5",
+    label: "Freeway Construction Archive",
     title: "Telephone Road Construction",
     src: `${import.meta.env.BASE_URL}images/interstate_5.jpg`,
     alt: "Children crossing near Gulf Freeway construction at Telephone Road",
@@ -46,7 +46,7 @@ const interstateImages = [
       "10/01/1948 — Gulf Freeway construction near Telephone Road. About 250 students a day had to be escorted through the construction area to reach Henderson Elementary. Photo by Paul Seals / Houston Chronicle.",
   },
   {
-    label: "Interstate 6",
+    label: "Freeway Construction Archive",
     title: "Downtown Interchange",
     src: `${import.meta.env.BASE_URL}images/interstate_6.jpg`,
     alt: "Construction of interchange between US-59, Eastex Freeway, and I-45",
