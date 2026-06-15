@@ -6,7 +6,7 @@ const metroSystemMap = `${import.meta.env.BASE_URL}images/metro_system_map.png`;
 
 const interstateImages = [
   {
-    label: "Interstate 1",
+    label: "Test",
     title: "Gulf Freeway Traffic",
     src: `${import.meta.env.BASE_URL}images/interstate_1.jpg`,
     alt: "Cars traveling on Houston's Gulf Freeway in 1959",
