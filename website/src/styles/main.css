@@ -252,25 +252,30 @@ a {
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.25rem;
   padding: 0 clamp(1.5rem, 3.5vw, 4rem) 3rem;
   margin-top: -0.5rem;
+  align-items: stretch;
 }
 
 .section-card,
 .final-card {
   min-height: 335px;
+  max-height: 335px;
   background: rgba(255, 250, 240, 0.9);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 1.25rem;
   box-shadow: 0 8px 24px rgba(7, 27, 51, 0.08);
+  overflow: hidden;
 }
 
 .section-card {
   cursor: pointer;
   transition: transform 180ms ease, box-shadow 180ms ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .section-card:hover {
@@ -283,6 +288,7 @@ a {
   grid-template-columns: auto 1fr auto;
   align-items: start;
   gap: 0.7rem;
+  flex-shrink: 0;
 }
 
 .card-number {
@@ -315,7 +321,10 @@ a {
 }
 
 .card-visual {
+  width: 100%;
   height: 122px;
+  min-height: 122px;
+  max-height: 122px;
   margin: 1.25rem 0;
   border-radius: 8px;
   background:
@@ -324,6 +333,20 @@ a {
     repeating-linear-gradient(90deg, rgba(7, 27, 51, 0.08) 0 1px, transparent 1px 18px);
   overflow: hidden;
   position: relative;
+  flex-shrink: 0;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mini-map {
+  position: absolute;
+  inset: 0;
 }
 
 .mini-map::before,
@@ -347,6 +370,10 @@ a {
 .final-card p {
   margin: 0;
   line-height: 1.45;
+}
+
+.section-card p {
+  overflow: hidden;
 }
 
 .final-card {
@@ -537,9 +564,16 @@ a {
   }
 
   .section-card,
-  .final-card {
-    min-height: 280px;
-  }
+.final-card {
+  min-height: 300px;
+  max-height: 300px;
+}
+
+.card-visual {
+  height: 110px;
+  min-height: 110px;
+  max-height: 110px;
+}
 
   .site-footer {
     grid-template-columns: 1fr;
