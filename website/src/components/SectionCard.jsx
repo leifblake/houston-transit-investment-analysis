@@ -1,6 +1,23 @@
-export default function SectionCard({ number, title, description, onClick }) {
+export default function SectionCard({
+  number,
+  title,
+  description,
+  image,
+  imageAlt,
+  onClick,
+}) {
   return (
-    <article className="section-card" onClick={onClick} role="button" tabIndex={0}>
+    <article
+      className="section-card"
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          onClick();
+        }
+      }}
+    >
       <div className="card-heading">
         <span className="card-number">{number}</span>
         <h2>{title}</h2>
@@ -8,7 +25,11 @@ export default function SectionCard({ number, title, description, onClick }) {
       </div>
 
       <div className="card-visual">
-        <div className="mini-map"></div>
+        {image ? (
+          <img src={image} alt={imageAlt || title} className="card-image" />
+        ) : (
+          <div className="mini-map"></div>
+        )}
       </div>
 
       <p>{description}</p>

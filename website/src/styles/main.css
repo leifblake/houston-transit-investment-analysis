@@ -663,69 +663,21 @@ body.modal-open {
   min-height: 430px;
   overflow: hidden;
   border-radius: 24px;
-  background:
-    repeating-linear-gradient(0deg, rgba(7, 27, 51, 0.05) 0 1px, transparent 1px 18px),
-    repeating-linear-gradient(90deg, rgba(7, 27, 51, 0.05) 0 1px, transparent 1px 18px),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.45), rgba(255, 244, 223, 0.35));
+  background: var(--paper);
   border: 1px solid var(--line);
 }
 
-.poster-sun {
-  position: absolute;
-  width: 520px;
-  height: 520px;
-  right: -120px;
-  top: -80px;
-  border-radius: 50%;
-  background: var(--metro-red);
-}
-
-.poster-road {
-  position: absolute;
-  height: 38px;
-  width: 120%;
-  left: -10%;
-  bottom: 80px;
-  transform-origin: left center;
-  border-radius: 999px;
-}
-
-.poster-road-blue {
-  background: var(--metro-blue);
-  transform: rotate(-18deg);
-}
-
-.poster-road-red {
-  background: var(--metro-red);
-  transform: rotate(12deg);
-  bottom: 135px;
-}
-
-.poster-block {
-  position: absolute;
-  bottom: 150px;
-  width: 90px;
-  background: var(--metro-blue-dark);
-  box-shadow: inset -20px 0 var(--metro-blue);
-}
-
-.poster-block-one {
-  height: 180px;
-  left: 18%;
-}
-
-.poster-block-two {
-  height: 260px;
-  left: 39%;
+.modal-poster.image-poster {
   background: var(--paper);
-  box-shadow: inset -18px 0 rgba(7, 27, 51, 0.18);
 }
 
-.poster-block-three {
-  height: 310px;
-  left: 62%;
-  background: var(--metro-blue-dark);
-  box-shadow: inset -24px 0 var(--metro-red);
+.modal-poster-image {
+  width: 100%;
+  height: 100%;
+  min-height: 430px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
 }
 
 .modal-narrative-grid {
@@ -931,7 +883,8 @@ body.modal-open {
     min-height: auto;
   }
 
-  .modal-poster {
+  .modal-poster,
+  .modal-poster-image {
     min-height: 280px;
   }
 
@@ -967,5 +920,10 @@ body.modal-open {
 
   .modal-title-row span {
     font-size: 4rem;
+  }
+
+  .modal-poster,
+  .modal-poster-image {
+    min-height: 220px;
   }
 }

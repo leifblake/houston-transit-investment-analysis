@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 
+const sectionImage = `${import.meta.env.BASE_URL}images/section_1_img.jpg`;
+
 const modalContent = {
   "01": {
     eyebrow: "Historical Context",
@@ -61,13 +63,12 @@ export default function SectionModal({ section, onClose }) {
             <p className="modal-subtitle">{content.subtitle}</p>
           </div>
 
-          <div className="modal-poster">
-            <div className="poster-sun"></div>
-            <div className="poster-road poster-road-blue"></div>
-            <div className="poster-road poster-road-red"></div>
-            <div className="poster-block poster-block-one"></div>
-            <div className="poster-block poster-block-two"></div>
-            <div className="poster-block poster-block-three"></div>
+          <div className="modal-poster image-poster">
+            <img
+              src={sectionImage}
+              alt="Mid-century suburban street scene representing automobile-oriented growth"
+              className="modal-poster-image"
+            />
           </div>
         </header>
 
