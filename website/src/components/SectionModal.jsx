@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const sectionImage = `${import.meta.env.BASE_URL}images/section_1_img.jpg`;
+const redliningMap = `${import.meta.env.BASE_URL}images/houston_redlining_map.png`;
+const metroSystemMap = `${import.meta.env.BASE_URL}images/metro_system_map.png`;
 
 const modalContent = {
   "01": {
@@ -10,6 +12,68 @@ const modalContent = {
       "Houston’s transit gaps are tied to how the city grew: outward expansion, freeway construction, racial segregation, uneven public investment, and decades of car-centered planning.",
   },
 };
+
+function MapGallery() {
+  const [activeMap, setActiveMap] = useState(0);
+
+  const maps = [
+    {
+      label: "1930s HOLC Map",
+      title: "Historic Redlining Map",
+      src: redliningMap,
+      alt: "Historic HOLC redlining map of Houston",
+    },
+    {
+      label: "Current METRO Map",
+      title: "Current Transit Network",
+      src: metroSystemMap,
+      alt: "Current Houston METRO transit system map",
+    },
+  ];
+
+  const current = maps[activeMap];
+
+  function showPreviousMap() {
+    setActiveMap((currentIndex) =>
+      currentIndex === 0 ? maps.length - 1 : currentIndex - 1
+    );
+  }
+
+  function showNextMap() {
+    setActiveMap((currentIndex) =>
+      currentIndex === maps.length - 1 ? 0 : currentIndex + 1
+    );
+  }
+
+  return (
+    <div className="map-gallery">
+      <div className="map-gallery-topline">
+        <span>{current.label}</span>
+
+        <div className="map-gallery-controls">
+          <button type="button" onClick={showPreviousMap} aria-label="Previous map">
+            ‹
+          </button>
+
+          <button type="button" onClick={showNextMap} aria-label="Next map">
+            ›
+          </button>
+        </div>
+      </div>
+
+      <h3>{current.title}</h3>
+
+      <div className="map-gallery-frame">
+        <img src={current.src} alt={current.alt} />
+      </div>
+
+      <p>
+        Compare historic housing investment patterns with today’s transit
+        geography to see how past planning decisions still shape access.
+      </p>
+    </div>
+  );
+}
 
 export default function SectionModal({ section, onClose }) {
   useEffect(() => {
@@ -92,13 +156,8 @@ export default function SectionModal({ section, onClose }) {
             </p>
           </div>
 
-          <aside className="modal-image-card redlining-card">
-            <span>Future Map</span>
-            <h3>Historic disinvestment patterns</h3>
-            <p>
-              Add a historic HOLC redlining map of Houston here, then pair it
-              with present-day transit access or frequent-route coverage.
-            </p>
+          <aside className="modal-image-card redlining-card map-gallery-card">
+            <MapGallery />
           </aside>
 
           <aside className="book-quote-card">
