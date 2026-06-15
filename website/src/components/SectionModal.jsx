@@ -4,6 +4,57 @@ const sectionImage = `${import.meta.env.BASE_URL}images/section_1_img.jpg`;
 const redliningMap = `${import.meta.env.BASE_URL}images/houston_redlining_map.png`;
 const metroSystemMap = `${import.meta.env.BASE_URL}images/metro_system_map.png`;
 
+const interstateImages = [
+  {
+    label: "Interstate 1",
+    title: "Gulf Freeway Traffic",
+    src: `${import.meta.env.BASE_URL}images/interstate_1.jpg`,
+    alt: "Cars traveling on Houston's Gulf Freeway in 1959",
+    caption:
+      "10/04/1959 — Traffic on Houston’s Gulf Freeway, an early symbol of the city’s freeway-oriented growth. Photo by Pete Vazquez / Houston Chronicle.",
+  },
+  {
+    label: "Interstate 2",
+    title: "Gulf Freeway Postcard",
+    src: `${import.meta.env.BASE_URL}images/interstate_2.jpg`,
+    alt: "Vintage postcard aerial view of the Gulf Freeway in Houston",
+    caption:
+      "HOUSTON — Vintage postcard showing an aerial view of the Gulf Freeway. Photo by Lake County Museum/Getty Images; Curt Teich Postcard Archives/Getty Images.",
+  },
+  {
+    label: "Interstate 3",
+    title: "Griggs Road Overpass",
+    src: `${import.meta.env.BASE_URL}images/interstate_3.jpg`,
+    alt: "Gulf Freeway overpass construction at Griggs Road and railroad tracks",
+    caption:
+      "11/17/1949 — Gulf Freeway jumping Griggs Road: overpass at Griggs and T. & N.O. Railroad tracks. Photo filed: Gulf Freeway — Houston.",
+  },
+  {
+    label: "Interstate 4",
+    title: "East End Aerial",
+    src: `${import.meta.env.BASE_URL}images/interstate_4.jpg`,
+    alt: "Aerial view of East End area near Gulf Freeway construction",
+    caption:
+      "02/1955 — Aerial view of the East End area near Gulf Freeway construction. Houston Chronicle Files.",
+  },
+  {
+    label: "Interstate 5",
+    title: "Telephone Road Construction",
+    src: `${import.meta.env.BASE_URL}images/interstate_5.jpg`,
+    alt: "Children crossing near Gulf Freeway construction at Telephone Road",
+    caption:
+      "10/01/1948 — Gulf Freeway construction near Telephone Road. About 250 students a day had to be escorted through the construction area to reach Henderson Elementary. Photo by Paul Seals / Houston Chronicle.",
+  },
+  {
+    label: "Interstate 6",
+    title: "Downtown Interchange",
+    src: `${import.meta.env.BASE_URL}images/interstate_6.jpg`,
+    alt: "Construction of interchange between US-59, Eastex Freeway, and I-45",
+    caption:
+      "06/1971 — Construction of the interchange between US-59, the Eastex Freeway, and I-45, the Gulf Freeway, photographed from the Pierce Elevated. Photo by Darrell Davidson / © Houston Chronicle.",
+  },
+];
+
 const modalContent = {
   "01": {
     eyebrow: "Historical Context",
@@ -71,6 +122,58 @@ function MapGallery() {
         Compare historic housing investment patterns with today’s transit
         geography to see how past planning decisions still shape access.
       </p>
+    </div>
+  );
+}
+
+function InterstateGallery() {
+  const [activeImage, setActiveImage] = useState(0);
+
+  const current = interstateImages[activeImage];
+
+  function showPreviousImage() {
+    setActiveImage((currentIndex) =>
+      currentIndex === 0 ? interstateImages.length - 1 : currentIndex - 1
+    );
+  }
+
+  function showNextImage() {
+    setActiveImage((currentIndex) =>
+      currentIndex === interstateImages.length - 1 ? 0 : currentIndex + 1
+    );
+  }
+
+  return (
+    <div className="interstate-gallery">
+      <div className="map-gallery-topline">
+        <span>{current.label}</span>
+
+        <div className="map-gallery-controls">
+          <button
+            type="button"
+            onClick={showPreviousImage}
+            aria-label="Previous freeway image"
+          >
+            ‹
+          </button>
+
+          <button
+            type="button"
+            onClick={showNextImage}
+            aria-label="Next freeway image"
+          >
+            ›
+          </button>
+        </div>
+      </div>
+
+      <h3>{current.title}</h3>
+
+      <div className="interstate-gallery-frame">
+        <img src={current.src} alt={current.alt} />
+      </div>
+
+      <p className="interstate-caption">{current.caption}</p>
     </div>
   );
 }
@@ -175,7 +278,9 @@ export default function SectionModal({ section, onClose }) {
 
           <div className="modal-chapter">
             <p className="chapter-kicker">02 / Housing Policy</p>
-            <h2>Redlining and Segregation Left Long Shadows</h2>
+            <h2 className="long-heading">
+              Redlining and Segregation Left Long Shadows
+            </h2>
 
             <p>
               In the 1930s, federal housing maps graded neighborhoods by lending
@@ -213,13 +318,8 @@ export default function SectionModal({ section, onClose }) {
             </p>
           </div>
 
-          <aside className="modal-image-card freeway-card">
-            <span>Image Idea</span>
-            <h3>Freeway construction archive</h3>
-            <p>
-              Use an archival image of I-45, I-10, or US-59 construction, or a
-              before/after aerial showing how a freeway divided a neighborhood.
-            </p>
+          <aside className="modal-image-card freeway-card interstate-gallery-card">
+            <InterstateGallery />
           </aside>
 
           <aside className="modal-quote">
@@ -299,8 +399,9 @@ export default function SectionModal({ section, onClose }) {
 
             <p className="source-note">
               Context sources: Mapping Inequality, Rice Baker Institute,
-              Economic Policy Institute, Segregation by Design, and urban
-              planning texts by Rothstein, Caro, Gray, and Jacobs.
+              Economic Policy Institute, Segregation by Design, Houston
+              Chronicle archival reporting, and urban planning texts by
+              Rothstein, Caro, Gray, and Jacobs.
             </p>
           </div>
         </section>
