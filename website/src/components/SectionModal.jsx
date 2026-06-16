@@ -264,7 +264,7 @@ export default function SectionModal({ section, onClose }) {
           </aside>
 
             <aside className="book-quote-card">
-            <p className="quote-label">Idea Card / The Color of Law</p>
+            <p className="quote-label">The Color of Law</p>
 
             <blockquote>
                 Segregation was not simply private choice. It was reinforced by public
@@ -294,6 +294,10 @@ export default function SectionModal({ section, onClose }) {
                 <li>Those patterns affected wealth, mobility, and neighborhood services.</li>
             </ul>
 
+            <p className="book-quote-source">
+                — Richard Rothstein, <em>The Color of Law</em>
+            </p>
+
             <div className="book-quote-divider" />
 
             <blockquote>
@@ -307,6 +311,11 @@ export default function SectionModal({ section, onClose }) {
                 <li>Transportation planning inherited these unequal geographies.</li>
                 <li>Equity analysis should ask who benefits from future investment.</li>
             </ul>
+
+            <p className="book-quote-source">
+                — Richard Rothstein, <em>The Color of Law</em>
+            </p>
+
             </aside>
 
           <div className="modal-chapter">
@@ -364,24 +373,60 @@ export default function SectionModal({ section, onClose }) {
 
           <div className="modal-chapter">
             <p className="chapter-kicker">04 / Planning Choices</p>
+
             <h2>Infrastructure Is Never Neutral</h2>
 
             <p>
-              Robert Caro’s <em>The Power Broker</em> is not about Houston, but
-              it shows how highways, bridges, and public authorities can remake
-              cities while concentrating benefits and burdens unevenly.
+                Transportation systems do more than move people. Decisions about where to
+                build highways, transit lines, sidewalks, and housing shape who can reach
+                jobs, schools, healthcare, and opportunity. Two influential urban thinkers
+                offer different perspectives on how infrastructure changes cities.
             </p>
+
+            <div className="planning-quote">
+                <p className="planning-source">
+                Robert Caro, <em>The Power Broker</em>
+                </p>
+
+                <blockquote>
+                "Robert Moses's highways, bridges, and parks were instruments of power."
+                </blockquote>
+
+                <p>
+                Caro's work shows how transportation investments can redistribute
+                benefits and burdens unevenly across communities. Highways can increase
+                regional mobility while simultaneously dividing neighborhoods and
+                concentrating environmental, economic, and social costs.
+                </p>
+            </div>
+
+            <div className="planning-quote">
+                <p className="planning-source">
+                Jane Jacobs, <em>The Death and Life of Great American Cities</em>
+                </p>
+
+                <blockquote>
+                "Cities have the capability of providing something for everybody, only
+                because, and only when, they are created by everybody."
+                </blockquote>
+
+                <p>
+                Jacobs argued that vibrant neighborhoods depend on density, mixed land
+                uses, walkability, and connected streets. Her work helps explain why
+                successful transit systems rely not only on routes and vehicles, but on
+                the surrounding urban form and the destinations people can reach.
+                </p>
+            </div>
 
             <p>
-              Jane Jacobs’ <em>The Death and Life of Great American Cities</em>
-              offers a different lens: streets, density, mixed uses, and daily
-              neighborhood life matter. Transit works best when land use creates
-              many nearby destinations and walkable connections.
+                Together, these perspectives help frame Houston's transit challenges:
+                infrastructure decisions made decades ago continue to influence where
+                people live, how they travel, and who has access to opportunity today.
             </p>
-          </div>
+            </div>
 
           <aside className="book-quote-card red-card">
-            <p className="quote-label">Idea Card / Arbitrary Lines</p>
+            <p className="quote-label">Arbitrary Lines</p>
             <blockquote>
               Land-use rules decide what kinds of places can exist.
             </blockquote>

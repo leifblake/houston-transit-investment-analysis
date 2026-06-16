@@ -396,6 +396,35 @@ a {
   margin-top: 2rem;
 }
 
+.planning-quote {
+  margin: 1.75rem 0;
+  padding: 1.5rem;
+  border-left: 4px solid var(--metro-red);
+  background: rgba(0, 85, 164, 0.04);
+  border-radius: 0 16px 16px 0;
+}
+
+.planning-source {
+  margin: 0 0 0.75rem;
+  color: var(--metro-red);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+}
+
+.planning-quote blockquote {
+  margin: 0 0 1rem;
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  line-height: 1.1;
+  color: var(--metro-blue-dark);
+}
+
+.planning-quote p:last-child {
+  margin-bottom: 0;
+}
+
 /* FOOTER */
 
 .site-footer {
