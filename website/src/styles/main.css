@@ -116,7 +116,7 @@ a {
 }
 
 .site-nav a:not(:last-child)::after {
-  content: "â€¢";
+  content: "•";
   position: absolute;
   right: -1.25rem;
   top: 50%;
@@ -206,7 +206,7 @@ a {
 }
 
 .divider::after {
-  content: "âœ¦";
+  content: "✦";
   position: absolute;
   right: -0.78rem;
   top: -1.05rem;
@@ -223,7 +223,7 @@ a {
 }
 
 .outline-button::after {
-  content: "â€º";
+  content: "›";
   font-size: 1.3rem;
   line-height: 1;
 }
