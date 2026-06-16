@@ -427,7 +427,7 @@ export default function SectionModal({ section, onClose }) {
 
           <aside className="book-quote-card red-card">
             <p className="quote-label">
-                Idea Card / <em>Arbitrary Lines</em>
+                <em>Arbitrary Lines</em>
             </p>
 
             <blockquote>
@@ -502,20 +502,36 @@ export default function SectionModal({ section, onClose }) {
             <h2>Why This Matters for the Project</h2>
 
             <p>
-              This project evaluates Houston METRO not just as a set of routes,
-              but as a system shaped by history. The following sections use
-              GTFS, Census, ridership, accessibility, and investment-priority
-              data to ask where transit works well, where access is limited, and
-              where future investment could have the greatest impact.
+                Houston METRO is not simply a network of bus routes and rail lines. It is
+                a transportation system shaped by decades of housing policy, freeway
+                construction, land-use decisions, and uneven public investment.
+            </p>
+
+            <p>
+                The following sections combine GTFS service data, Census demographics,
+                ridership metrics, accessibility measures, and investment-priority scores
+                to examine how these historical decisions continue to influence transit
+                access today.
+            </p>
+
+            <ul className="takeaway-list">
+                <li>Which neighborhoods have the strongest transit access?</li>
+                <li>Where do transit deserts overlap with populations that depend most on public transportation?</li>
+                <li>Which corridors offer the greatest opportunity for future investment?</li>
+            </ul>
+
+            <p>
+                By connecting historical context with present-day data, this project asks
+                not only where transit exists, but who can use it to reach opportunity.
             </p>
 
             <p className="source-note">
-              Context sources: Mapping Inequality, Rice Baker Institute,
-              Economic Policy Institute, Segregation by Design, Houston
-              Chronicle archival reporting, and urban planning texts by
-              Rothstein, Caro, Gray, and Jacobs.
+                Context sources: Mapping Inequality, Rice University’s Baker Institute,
+                Economic Policy Institute, Segregation by Design, Houston Chronicle
+                archival reporting, and urban planning scholarship by Richard Rothstein,
+                Robert Caro, Jane Jacobs, and M. Nolan Gray.
             </p>
-          </div>
+            </div>
         </section>
       </article>
     </div>

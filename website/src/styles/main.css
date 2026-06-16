@@ -454,6 +454,19 @@ a {
   color: rgba(255, 255, 255, 0.95);
 }
 
+.takeaway-list {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.takeaway-list li {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.takeaway-list li::marker {
+  color: rgba(255, 255, 255, 0.85);
+}
 /* FOOTER */
 
 .site-footer {
