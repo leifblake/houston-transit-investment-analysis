@@ -426,16 +426,50 @@ export default function SectionModal({ section, onClose }) {
             </div>
 
           <aside className="book-quote-card red-card">
-            <p className="quote-label">Arbitrary Lines</p>
-            <blockquote>
-              Land-use rules decide what kinds of places can exist.
-            </blockquote>
-            <p>
-              M. Nolan Gray’s argument about zoning helps explain why transit
-              cannot be separated from housing density, street design, and where
-              cities allow people to live near opportunity.
+            <p className="quote-label">
+                Idea Card / <em>Arbitrary Lines</em>
             </p>
-          </aside>
+
+            <blockquote>
+                Land-use rules decide what kinds of places can exist.
+            </blockquote>
+
+            <p className="quote-author">
+                — M. Nolan Gray, <em>Arbitrary Lines</em>
+            </p>
+
+            <div className="quote-divider"></div>
+
+            <p>
+                Gray argues that zoning and land-use regulations shape cities just as
+                powerfully as transportation investments. Rules about housing types,
+                density, parking requirements, and permitted land uses influence where
+                people can live and whether transit can operate effectively.
+            </p>
+
+            <ul className="quote-list">
+                <li>
+                Low-density development spreads destinations farther apart, making
+                frequent transit more difficult and expensive to provide.
+                </li>
+
+                <li>
+                Parking minimums and single-use zoning encourage automobile dependence
+                by separating homes, jobs, schools, and services.
+                </li>
+
+                <li>
+                Walkable, mixed-use neighborhoods create the concentration of people and
+                destinations that high-quality transit networks depend on.
+                </li>
+            </ul>
+
+            <p className="quote-conclusion">
+                Houston's transit challenges are not only about routes and service
+                frequency. They are also shaped by decades of land-use decisions that
+                influence where opportunity exists and how easily residents can reach it.
+            </p>
+            </aside>
 
           <div className="modal-chapter">
             <p className="chapter-kicker">05 / Suburban Expansion</p>

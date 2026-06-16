@@ -425,6 +425,35 @@ a {
   margin-bottom: 0;
 }
 
+.quote-author {
+  margin: 0.5rem 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+.quote-divider {
+  height: 1px;
+  margin: 1.25rem 0;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.quote-list {
+  margin: 1.25rem 0;
+  padding-left: 1.25rem;
+}
+
+.quote-list li {
+  margin-bottom: 0.85rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.quote-conclusion {
+  margin: 1.25rem 0 0;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+}
+
 /* FOOTER */
 
 .site-footer {
