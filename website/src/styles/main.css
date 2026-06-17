@@ -963,7 +963,6 @@ body.modal-open {
   font-size: clamp(2rem, 3vw, 3.2rem);
   line-height: 1.05;
   text-transform: uppercase;
-  padding-right: 2.5rem 3rem 2.5rem 2rem;
 }
 
 .modal-chapter.wide {
@@ -1388,4 +1387,24 @@ body.modal-open {
   .book-quote-list {
     gap: 0.45rem;
   }
+}
+
+/* FIX: shift blue transportation quote text left */
+
+.modal-quote {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2.75rem 1.5rem 2.75rem 1.65rem;
+}
+
+.modal-quote p {
+  margin: 0;
+  max-width: 16.5rem;
+  padding: 0;
+  transform: translateX(-0.65rem);
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: clamp(2rem, 3vw, 3.2rem);
+  line-height: 1.05;
+  text-transform: uppercase;
 }
