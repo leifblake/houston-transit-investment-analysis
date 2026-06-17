@@ -277,9 +277,16 @@ export default function SectionModal({ section, onClose }) {
               <p className="chapter-kicker">01 / Bus Network</p>
               <h3>Most of the System Is Bus Service</h3>
               <p>
-                The bus network provides the broadest geographic coverage and
-                connects neighborhoods that rail does not reach.
-              </p>
+                The bus network provides the broadest geographic coverage and connects neighborhoods that rail does not reach.
+                </p>
+
+                <p>
+                Frequent local routes link residential areas with jobs, schools, healthcare, and shopping destinations across the region. Because buses can adapt more easily to changing travel patterns, they remain the backbone of Houston METRO service.
+                </p>
+
+                <p>
+                Understanding where bus routes are concentrated—and where gaps remain—is essential for evaluating transit equity and future investment priorities.
+                </p>
             </aside>
 
             <aside className="network-info-card">
@@ -295,9 +302,16 @@ export default function SectionModal({ section, onClose }) {
               <p className="chapter-kicker">03 / Transit Centers</p>
               <h3>Transfer Points Shape Access</h3>
               <p>
-                Transit centers help organize regional movement by linking
-                multiple routes and creating key transfer opportunities.
-              </p>
+                Transit centers help organize regional movement by linking multiple routes and creating key transfer opportunities.
+                </p>
+
+                <p>
+                These hubs allow riders to move between local bus routes, METRORail lines, park-and-ride services, and other destinations without needing a car for the entire trip.
+                </p>
+
+                <p>
+                The location and quality of transfer points influence travel times, network connectivity, and how easily residents can access jobs, education, healthcare, and other essential services.
+                </p>
             </aside>
 
             <aside className="network-info-card">

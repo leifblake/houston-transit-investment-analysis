@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import "./styles/main.css";
 
 const section1Img = `${import.meta.env.BASE_URL}images/section_1_img.jpg`;
-const section2Img = `${import.meta.env.BASE_URL}images/section_2_img.png`;
+const section2Img = `${import.meta.env.BASE_URL}images/section_2_img.jpg`;
 
 const sections = [
   {
