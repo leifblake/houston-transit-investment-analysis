@@ -1850,3 +1850,21 @@ body.modal-open {
     display: none;
   }
 }
+
+.street-line {
+  fill: none;
+  stroke: rgba(7, 27, 51, 0.16);
+  stroke-width: 0.55;
+  pointer-events: none;
+}
+
+.tract-line {
+  fill: none;
+  stroke: rgba(7, 27, 51, 0.12);
+  stroke-width: 0.45;
+  pointer-events: none;
+}
+
+.legend-street {
+  background: rgba(7, 27, 51, 0.28);
+}
