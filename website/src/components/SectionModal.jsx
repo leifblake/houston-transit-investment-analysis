@@ -69,6 +69,12 @@ const modalContent = {
     subtitle:
       "Before measuring access, deserts, performance, or investment priorities, we need to understand the shape of the Houston METRO network itself.",
   },
+  "03": {
+    eyebrow: "Access Gap Analysis",
+    title: "Where Are Houston’s Transit Deserts?",
+    subtitle:
+      "Transit deserts are places where many people live, but nearby transit service is limited, infrequent, or difficult to use.",
+  },
 };
 
 function MapGallery() {
@@ -156,11 +162,19 @@ function InterstateGallery() {
         <span>{current.label}</span>
 
         <div className="map-gallery-controls">
-          <button type="button" onClick={showPreviousImage} aria-label="Previous freeway image">
+          <button
+            type="button"
+            onClick={showPreviousImage}
+            aria-label="Previous freeway image"
+          >
             ‹
           </button>
 
-          <button type="button" onClick={showNextImage} aria-label="Next freeway image">
+          <button
+            type="button"
+            onClick={showNextImage}
+            aria-label="Next freeway image"
+          >
             ›
           </button>
         </div>
@@ -276,22 +290,30 @@ export default function SectionModal({ section, onClose }) {
             <aside className="network-info-card">
               <p className="chapter-kicker">01 / Bus Network</p>
               <h3>Most of the System Is Bus Service</h3>
+
               <p>
-                The bus network provides the broadest geographic coverage and connects neighborhoods that rail does not reach.
-                </p>
+                The bus network provides the broadest geographic coverage and
+                connects neighborhoods that rail does not reach.
+              </p>
 
-                <p>
-                Frequent local routes link residential areas with jobs, schools, healthcare, and shopping destinations across the region. Because buses can adapt more easily to changing travel patterns, they remain the backbone of Houston METRO service.
-                </p>
+              <p>
+                Frequent local routes link residential areas with jobs, schools,
+                healthcare, and shopping destinations across the region. Because
+                buses can adapt more easily to changing travel patterns, they
+                remain the backbone of Houston METRO service.
+              </p>
 
-                <p>
-                Understanding where bus routes are concentrated—and where gaps remain—is essential for evaluating transit equity and future investment priorities.
-                </p>
+              <p>
+                Understanding where bus routes are concentrated—and where gaps
+                remain—is essential for evaluating transit equity and future
+                investment priorities.
+              </p>
             </aside>
 
             <aside className="network-info-card">
               <p className="chapter-kicker">02 / Rail Spine</p>
               <h3>Rail Creates Strong Anchors</h3>
+
               <p>
                 METRORail provides high-visibility corridors, but its reach is
                 limited compared with the larger bus network.
@@ -301,22 +323,29 @@ export default function SectionModal({ section, onClose }) {
             <aside className="network-info-card">
               <p className="chapter-kicker">03 / Transit Centers</p>
               <h3>Transfer Points Shape Access</h3>
+
               <p>
-                Transit centers help organize regional movement by linking multiple routes and creating key transfer opportunities.
-                </p>
+                Transit centers help organize regional movement by linking
+                multiple routes and creating key transfer opportunities.
+              </p>
 
-                <p>
-                These hubs allow riders to move between local bus routes, METRORail lines, park-and-ride services, and other destinations without needing a car for the entire trip.
-                </p>
+              <p>
+                These hubs allow riders to move between local bus routes,
+                METRORail lines, park-and-ride services, and other destinations
+                without needing a car for the entire trip.
+              </p>
 
-                <p>
-                The location and quality of transfer points influence travel times, network connectivity, and how easily residents can access jobs, education, healthcare, and other essential services.
-                </p>
+              <p>
+                The location and quality of transfer points influence travel
+                times, network connectivity, and how easily residents can access
+                jobs, education, healthcare, and other essential services.
+              </p>
             </aside>
 
             <aside className="network-info-card">
               <p className="chapter-kicker">04 / GTFS Data</p>
               <h3>The Network Can Be Measured</h3>
+
               <p>
                 GTFS data makes it possible to analyze routes, stops, service
                 patterns, and the spatial structure of transit access.
@@ -336,6 +365,151 @@ export default function SectionModal({ section, onClose }) {
                 This allows later sections to move from a simple question —
                 where does transit exist? — to a more useful one: where does the
                 network actually provide meaningful access?
+              </p>
+            </div>
+          </section>
+        </article>
+      </div>
+    );
+  }
+
+  if (section.number === "03") {
+    return (
+      <div className="modal-layer" role="dialog" aria-modal="true">
+        <button
+          className="modal-backdrop"
+          onClick={onClose}
+          aria-label="Close modal"
+        />
+
+        <article className="section-modal">
+          <button
+            className="modal-close"
+            onClick={onClose}
+            aria-label="Close section"
+          >
+            ×
+          </button>
+
+          <header className="modal-hero section-three-hero">
+            <div>
+              <p className="modal-eyebrow">{content.eyebrow}</p>
+
+              <div className="modal-title-row">
+                <span>{section.number}</span>
+                <h1>{content.title}</h1>
+              </div>
+
+              <p className="modal-subtitle">{content.subtitle}</p>
+            </div>
+
+            <div className="network-hero-card">
+              <span>Transit Desert Analysis</span>
+              <h3>Population density, service access, and unmet mobility need</h3>
+              <p>
+                This section combines Census demographics with transit network
+                data to identify places where many residents live but access to
+                transit remains limited.
+              </p>
+            </div>
+          </header>
+
+          <section className="modal-narrative-grid">
+            <div className="modal-chapter wide">
+              <p className="chapter-kicker">03 / Access Gap Analysis</p>
+              <h2>Finding the Places Transit Underserves</h2>
+
+              <p>
+                Transit deserts emerge when high population need overlaps with
+                limited transit access. These areas may have long walks to
+                stops, infrequent service, weak connections to major
+                destinations, or limited opportunities to transfer between
+                routes.
+              </p>
+
+              <p>
+                Identifying these gaps helps move beyond simply mapping where
+                transit exists. The goal is to understand where the network
+                provides meaningful access—and where it falls short.
+              </p>
+            </div>
+
+            <div className="desert-map-panel wide">
+              <div className="network-map-header">
+                <span>Transit Desert Map</span>
+                <p>Census tracts + population density + route proximity + stop access</p>
+              </div>
+
+              <div className="desert-map-placeholder">
+                <div className="desert-hotspot hotspot-one"></div>
+                <div className="desert-hotspot hotspot-two"></div>
+                <div className="desert-hotspot hotspot-three"></div>
+
+                <p>Transit Desert Map Placeholder</p>
+              </div>
+
+              <p className="map-caption">
+                This map will identify census tracts where population need is
+                high but transit access is comparatively limited.
+              </p>
+            </div>
+
+            <aside className="network-info-card">
+              <p className="chapter-kicker">01 / Population Need</p>
+              <h3>Where Many People Live</h3>
+
+              <p>
+                Transit deserts matter most where many residents depend on
+                nearby service to reach jobs, school, healthcare, groceries, and
+                other daily destinations.
+              </p>
+            </aside>
+
+            <aside className="network-info-card">
+              <p className="chapter-kicker">02 / Transit Access</p>
+              <h3>Where Service Is Limited</h3>
+
+              <p>
+                Access can be constrained by long walking distances to stops,
+                low route frequency, weak transfers, or routes that do not
+                connect well to major destinations.
+              </p>
+            </aside>
+
+            <aside className="network-info-card">
+              <p className="chapter-kicker">03 / Gap Areas</p>
+              <h3>Where Gaps Appear</h3>
+
+              <p>
+                Transit deserts occur when high population need and weak transit
+                coverage overlap. These locations become important candidates
+                for future investment.
+              </p>
+            </aside>
+
+            <aside className="network-info-card">
+              <p className="chapter-kicker">04 / Equity Impact</p>
+              <h3>Why This Matters</h3>
+
+              <p>
+                Identifying transit deserts helps reveal where new routes,
+                improved frequency, safer walksheds, or stronger transfer
+                connections could have the greatest public benefit.
+              </p>
+            </aside>
+
+            <div className="modal-takeaway">
+              <h2>Why This Matters for Investment</h2>
+
+              <p>
+                Transit desert analysis helps move the project from describing
+                the network to identifying where investment could matter most.
+              </p>
+
+              <p>
+                By comparing population density with transit proximity and
+                service coverage, this section highlights places where future
+                improvements may have the largest equity impact.
               </p>
             </div>
           </section>

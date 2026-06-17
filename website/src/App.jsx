@@ -8,6 +8,7 @@ import "./styles/main.css";
 
 const section1Img = `${import.meta.env.BASE_URL}images/section_1_img.jpg`;
 const section2Img = `${import.meta.env.BASE_URL}images/section_2_img.jpg`;
+const section3Img = `${import.meta.env.BASE_URL}images/section_3_img.png`;
 
 const sections = [
   {
@@ -33,6 +34,9 @@ const sections = [
     title: "Transit Deserts",
     description:
       "Where high population meets low access. Identifying Houston's transit deserts.",
+    image: section3Img,
+    imageAlt:
+      "Preview map showing potential transit desert areas in Houston",
   },
   {
     number: "04",
