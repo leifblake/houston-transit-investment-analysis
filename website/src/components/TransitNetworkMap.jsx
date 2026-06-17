@@ -102,7 +102,13 @@ export default function TransitNetworkMap() {
 
       const groupedRoutes = d3.group(
         routeRows,
-        (d) => getValue(d, ["route_id", "RouteID", "route_short_name", "route"]) || "Unknown"
+        (d) =>
+          getValue(d, [
+            "route_id",
+            "RouteID",
+            "route_short_name",
+            "route",
+          ]) || "Unknown"
       );
 
       const routeFeatures = Array.from(groupedRoutes, ([routeId, rows]) => {
@@ -110,15 +116,26 @@ export default function TransitNetworkMap() {
 
         const coordinates = rows
           .map((row) => [
-            Number(getValue(row, ["shape_pt_lon", "lon", "lng", "longitude"])),
+            Number(
+              getValue(row, ["shape_pt_lon", "lon", "lng", "longitude"])
+            ),
             Number(getValue(row, ["shape_pt_lat", "lat", "latitude"])),
           ])
           .filter(([lon, lat]) => Number.isFinite(lon) && Number.isFinite(lat));
 
         return {
           routeId,
-          name: getValue(first, ["route_short_name", "route_name", "route_long_name"]) || routeId,
-          longName: getValue(first, ["route_long_name", "long_name", "description"]),
+          name:
+            getValue(first, [
+              "route_short_name",
+              "route_name",
+              "route_long_name",
+            ]) || routeId,
+          longName: getValue(first, [
+            "route_long_name",
+            "long_name",
+            "description",
+          ]),
           type: getValue(first, ["route_type", "mode", "type"]),
           coordinates,
         };
@@ -127,7 +144,9 @@ export default function TransitNetworkMap() {
       const stopFeatures = stopRows
         .map((row) => {
           const lat = Number(getValue(row, ["stop_lat", "lat", "latitude"]));
-          const lon = Number(getValue(row, ["stop_lon", "lon", "lng", "longitude"]));
+          const lon = Number(
+            getValue(row, ["stop_lon", "lon", "lng", "longitude"])
+          );
 
           return {
             id: getValue(row, ["stop_id", "id"]),
@@ -278,99 +297,137 @@ export default function TransitNetworkMap() {
 
       g.attr("transform", event.transform);
 
-      g.selectAll(".map-route")
-        .attr("stroke-width", (route) => {
-          const mode = getRouteMode(route);
-          const baseWidth = mode === "bus" ? 2.1 : 3.2;
-          return Math.max(0.7, baseWidth / Math.sqrt(k));
-        });
+      g.selectAll(".map-route").attr("stroke-width", (route) => {
+        const mode = getRouteMode(route);
+        const baseWidth = mode === "bus" ? 2.1 : 3.4;
+        return Math.max(0.65, baseWidth / Math.sqrt(k));
+      });
 
       g.selectAll(".map-stop")
         .attr("r", Math.max(0.75, 2.1 / Math.sqrt(k)))
         .attr("stroke-width", Math.max(0.25, 0.55 / Math.sqrt(k)));
 
       g.selectAll(".area-label")
-        .attr("font-size", Math.max(5.5, 13 / Math.sqrt(k)))
-        .attr("stroke-width", Math.max(1.4, 5 / Math.sqrt(k)))
-        .attr("opacity", k > 7 ? 0.45 : 0.88);
+        .attr("font-size", Math.max(7, 13 / Math.sqrt(k)))
+        .attr("stroke-width", Math.max(2, 5 / Math.sqrt(k)));
 
       g.selectAll(".street-line")
-        .attr("stroke-width", Math.max(0.18, 0.5 / Math.sqrt(k)))
-        .attr("opacity", k > 6 ? 0.18 : 0.28);
+        .attr("stroke-width", 0.55)
+        .attr("opacity", 0.34);
 
       g.selectAll(".tract-line")
-        .attr("stroke-width", Math.max(0.18, 0.55 / Math.sqrt(k)))
-        .attr("opacity", k > 6 ? 0.08 : 0.16);
+        .attr("stroke-width", 0.55)
+        .attr("opacity", 0.18);
     });
 
     svg.call(zoom);
-  }, [bounds, routes, stops, streets, tracts, showRoutes, showStops, showLabels, showStreets]);
+  }, [
+    bounds,
+    routes,
+    stops,
+    streets,
+    tracts,
+    showRoutes,
+    showStops,
+    showLabels,
+    showStreets,
+  ]);
 
   const activeDetail = selectedRoute || hoveredRoute;
 
   return (
-    <div className="transit-network-map">
-      <div className="map-toolbar">
-        <button type="button" onClick={() => setShowRoutes((value) => !value)}>
-          {showRoutes ? "Hide Routes" : "Show Routes"}
-        </button>
+    <>
+      <div className="transit-network-map">
+        <div className="map-toolbar">
+          <button type="button" onClick={() => setShowRoutes((value) => !value)}>
+            {showRoutes ? "Hide Routes" : "Show Routes"}
+          </button>
 
-        <button type="button" onClick={() => setShowStops((value) => !value)}>
-          {showStops ? "Hide Stops" : "Show Stops"}
-        </button>
+          <button type="button" onClick={() => setShowStops((value) => !value)}>
+            {showStops ? "Show Stops" : "Hide Stops"}
+          </button>
 
-        <button type="button" onClick={() => setShowLabels((value) => !value)}>
-          {showLabels ? "Hide Labels" : "Show Labels"}
-        </button>
+          <button type="button" onClick={() => setShowLabels((value) => !value)}>
+            {showLabels ? "Hide Labels" : "Show Labels"}
+          </button>
 
-        <button type="button" onClick={() => setShowStreets((value) => !value)}>
-          {showStreets ? "Hide Streets" : "Show Streets"}
-        </button>
-      </div>
-
-      <svg
-        ref={svgRef}
-        viewBox="0 0 1200 620"
-        role="img"
-        aria-label="Interactive Houston METRO route, stop, street, and tract map"
-      />
-
-      {tooltip && (
-        <div className="map-tooltip" style={{ left: tooltip.x, top: tooltip.y }}>
-          <strong>{tooltip.label}</strong>
-          <span>{tooltip.detail}</span>
+          <button type="button" onClick={() => setShowStreets((value) => !value)}>
+            {showStreets ? "Hide Streets" : "Show Streets"}
+          </button>
         </div>
-      )}
 
-      <div className="map-legend">
-        <div><span className="legend-line legend-bus"></span>Bus route</div>
-        <div><span className="legend-line legend-red"></span>Red rail</div>
-        <div><span className="legend-line legend-green"></span>Green rail</div>
-        <div><span className="legend-line legend-purple"></span>Purple rail</div>
-        <div><span className="legend-line legend-street"></span>Street</div>
-        <div><span className="legend-dot"></span>Stop</div>
-      </div>
+        <svg
+          ref={svgRef}
+          viewBox="0 0 1200 620"
+          role="img"
+          aria-label="Interactive Houston METRO route, stop, street, and tract map"
+        />
 
-      <div className="map-detail-card">
-        {hoveredStop ? (
-          <>
-            <p>Selected Stop</p>
-            <h4>{hoveredStop.name}</h4>
-            <span>{hoveredStop.routeNames ? `Routes: ${hoveredStop.routeNames}` : "Houston METRO stop"}</span>
-          </>
-        ) : activeDetail ? (
-          <>
-            <p>Selected Route</p>
-            <h4>{activeDetail.name}</h4>
-            <span>{activeDetail.longName || "Houston METRO route"}</span>
-          </>
-        ) : (
-          <>
-            <p>Map Hint</p>
-            <h4>Click a route</h4>
-            <span>Stops are hidden by default. Turn them on to inspect stop locations.</span>
-          </>
+        {tooltip && (
+          <div
+            className="map-tooltip"
+            style={{ left: tooltip.x, top: tooltip.y }}
+          >
+            <strong>{tooltip.label}</strong>
+            <span>{tooltip.detail}</span>
+          </div>
         )}
+
+        <div className="map-legend">
+          <div>
+            <span className="legend-line legend-bus"></span>
+            Bus route
+          </div>
+          <div>
+            <span className="legend-line legend-red"></span>
+            Red rail
+          </div>
+          <div>
+            <span className="legend-line legend-green"></span>
+            Green rail
+          </div>
+          <div>
+            <span className="legend-line legend-purple"></span>
+            Purple rail
+          </div>
+          <div>
+            <span className="legend-line legend-street"></span>
+            Street
+          </div>
+          <div>
+            <span className="legend-dot"></span>
+            Stop
+          </div>
+        </div>
+
+        <div className="map-detail-card">
+          {hoveredStop ? (
+            <>
+              <p>Selected Stop</p>
+              <h4>{hoveredStop.name}</h4>
+              <span>
+                {hoveredStop.routeNames
+                  ? `Routes: ${hoveredStop.routeNames}`
+                  : "Houston METRO stop"}
+              </span>
+            </>
+          ) : activeDetail ? (
+            <>
+              <p>Selected Route</p>
+              <h4>{activeDetail.name}</h4>
+              <span>{activeDetail.longName || "Houston METRO route"}</span>
+            </>
+          ) : (
+            <>
+              <p>Map Hint</p>
+              <h4>Click a route</h4>
+              <span>
+                Stops are hidden by default. Turn them on to inspect stop
+                locations.
+              </span>
+            </>
+          )}
+        </div>
       </div>
 
       <p className="map-caption">
@@ -378,6 +435,6 @@ export default function TransitNetworkMap() {
         Harris County tract boundaries, and low-opacity street centerlines. Area
         labels are approximate reference points.
       </p>
-    </div>
+    </>
   );
 }
