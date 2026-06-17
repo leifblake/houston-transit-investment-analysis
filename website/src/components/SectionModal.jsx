@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import TransitNetworkMap from "./TransitNetworkMap";
 
 const sectionImage = `${import.meta.env.BASE_URL}images/section_1_img.jpg`;
 const redliningMap = `${import.meta.env.BASE_URL}images/houston_redlining_map.png`;
@@ -61,6 +62,12 @@ const modalContent = {
     title: "Why Transit Access Matters",
     subtitle:
       "Houston’s transit gaps are tied to how the city grew: outward expansion, freeway construction, racial segregation, uneven public investment, and decades of car-centered planning.",
+  },
+  "02": {
+    eyebrow: "Network Foundation",
+    title: "What Does Houston’s Transit System Look Like?",
+    subtitle:
+      "Before measuring access, deserts, performance, or investment priorities, we need to understand the shape of the Houston METRO network itself.",
   },
 };
 
@@ -149,19 +156,11 @@ function InterstateGallery() {
         <span>{current.label}</span>
 
         <div className="map-gallery-controls">
-          <button
-            type="button"
-            onClick={showPreviousImage}
-            aria-label="Previous freeway image"
-          >
+          <button type="button" onClick={showPreviousImage} aria-label="Previous freeway image">
             ‹
           </button>
 
-          <button
-            type="button"
-            onClick={showNextImage}
-            aria-label="Next freeway image"
-          >
+          <button type="button" onClick={showNextImage} aria-label="Next freeway image">
             ›
           </button>
         </div>
@@ -200,6 +199,136 @@ export default function SectionModal({ section, onClose }) {
   const content = modalContent[section.number];
 
   if (!content) return null;
+
+  if (section.number === "02") {
+    return (
+      <div className="modal-layer" role="dialog" aria-modal="true">
+        <button
+          className="modal-backdrop"
+          onClick={onClose}
+          aria-label="Close modal"
+        />
+
+        <article className="section-modal">
+          <button
+            className="modal-close"
+            onClick={onClose}
+            aria-label="Close section"
+          >
+            ×
+          </button>
+
+          <header className="modal-hero section-two-hero">
+            <div>
+              <p className="modal-eyebrow">{content.eyebrow}</p>
+
+              <div className="modal-title-row">
+                <span>{section.number}</span>
+                <h1>{content.title}</h1>
+              </div>
+
+              <p className="modal-subtitle">{content.subtitle}</p>
+            </div>
+
+            <div className="network-hero-card">
+              <span>GTFS Network Map</span>
+              <h3>Routes, stops, rail, and transit centers</h3>
+              <p>
+                This section becomes the foundation for the rest of the project:
+                transit deserts, accessibility, route productivity, and
+                investment priorities all build from this network geography.
+              </p>
+            </div>
+          </header>
+
+          <section className="modal-narrative-grid">
+            <div className="modal-chapter wide">
+              <p className="chapter-kicker">02 / System Overview</p>
+              <h2>The Network Is the Starting Point</h2>
+
+              <p>
+                Houston METRO’s system is made up of bus routes, rail lines,
+                stops, park-and-rides, and transit centers spread across a large
+                metropolitan area. The network does not serve every place
+                equally: some corridors have frequent, direct service, while
+                others depend on lower-frequency routes or longer transfers.
+              </p>
+
+              <p>
+                This map introduces the systemwide geography used throughout the
+                project. Later sections use this same network geography to ask
+                where service is strong, where access is limited, and where
+                future investments could make the greatest difference.
+              </p>
+            </div>
+
+            <div className="network-map-panel wide">
+              <div className="network-map-header">
+                <span>Interactive Map</span>
+                <p>GTFS route geometry + stops + major transit centers</p>
+              </div>
+
+              <div className="network-map-live">
+                <TransitNetworkMap />
+              </div>
+            </div>
+
+            <aside className="network-info-card">
+              <p className="chapter-kicker">01 / Bus Network</p>
+              <h3>Most of the System Is Bus Service</h3>
+              <p>
+                The bus network provides the broadest geographic coverage and
+                connects neighborhoods that rail does not reach.
+              </p>
+            </aside>
+
+            <aside className="network-info-card">
+              <p className="chapter-kicker">02 / Rail Spine</p>
+              <h3>Rail Creates Strong Anchors</h3>
+              <p>
+                METRORail provides high-visibility corridors, but its reach is
+                limited compared with the larger bus network.
+              </p>
+            </aside>
+
+            <aside className="network-info-card">
+              <p className="chapter-kicker">03 / Transit Centers</p>
+              <h3>Transfer Points Shape Access</h3>
+              <p>
+                Transit centers help organize regional movement by linking
+                multiple routes and creating key transfer opportunities.
+              </p>
+            </aside>
+
+            <aside className="network-info-card">
+              <p className="chapter-kicker">04 / GTFS Data</p>
+              <h3>The Network Can Be Measured</h3>
+              <p>
+                GTFS data makes it possible to analyze routes, stops, service
+                patterns, and the spatial structure of transit access.
+              </p>
+            </aside>
+
+            <div className="modal-takeaway">
+              <h2>Why This Matters for the Project</h2>
+
+              <p>
+                The network map is the project’s foundation. Once the system is
+                mapped, we can compare service geography with population,
+                density, ridership, route productivity, and investment need.
+              </p>
+
+              <p>
+                This allows later sections to move from a simple question —
+                where does transit exist? — to a more useful one: where does the
+                network actually provide meaningful access?
+              </p>
+            </div>
+          </section>
+        </article>
+      </div>
+    );
+  }
 
   return (
     <div className="modal-layer" role="dialog" aria-modal="true">
@@ -263,60 +392,59 @@ export default function SectionModal({ section, onClose }) {
             <MapGallery />
           </aside>
 
-            <aside className="book-quote-card">
+          <aside className="book-quote-card">
             <p className="quote-label">The Color of Law</p>
 
             <blockquote>
-                Segregation was not simply private choice. It was reinforced by public
-                policy.
+              Segregation was not simply private choice. It was reinforced by public
+              policy.
             </blockquote>
 
             <ul className="book-quote-list">
-                <li>Housing policy shaped who could access stable neighborhoods.</li>
-                <li>Public investment flowed unevenly across the city.</li>
-                <li>Transit gaps today often sit on top of older housing inequities.</li>
+              <li>Housing policy shaped who could access stable neighborhoods.</li>
+              <li>Public investment flowed unevenly across the city.</li>
+              <li>Transit gaps today often sit on top of older housing inequities.</li>
             </ul>
 
             <p className="book-quote-source">
-                — Richard Rothstein, <em>The Color of Law</em>
+              — Richard Rothstein, <em>The Color of Law</em>
             </p>
 
             <div className="book-quote-divider" />
 
             <blockquote>
-                Segregation by intentional government action is not de facto. Rather, it is
-                what courts call de jure: segregation by law and public policy.
+              Segregation by intentional government action is not de facto. Rather, it is
+              what courts call de jure: segregation by law and public policy.
             </blockquote>
 
             <ul className="book-quote-list">
-                <li>Redlining was not just a private market failure.</li>
-                <li>Government-backed lending systems helped formalize unequal access.</li>
-                <li>Those patterns affected wealth, mobility, and neighborhood services.</li>
+              <li>Redlining was not just a private market failure.</li>
+              <li>Government-backed lending systems helped formalize unequal access.</li>
+              <li>Those patterns affected wealth, mobility, and neighborhood services.</li>
             </ul>
 
             <p className="book-quote-source">
-                — Richard Rothstein, <em>The Color of Law</em>
+              — Richard Rothstein, <em>The Color of Law</em>
             </p>
 
             <div className="book-quote-divider" />
 
             <blockquote>
-                The core argument of this book is that African Americans were
-                unconstitutionally denied the means and the right to integration in
-                middle-class neighborhoods.
+              The core argument of this book is that African Americans were
+              unconstitutionally denied the means and the right to integration in
+              middle-class neighborhoods.
             </blockquote>
 
             <ul className="book-quote-list">
-                <li>Access to housing shaped access to schools, jobs, and public services.</li>
-                <li>Transportation planning inherited these unequal geographies.</li>
-                <li>Equity analysis should ask who benefits from future investment.</li>
+              <li>Access to housing shaped access to schools, jobs, and public services.</li>
+              <li>Transportation planning inherited these unequal geographies.</li>
+              <li>Equity analysis should ask who benefits from future investment.</li>
             </ul>
 
             <p className="book-quote-source">
-                — Richard Rothstein, <em>The Color of Law</em>
+              — Richard Rothstein, <em>The Color of Law</em>
             </p>
-
-            </aside>
+          </aside>
 
           <div className="modal-chapter">
             <p className="chapter-kicker">02 / Housing Policy</p>
@@ -377,99 +505,99 @@ export default function SectionModal({ section, onClose }) {
             <h2>Infrastructure Is Never Neutral</h2>
 
             <p>
-                Transportation systems do more than move people. Decisions about where to
-                build highways, transit lines, sidewalks, and housing shape who can reach
-                jobs, schools, healthcare, and opportunity. Two influential urban thinkers
-                offer different perspectives on how infrastructure changes cities.
+              Transportation systems do more than move people. Decisions about where to
+              build highways, transit lines, sidewalks, and housing shape who can reach
+              jobs, schools, healthcare, and opportunity. Two influential urban thinkers
+              offer different perspectives on how infrastructure changes cities.
             </p>
 
             <div className="planning-quote">
-                <p className="planning-source">
+              <p className="planning-source">
                 Robert Caro, <em>The Power Broker</em>
-                </p>
+              </p>
 
-                <blockquote>
+              <blockquote>
                 "Robert Moses's highways, bridges, and parks were instruments of power."
-                </blockquote>
+              </blockquote>
 
-                <p>
+              <p>
                 Caro's work shows how transportation investments can redistribute
                 benefits and burdens unevenly across communities. Highways can increase
                 regional mobility while simultaneously dividing neighborhoods and
                 concentrating environmental, economic, and social costs.
-                </p>
+              </p>
             </div>
 
             <div className="planning-quote">
-                <p className="planning-source">
+              <p className="planning-source">
                 Jane Jacobs, <em>The Death and Life of Great American Cities</em>
-                </p>
+              </p>
 
-                <blockquote>
+              <blockquote>
                 "Cities have the capability of providing something for everybody, only
                 because, and only when, they are created by everybody."
-                </blockquote>
+              </blockquote>
 
-                <p>
+              <p>
                 Jacobs argued that vibrant neighborhoods depend on density, mixed land
                 uses, walkability, and connected streets. Her work helps explain why
                 successful transit systems rely not only on routes and vehicles, but on
                 the surrounding urban form and the destinations people can reach.
-                </p>
+              </p>
             </div>
 
             <p>
-                Together, these perspectives help frame Houston's transit challenges:
-                infrastructure decisions made decades ago continue to influence where
-                people live, how they travel, and who has access to opportunity today.
+              Together, these perspectives help frame Houston's transit challenges:
+              infrastructure decisions made decades ago continue to influence where
+              people live, how they travel, and who has access to opportunity today.
             </p>
-            </div>
+          </div>
 
           <aside className="book-quote-card red-card">
             <p className="quote-label">
-                <em>Arbitrary Lines</em>
+              <em>Arbitrary Lines</em>
             </p>
 
             <blockquote>
-                Land-use rules decide what kinds of places can exist.
+              Land-use rules decide what kinds of places can exist.
             </blockquote>
 
             <p className="quote-author">
-                — M. Nolan Gray, <em>Arbitrary Lines</em>
+              — M. Nolan Gray, <em>Arbitrary Lines</em>
             </p>
 
             <div className="quote-divider"></div>
 
             <p>
-                Gray argues that zoning and land-use regulations shape cities just as
-                powerfully as transportation investments. Rules about housing types,
-                density, parking requirements, and permitted land uses influence where
-                people can live and whether transit can operate effectively.
+              Gray argues that zoning and land-use regulations shape cities just as
+              powerfully as transportation investments. Rules about housing types,
+              density, parking requirements, and permitted land uses influence where
+              people can live and whether transit can operate effectively.
             </p>
 
             <ul className="quote-list">
-                <li>
+              <li>
                 Low-density development spreads destinations farther apart, making
                 frequent transit more difficult and expensive to provide.
-                </li>
+              </li>
 
-                <li>
+              <li>
                 Parking minimums and single-use zoning encourage automobile dependence
                 by separating homes, jobs, schools, and services.
-                </li>
+              </li>
 
-                <li>
+              <li>
                 Walkable, mixed-use neighborhoods create the concentration of people and
                 destinations that high-quality transit networks depend on.
-                </li>
+              </li>
             </ul>
 
             <p className="quote-conclusion">
-                Houston's transit challenges are not only about routes and service
-                frequency. They are also shaped by decades of land-use decisions that
-                influence where opportunity exists and how easily residents can reach it.
+              Houston's transit challenges are not only about routes and service
+              frequency. They are also shaped by decades of land-use decisions that
+              influence where opportunity exists and how easily residents can reach it.
             </p>
-            </aside>
+          </aside>
 
           <div className="modal-chapter">
             <p className="chapter-kicker">05 / Suburban Expansion</p>
@@ -502,36 +630,36 @@ export default function SectionModal({ section, onClose }) {
             <h2>Why This Matters for the Project</h2>
 
             <p>
-                Houston METRO is not simply a network of bus routes and rail lines. It is
-                a transportation system shaped by decades of housing policy, freeway
-                construction, land-use decisions, and uneven public investment.
+              Houston METRO is not simply a network of bus routes and rail lines. It is
+              a transportation system shaped by decades of housing policy, freeway
+              construction, land-use decisions, and uneven public investment.
             </p>
 
             <p>
-                The following sections combine GTFS service data, Census demographics,
-                ridership metrics, accessibility measures, and investment-priority scores
-                to examine how these historical decisions continue to influence transit
-                access today.
+              The following sections combine GTFS service data, Census demographics,
+              ridership metrics, accessibility measures, and investment-priority scores
+              to examine how these historical decisions continue to influence transit
+              access today.
             </p>
 
             <ul className="takeaway-list">
-                <li>Which neighborhoods have the strongest transit access?</li>
-                <li>Where do transit deserts overlap with populations that depend most on public transportation?</li>
-                <li>Which corridors offer the greatest opportunity for future investment?</li>
+              <li>Which neighborhoods have the strongest transit access?</li>
+              <li>Where do transit deserts overlap with populations that depend most on public transportation?</li>
+              <li>Which corridors offer the greatest opportunity for future investment?</li>
             </ul>
 
             <p>
-                By connecting historical context with present-day data, this project asks
-                not only where transit exists, but who can use it to reach opportunity.
+              By connecting historical context with present-day data, this project asks
+              not only where transit exists, but who can use it to reach opportunity.
             </p>
 
             <p className="source-note">
-                Context sources: Mapping Inequality, Rice University’s Baker Institute,
-                Economic Policy Institute, Segregation by Design, Houston Chronicle
-                archival reporting, and urban planning scholarship by Richard Rothstein,
-                Robert Caro, Jane Jacobs, and M. Nolan Gray.
+              Context sources: Mapping Inequality, Rice University’s Baker Institute,
+              Economic Policy Institute, Segregation by Design, Houston Chronicle
+              archival reporting, and urban planning scholarship by Richard Rothstein,
+              Robert Caro, Jane Jacobs, and M. Nolan Gray.
             </p>
-            </div>
+          </div>
         </section>
       </article>
     </div>

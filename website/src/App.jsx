@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import "./styles/main.css";
 
 const section1Img = `${import.meta.env.BASE_URL}images/section_1_img.jpg`;
+const section2Img = `${import.meta.env.BASE_URL}images/section_2_img.png`;
 
 const sections = [
   {
@@ -22,7 +23,10 @@ const sections = [
     number: "02",
     title: "Houston Transit Network",
     description:
-      "Explore METRO bus routes, rail lines, and transit centers in an interactive network map.",
+      "A systemwide look at METRO bus routes, rail lines, and transit centers.",
+    image: section2Img,
+    imageAlt:
+      "Preview map of the Houston METRO transit network",
   },
   {
     number: "03",
