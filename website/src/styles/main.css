@@ -1938,3 +1938,21 @@ body.modal-open {
     right: auto;
   }
 }
+
+.legend-park {
+  background: #f28c28;
+}
+
+.map-route[data-mode="park"] {
+  stroke-width: 3;
+  opacity: 0.9;
+}
+
+.map-route[data-mode="bus"] {
+  stroke-width: 2.2;
+}
+
+.map-route[data-mode^="rail"] {
+  stroke-width: 4;
+  opacity: 0.95;
+}

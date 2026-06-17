@@ -4,7 +4,6 @@ import * as d3 from "d3";
 const base = import.meta.env.BASE_URL;
 
 const routeFilterModes = ["all", "bus", "rail", "park"];
-const stopFilterModes = ["all", "bus", "rail", "park"];
 
 const areaLabels = [
   { name: "Downtown", coordinates: [-95.3698, 29.7604], radius: 0.035 },
@@ -34,17 +33,6 @@ function normalizeText(value) {
     .trim();
 }
 
-function getRouteMode(route) {
-  const text = normalizeText(`${route.name} ${route.longName} ${route.routeId}`);
-
-  if (text.includes("red")) return "rail-red";
-  if (text.includes("green")) return "rail-green";
-  if (text.includes("purple")) return "rail-purple";
-  if (text.includes("silver")) return "rail-silver";
-
-  return "bus";
-}
-
 function getRouteCategory(route) {
   const text = normalizeText(`${route.name} ${route.longName} ${route.routeId}`);
 
@@ -62,10 +50,24 @@ function getRouteCategory(route) {
     text.includes("park") ||
     text.includes("ride") ||
     text.includes("p&r") ||
+    text.includes("pr") ||
     text.includes("commuter")
   ) {
     return "park";
   }
+
+  return "bus";
+}
+
+function getRouteMode(route) {
+  const text = normalizeText(`${route.name} ${route.longName} ${route.routeId}`);
+  const category = getRouteCategory(route);
+
+  if (text.includes("red")) return "rail-red";
+  if (text.includes("green")) return "rail-green";
+  if (text.includes("purple")) return "rail-purple";
+  if (text.includes("silver")) return "rail-silver";
+  if (category === "park") return "park";
 
   return "bus";
 }
@@ -77,6 +79,7 @@ function getRouteColor(route) {
   if (mode === "rail-green") return "#1a9850";
   if (mode === "rail-purple") return "#7b3294";
   if (mode === "rail-silver") return "#8f9aa3";
+  if (mode === "park") return "#f28c28";
 
   return "#0055a4";
 }
@@ -89,35 +92,12 @@ function getStopMode(stop) {
   if (names.includes("green")) return "rail-green";
   if (names.includes("purple")) return "rail-purple";
   if (names.includes("silver")) return "rail-silver";
+  if (names.includes("park") || names.includes("ride") || names.includes("p&r")) return "park";
 
   if (types.includes("2")) return "rail";
   if (types.includes("3")) return "bus";
 
   return "stop";
-}
-
-function getStopCategory(stop) {
-  const text = normalizeText(`${stop.name} ${stop.routeNames} ${stop.routeTypes}`);
-
-  if (
-    text.includes("red") ||
-    text.includes("green") ||
-    text.includes("purple") ||
-    text.includes("silver") ||
-    text.includes("rail")
-  ) {
-    return "rail";
-  }
-
-  if (
-    text.includes("park") ||
-    text.includes("ride") ||
-    text.includes("p&r")
-  ) {
-    return "park";
-  }
-
-  return "bus";
 }
 
 function getStopColor(stop) {
@@ -128,6 +108,7 @@ function getStopColor(stop) {
   if (mode === "rail-purple") return "#7b3294";
   if (mode === "rail-silver") return "#8f9aa3";
   if (mode === "rail") return "#7b3294";
+  if (mode === "park") return "#f28c28";
   if (mode === "bus") return "#0055a4";
 
   return "#5f6b78";
@@ -186,11 +167,9 @@ export default function TransitNetworkMap() {
   const [showStreets, setShowStreets] = useState(true);
 
   const [routeFilterIndex, setRouteFilterIndex] = useState(0);
-  const [stopFilterIndex, setStopFilterIndex] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
 
   const routeFilter = routeFilterModes[routeFilterIndex];
-  const stopFilter = stopFilterModes[stopFilterIndex];
   const areaSearch = useMemo(() => findAreaSearch(searchTerm), [searchTerm]);
 
   useEffect(() => {
@@ -219,9 +198,7 @@ export default function TransitNetworkMap() {
 
         const coordinates = rows
           .map((row) => [
-            Number(
-              getValue(row, ["shape_pt_lon", "lon", "lng", "longitude"])
-            ),
+            Number(getValue(row, ["shape_pt_lon", "lon", "lng", "longitude"])),
             Number(getValue(row, ["shape_pt_lat", "lat", "latitude"])),
           ])
           .filter(([lon, lat]) => Number.isFinite(lon) && Number.isFinite(lat));
@@ -247,9 +224,7 @@ export default function TransitNetworkMap() {
       const stopFeatures = stopRows
         .map((row) => {
           const lat = Number(getValue(row, ["stop_lat", "lat", "latitude"]));
-          const lon = Number(
-            getValue(row, ["stop_lon", "lon", "lng", "longitude"])
-          );
+          const lon = Number(getValue(row, ["stop_lon", "lon", "lng", "longitude"]));
 
           return {
             id: getValue(row, ["stop_id", "id"]),
@@ -300,10 +275,6 @@ export default function TransitNetworkMap() {
     const isAreaSearch = Boolean(areaSearch);
 
     return stops.filter((stop) => {
-      const category = getStopCategory(stop);
-
-      if (stopFilter !== "all" && category !== stopFilter) return false;
-
       if (!term) return true;
 
       if (isAreaSearch) return stopTouchesArea(stop, areaSearch);
@@ -314,7 +285,7 @@ export default function TransitNetworkMap() {
 
       return searchable.includes(term);
     });
-  }, [stops, stopFilter, searchTerm, areaSearch]);
+  }, [stops, searchTerm, areaSearch]);
 
   const bounds = useMemo(() => {
     const points = [
@@ -442,7 +413,9 @@ export default function TransitNetworkMap() {
 
       g.selectAll(".map-route").attr("stroke-width", (route) => {
         const mode = getRouteMode(route);
-        const baseWidth = mode === "bus" ? 2.1 : 3.4;
+        const baseWidth =
+          mode === "park" ? 2.9 : mode === "bus" ? 2.1 : 3.4;
+
         return Math.max(0.65, baseWidth / Math.sqrt(k));
       });
 
@@ -497,23 +470,6 @@ export default function TransitNetworkMap() {
               : routeFilter === "rail"
               ? "Show Rail Lines"
               : "Show Park & Ride"}
-          </button>
-
-          <button
-            type="button"
-            onClick={() =>
-              setStopFilterIndex(
-                (index) => (index + 1) % stopFilterModes.length
-              )
-            }
-          >
-            {stopFilter === "all"
-              ? "Show All Stops"
-              : stopFilter === "bus"
-              ? "Show Bus Stops"
-              : stopFilter === "rail"
-              ? "Show Rail Stops"
-              : "Show Park & Ride Stops"}
           </button>
 
           <button type="button" onClick={() => setShowStops((value) => !value)}>
@@ -581,7 +537,11 @@ export default function TransitNetworkMap() {
         <div className="map-legend">
           <div>
             <span className="legend-line legend-bus"></span>
-            Bus route
+            Local bus route
+          </div>
+          <div>
+            <span className="legend-line legend-park"></span>
+            Park & Ride route
           </div>
           <div>
             <span className="legend-line legend-red"></span>
@@ -642,8 +602,8 @@ export default function TransitNetworkMap() {
               <p>Map Hint</p>
               <h4>Click a route</h4>
               <span>
-                Use the route and stop filters to reduce clutter. Stops are
-                hidden by default.
+                Use the route filter to reduce clutter. Stops are hidden by
+                default.
               </span>
             </>
           )}
@@ -653,8 +613,8 @@ export default function TransitNetworkMap() {
       <p className="map-caption">
         This GTFS-based map shows Houston METRO routes, optional stop locations,
         Harris County tract boundaries, and low-opacity street centerlines. Use
-        the filters to isolate bus routes, rail lines, park-and-ride service, or
-        specific stops and routes.
+        the filters to isolate local bus routes, rail lines, park-and-ride
+        routes, or specific stops and routes.
       </p>
     </>
   );
