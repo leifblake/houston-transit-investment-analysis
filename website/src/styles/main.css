@@ -1402,7 +1402,7 @@ body.modal-open {
   margin: 0;
   max-width: 16.5rem;
   padding: 0;
-  transform: translateX(-0.65rem);
+  transform: translateX(-0.45rem);
   font-family: "Oswald", Impact, sans-serif;
   font-size: clamp(2rem, 3vw, 3.2rem);
   line-height: 1.05;
