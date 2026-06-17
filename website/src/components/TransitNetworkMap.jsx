@@ -3,6 +3,18 @@ import * as d3 from "d3";
 
 const base = import.meta.env.BASE_URL;
 
+const areaLabels = [
+  { name: "Downtown", coordinates: [-95.3698, 29.7604] },
+  { name: "Midtown", coordinates: [-95.3766, 29.7422] },
+  { name: "Medical Center", coordinates: [-95.3975, 29.7079] },
+  { name: "Uptown / Galleria", coordinates: [-95.4613, 29.7390] },
+  { name: "East End", coordinates: [-95.3267, 29.7430] },
+  { name: "Third Ward", coordinates: [-95.3535, 29.7275] },
+  { name: "Northline", coordinates: [-95.3980, 29.8508] },
+  { name: "Westchase", coordinates: [-95.5594, 29.7336] },
+  { name: "Greenspoint", coordinates: [-95.4136, 29.9441] },
+];
+
 function getValue(row, names) {
   for (const name of names) {
     if (row[name] !== undefined && row[name] !== "") return row[name];
@@ -33,13 +45,39 @@ function parseGeometry(row) {
   return null;
 }
 
+function getRouteMode(route) {
+  const name = `${route.name} ${route.longName} ${route.routeId}`.toLowerCase();
+
+  if (name.includes("red")) return "rail-red";
+  if (name.includes("green")) return "rail-green";
+  if (name.includes("purple")) return "rail-purple";
+  if (name.includes("silver")) return "rail-silver";
+
+  return "bus";
+}
+
+function getRouteColor(route) {
+  const mode = getRouteMode(route);
+
+  if (mode === "rail-red") return "#ed1b2f";
+  if (mode === "rail-green") return "#1a9850";
+  if (mode === "rail-purple") return "#7b3294";
+  if (mode === "rail-silver") return "#8f9aa3";
+
+  return "#0055a4";
+}
+
 export default function TransitNetworkMap() {
   const svgRef = useRef(null);
   const [routes, setRoutes] = useState([]);
   const [stops, setStops] = useState([]);
   const [selectedRoute, setSelectedRoute] = useState(null);
-  const [showStops, setShowStops] = useState(true);
+  const [hoveredStop, setHoveredStop] = useState(null);
+  const [hoveredRoute, setHoveredRoute] = useState(null);
+  const [tooltip, setTooltip] = useState(null);
+  const [showStops, setShowStops] = useState(false);
   const [showRoutes, setShowRoutes] = useState(true);
+  const [showLabels, setShowLabels] = useState(true);
 
   useEffect(() => {
     async function loadData() {
@@ -66,7 +104,8 @@ export default function TransitNetworkMap() {
         });
 
         coordinates = coordinates.filter(
-          ([lon, lat]) => Number.isFinite(Number(lon)) && Number.isFinite(Number(lat))
+          ([lon, lat]) =>
+            Number.isFinite(Number(lon)) && Number.isFinite(Number(lat))
         );
 
         return {
@@ -91,7 +130,11 @@ export default function TransitNetworkMap() {
             coordinates: [lon, lat],
           };
         })
-        .filter((stop) => Number.isFinite(stop.coordinates[0]) && Number.isFinite(stop.coordinates[1]));
+        .filter(
+          (stop) =>
+            Number.isFinite(stop.coordinates[0]) &&
+            Number.isFinite(stop.coordinates[1])
+        );
 
       setRoutes(routeFeatures);
       setStops(stopFeatures);
@@ -134,16 +177,6 @@ export default function TransitNetworkMap() {
 
     const g = svg.append("g");
 
-    const routeColor = (route) => {
-      const name = String(route.name).toLowerCase();
-
-      if (name.includes("red")) return "#ed1b2f";
-      if (name.includes("green")) return "#1a9850";
-      if (name.includes("purple")) return "#7b3294";
-      if (name.includes("silver")) return "#8f9aa3";
-      return "#0055a4";
-    };
-
     if (showRoutes) {
       g.selectAll(".map-route")
         .data(routes)
@@ -158,7 +191,21 @@ export default function TransitNetworkMap() {
             },
           })
         )
-        .attr("stroke", routeColor)
+        .attr("stroke", getRouteColor)
+        .attr("data-mode", (route) => getRouteMode(route))
+        .on("mousemove", (event, route) => {
+          setHoveredRoute(route);
+          setTooltip({
+            x: event.offsetX,
+            y: event.offsetY,
+            label: `Route ${route.name}`,
+            detail: route.longName || "Houston METRO route",
+          });
+        })
+        .on("mouseleave", () => {
+          setHoveredRoute(null);
+          setTooltip(null);
+        })
         .on("click", (_, route) => setSelectedRoute(route));
     }
 
@@ -169,17 +216,44 @@ export default function TransitNetworkMap() {
         .attr("class", "map-stop")
         .attr("cx", (stop) => projection(stop.coordinates)?.[0])
         .attr("cy", (stop) => projection(stop.coordinates)?.[1])
-        .attr("r", 1.8);
+        .attr("r", 2)
+        .on("mousemove", (event, stop) => {
+          setHoveredStop(stop);
+          setTooltip({
+            x: event.offsetX,
+            y: event.offsetY,
+            label: stop.name,
+            detail: stop.id ? `Stop ID: ${stop.id}` : "METRO stop",
+          });
+        })
+        .on("mouseleave", () => {
+          setHoveredStop(null);
+          setTooltip(null);
+        });
+    }
+
+    if (showLabels) {
+      g.selectAll(".area-label")
+        .data(areaLabels)
+        .join("text")
+        .attr("class", "area-label")
+        .attr("x", (label) => projection(label.coordinates)?.[0])
+        .attr("y", (label) => projection(label.coordinates)?.[1])
+        .text((label) => label.name);
     }
 
     const zoom = d3.zoom().scaleExtent([1, 12]).on("zoom", (event) => {
       g.attr("transform", event.transform);
+
       g.selectAll(".map-route").attr("stroke-width", 2.4 / event.transform.k);
-      g.selectAll(".map-stop").attr("r", Math.max(0.9, 1.8 / event.transform.k));
+      g.selectAll(".map-stop").attr("r", Math.max(1, 2 / event.transform.k));
+      g.selectAll(".area-label").attr("font-size", Math.max(8, 13 / event.transform.k));
     });
 
     svg.call(zoom);
-  }, [bounds, routes, stops, showRoutes, showStops]);
+  }, [bounds, routes, stops, showRoutes, showStops, showLabels]);
+
+  const activeDetail = selectedRoute || hoveredRoute;
 
   return (
     <div className="transit-network-map">
@@ -191,6 +265,10 @@ export default function TransitNetworkMap() {
         <button type="button" onClick={() => setShowStops((value) => !value)}>
           {showStops ? "Hide Stops" : "Show Stops"}
         </button>
+
+        <button type="button" onClick={() => setShowLabels((value) => !value)}>
+          {showLabels ? "Hide Labels" : "Show Labels"}
+        </button>
       </div>
 
       <svg
@@ -200,21 +278,70 @@ export default function TransitNetworkMap() {
         aria-label="Interactive Houston METRO route and stop map"
       />
 
+      {tooltip && (
+        <div
+          className="map-tooltip"
+          style={{
+            left: tooltip.x,
+            top: tooltip.y,
+          }}
+        >
+          <strong>{tooltip.label}</strong>
+          <span>{tooltip.detail}</span>
+        </div>
+      )}
+
+      <div className="map-legend">
+        <div>
+          <span className="legend-line legend-bus"></span>
+          Bus route
+        </div>
+        <div>
+          <span className="legend-line legend-red"></span>
+          Red rail
+        </div>
+        <div>
+          <span className="legend-line legend-green"></span>
+          Green rail
+        </div>
+        <div>
+          <span className="legend-line legend-purple"></span>
+          Purple rail
+        </div>
+        <div>
+          <span className="legend-dot"></span>
+          Stop
+        </div>
+      </div>
+
       <div className="map-detail-card">
-        {selectedRoute ? (
+        {hoveredStop ? (
+          <>
+            <p>Selected Stop</p>
+            <h4>{hoveredStop.name}</h4>
+            <span>{hoveredStop.id ? `Stop ID: ${hoveredStop.id}` : "Houston METRO stop"}</span>
+          </>
+        ) : activeDetail ? (
           <>
             <p>Selected Route</p>
-            <h4>{selectedRoute.name}</h4>
-            <span>{selectedRoute.longName || "Houston METRO route"}</span>
+            <h4>{activeDetail.name}</h4>
+            <span>{activeDetail.longName || "Houston METRO route"}</span>
           </>
         ) : (
           <>
             <p>Map Hint</p>
             <h4>Click a route</h4>
-            <span>Use scroll or trackpad to zoom and drag to pan.</span>
+            <span>Stops are hidden by default. Turn them on to inspect stop locations.</span>
           </>
         )}
       </div>
+
+      <p className="map-caption">
+        This GTFS-based map shows Houston METRO route geometry across the region.
+        Blue lines represent bus routes unless a rail color is detected in the
+        route name. Area labels are approximate reference points added to help
+        orient the reader.
+      </p>
     </div>
   );
 }
