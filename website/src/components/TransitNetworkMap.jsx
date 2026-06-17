@@ -3,16 +3,21 @@ import * as d3 from "d3";
 
 const base = import.meta.env.BASE_URL;
 
+const routeFilterModes = ["all", "bus", "rail", "park"];
+const stopFilterModes = ["all", "bus", "rail", "park"];
+
 const areaLabels = [
-  { name: "Downtown", coordinates: [-95.3698, 29.7604] },
-  { name: "Midtown", coordinates: [-95.3766, 29.7422] },
-  { name: "Medical Center", coordinates: [-95.3975, 29.7079] },
-  { name: "Uptown / Galleria", coordinates: [-95.4613, 29.739] },
-  { name: "East End", coordinates: [-95.3267, 29.743] },
-  { name: "Third Ward", coordinates: [-95.3535, 29.7275] },
-  { name: "Northline", coordinates: [-95.398, 29.8508] },
-  { name: "Westchase", coordinates: [-95.5594, 29.7336] },
-  { name: "Greenspoint", coordinates: [-95.4136, 29.9441] },
+  { name: "Downtown", coordinates: [-95.3698, 29.7604], radius: 0.035 },
+  { name: "Midtown", coordinates: [-95.3766, 29.7422], radius: 0.028 },
+  { name: "Medical Center", coordinates: [-95.3975, 29.7079], radius: 0.035 },
+  { name: "Uptown / Galleria", coordinates: [-95.4613, 29.739], radius: 0.04 },
+  { name: "East End", coordinates: [-95.3267, 29.743], radius: 0.045 },
+  { name: "Third Ward", coordinates: [-95.3535, 29.7275], radius: 0.035 },
+  { name: "Northline", coordinates: [-95.398, 29.8508], radius: 0.04 },
+  { name: "Westchase", coordinates: [-95.5594, 29.7336], radius: 0.05 },
+  { name: "Greenspoint", coordinates: [-95.4136, 29.9441], radius: 0.05 },
+  { name: "University of Houston", coordinates: [-95.3422, 29.7199], radius: 0.035 },
+  { name: "Bellaire", coordinates: [-95.4597, 29.7058], radius: 0.04 },
 ];
 
 function getValue(row, names) {
@@ -22,13 +27,45 @@ function getValue(row, names) {
   return "";
 }
 
+function normalizeText(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\s/&-]/g, "")
+    .trim();
+}
+
 function getRouteMode(route) {
-  const text = `${route.name} ${route.longName} ${route.routeId}`.toLowerCase();
+  const text = normalizeText(`${route.name} ${route.longName} ${route.routeId}`);
 
   if (text.includes("red")) return "rail-red";
   if (text.includes("green")) return "rail-green";
   if (text.includes("purple")) return "rail-purple";
   if (text.includes("silver")) return "rail-silver";
+
+  return "bus";
+}
+
+function getRouteCategory(route) {
+  const text = normalizeText(`${route.name} ${route.longName} ${route.routeId}`);
+
+  if (
+    text.includes("red") ||
+    text.includes("green") ||
+    text.includes("purple") ||
+    text.includes("silver") ||
+    String(route.type) === "2"
+  ) {
+    return "rail";
+  }
+
+  if (
+    text.includes("park") ||
+    text.includes("ride") ||
+    text.includes("p&r") ||
+    text.includes("commuter")
+  ) {
+    return "park";
+  }
 
   return "bus";
 }
@@ -46,7 +83,7 @@ function getRouteColor(route) {
 
 function getStopMode(stop) {
   const types = String(stop.routeTypes || "");
-  const names = String(stop.routeNames || "").toLowerCase();
+  const names = normalizeText(stop.routeNames);
 
   if (names.includes("red")) return "rail-red";
   if (names.includes("green")) return "rail-green";
@@ -57,6 +94,30 @@ function getStopMode(stop) {
   if (types.includes("3")) return "bus";
 
   return "stop";
+}
+
+function getStopCategory(stop) {
+  const text = normalizeText(`${stop.name} ${stop.routeNames} ${stop.routeTypes}`);
+
+  if (
+    text.includes("red") ||
+    text.includes("green") ||
+    text.includes("purple") ||
+    text.includes("silver") ||
+    text.includes("rail")
+  ) {
+    return "rail";
+  }
+
+  if (
+    text.includes("park") ||
+    text.includes("ride") ||
+    text.includes("p&r")
+  ) {
+    return "park";
+  }
+
+  return "bus";
 }
 
 function getStopColor(stop) {
@@ -70,6 +131,41 @@ function getStopColor(stop) {
   if (mode === "bus") return "#0055a4";
 
   return "#5f6b78";
+}
+
+function distanceBetween(pointA, pointB) {
+  const lonDistance = pointA[0] - pointB[0];
+  const latDistance = pointA[1] - pointB[1];
+
+  return Math.sqrt(lonDistance * lonDistance + latDistance * latDistance);
+}
+
+function findAreaSearch(searchTerm) {
+  const normalizedTerm = normalizeText(searchTerm);
+
+  if (!normalizedTerm) return null;
+
+  return areaLabels.find((area) => {
+    const normalizedArea = normalizeText(area.name);
+    return (
+      normalizedArea.includes(normalizedTerm) ||
+      normalizedTerm.includes(normalizedArea)
+    );
+  });
+}
+
+function routeTouchesArea(route, area) {
+  if (!area) return true;
+
+  return route.coordinates.some(
+    (coordinate) => distanceBetween(coordinate, area.coordinates) <= area.radius
+  );
+}
+
+function stopTouchesArea(stop, area) {
+  if (!area) return true;
+
+  return distanceBetween(stop.coordinates, area.coordinates) <= area.radius;
 }
 
 export default function TransitNetworkMap() {
@@ -86,9 +182,16 @@ export default function TransitNetworkMap() {
   const [tooltip, setTooltip] = useState(null);
 
   const [showStops, setShowStops] = useState(false);
-  const [showRoutes, setShowRoutes] = useState(true);
   const [showLabels, setShowLabels] = useState(true);
   const [showStreets, setShowStreets] = useState(true);
+
+  const [routeFilterIndex, setRouteFilterIndex] = useState(0);
+  const [stopFilterIndex, setStopFilterIndex] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const routeFilter = routeFilterModes[routeFilterIndex];
+  const stopFilter = stopFilterModes[stopFilterIndex];
+  const areaSearch = useMemo(() => findAreaSearch(searchTerm), [searchTerm]);
 
   useEffect(() => {
     async function loadData() {
@@ -171,6 +274,48 @@ export default function TransitNetworkMap() {
     loadData();
   }, []);
 
+  const filteredRoutes = useMemo(() => {
+    const term = normalizeText(searchTerm);
+    const isAreaSearch = Boolean(areaSearch);
+
+    return routes.filter((route) => {
+      const category = getRouteCategory(route);
+
+      if (routeFilter !== "all" && category !== routeFilter) return false;
+
+      if (!term) return true;
+
+      if (isAreaSearch) return routeTouchesArea(route, areaSearch);
+
+      const searchable = normalizeText(
+        `${route.name} ${route.longName} ${route.routeId}`
+      );
+
+      return searchable.includes(term);
+    });
+  }, [routes, routeFilter, searchTerm, areaSearch]);
+
+  const filteredStops = useMemo(() => {
+    const term = normalizeText(searchTerm);
+    const isAreaSearch = Boolean(areaSearch);
+
+    return stops.filter((stop) => {
+      const category = getStopCategory(stop);
+
+      if (stopFilter !== "all" && category !== stopFilter) return false;
+
+      if (!term) return true;
+
+      if (isAreaSearch) return stopTouchesArea(stop, areaSearch);
+
+      const searchable = normalizeText(
+        `${stop.name} ${stop.routeNames} ${stop.id}`
+      );
+
+      return searchable.includes(term);
+    });
+  }, [stops, stopFilter, searchTerm, areaSearch]);
+
   const bounds = useMemo(() => {
     const points = [
       ...routes.flatMap((route) => route.coordinates),
@@ -222,41 +367,39 @@ export default function TransitNetworkMap() {
         .attr("d", path);
     }
 
-    if (showRoutes) {
-      g.selectAll(".map-route")
-        .data(routes)
-        .join("path")
-        .attr("class", "map-route")
-        .attr("d", (route) =>
-          path({
-            type: "Feature",
-            geometry: {
-              type: "LineString",
-              coordinates: route.coordinates,
-            },
-          })
-        )
-        .attr("stroke", getRouteColor)
-        .attr("data-mode", (route) => getRouteMode(route))
-        .on("mousemove", (event, route) => {
-          setHoveredRoute(route);
-          setTooltip({
-            x: event.offsetX,
-            y: event.offsetY,
-            label: `Route ${route.name}`,
-            detail: route.longName || "Houston METRO route",
-          });
+    g.selectAll(".map-route")
+      .data(filteredRoutes)
+      .join("path")
+      .attr("class", "map-route")
+      .attr("d", (route) =>
+        path({
+          type: "Feature",
+          geometry: {
+            type: "LineString",
+            coordinates: route.coordinates,
+          },
         })
-        .on("mouseleave", () => {
-          setHoveredRoute(null);
-          setTooltip(null);
-        })
-        .on("click", (_, route) => setSelectedRoute(route));
-    }
+      )
+      .attr("stroke", getRouteColor)
+      .attr("data-mode", (route) => getRouteMode(route))
+      .on("mousemove", (event, route) => {
+        setHoveredRoute(route);
+        setTooltip({
+          x: event.offsetX,
+          y: event.offsetY,
+          label: `Route ${route.name}`,
+          detail: route.longName || "Houston METRO route",
+        });
+      })
+      .on("mouseleave", () => {
+        setHoveredRoute(null);
+        setTooltip(null);
+      })
+      .on("click", (_, route) => setSelectedRoute(route));
 
     if (showStops) {
       g.selectAll(".map-stop")
-        .data(stops)
+        .data(filteredStops)
         .join("circle")
         .attr("class", "map-stop")
         .attr("cx", (stop) => projection(stop.coordinates)?.[0])
@@ -324,10 +467,10 @@ export default function TransitNetworkMap() {
   }, [
     bounds,
     routes,
-    stops,
+    filteredRoutes,
+    filteredStops,
     streets,
     tracts,
-    showRoutes,
     showStops,
     showLabels,
     showStreets,
@@ -339,12 +482,42 @@ export default function TransitNetworkMap() {
     <>
       <div className="transit-network-map">
         <div className="map-toolbar">
-          <button type="button" onClick={() => setShowRoutes((value) => !value)}>
-            {showRoutes ? "Hide Routes" : "Show Routes"}
+          <button
+            type="button"
+            onClick={() =>
+              setRouteFilterIndex(
+                (index) => (index + 1) % routeFilterModes.length
+              )
+            }
+          >
+            {routeFilter === "all"
+              ? "Show All Routes"
+              : routeFilter === "bus"
+              ? "Show Bus Routes"
+              : routeFilter === "rail"
+              ? "Show Rail Lines"
+              : "Show Park & Ride"}
+          </button>
+
+          <button
+            type="button"
+            onClick={() =>
+              setStopFilterIndex(
+                (index) => (index + 1) % stopFilterModes.length
+              )
+            }
+          >
+            {stopFilter === "all"
+              ? "Show All Stops"
+              : stopFilter === "bus"
+              ? "Show Bus Stops"
+              : stopFilter === "rail"
+              ? "Show Rail Stops"
+              : "Show Park & Ride Stops"}
           </button>
 
           <button type="button" onClick={() => setShowStops((value) => !value)}>
-            {showStops ? "Show Stops" : "Hide Stops"}
+            {showStops ? "Hide Stops" : "Show Stops"}
           </button>
 
           <button type="button" onClick={() => setShowLabels((value) => !value)}>
@@ -354,6 +527,38 @@ export default function TransitNetworkMap() {
           <button type="button" onClick={() => setShowStreets((value) => !value)}>
             {showStreets ? "Hide Streets" : "Show Streets"}
           </button>
+        </div>
+
+        <div className="map-search">
+          <input
+            type="search"
+            value={searchTerm}
+            onChange={(event) => {
+              setSearchTerm(event.target.value);
+              setSelectedRoute(null);
+              setHoveredStop(null);
+              setHoveredRoute(null);
+              setTooltip(null);
+            }}
+            placeholder="Search route, stop, or area..."
+            aria-label="Search route, stop, or area"
+          />
+
+          {searchTerm && (
+            <button
+              type="button"
+              onClick={() => {
+                setSearchTerm("");
+                setSelectedRoute(null);
+                setHoveredStop(null);
+                setHoveredRoute(null);
+                setTooltip(null);
+              }}
+              aria-label="Clear map search"
+            >
+              ×
+            </button>
+          )}
         </div>
 
         <svg
@@ -417,13 +622,28 @@ export default function TransitNetworkMap() {
               <h4>{activeDetail.name}</h4>
               <span>{activeDetail.longName || "Houston METRO route"}</span>
             </>
+          ) : searchTerm ? (
+            <>
+              <p>Search Active</p>
+              <h4>{areaSearch ? areaSearch.name : searchTerm}</h4>
+              <span>
+                Showing {filteredRoutes.length} route
+                {filteredRoutes.length === 1 ? "" : "s"}
+                {showStops
+                  ? ` and ${filteredStops.length} stop${
+                      filteredStops.length === 1 ? "" : "s"
+                    }`
+                  : ""}
+                .
+              </span>
+            </>
           ) : (
             <>
               <p>Map Hint</p>
               <h4>Click a route</h4>
               <span>
-                Stops are hidden by default. Turn them on to inspect stop
-                locations.
+                Use the route and stop filters to reduce clutter. Stops are
+                hidden by default.
               </span>
             </>
           )}
@@ -432,8 +652,9 @@ export default function TransitNetworkMap() {
 
       <p className="map-caption">
         This GTFS-based map shows Houston METRO routes, optional stop locations,
-        Harris County tract boundaries, and low-opacity street centerlines. Area
-        labels are approximate reference points.
+        Harris County tract boundaries, and low-opacity street centerlines. Use
+        the filters to isolate bus routes, rail lines, park-and-ride service, or
+        specific stops and routes.
       </p>
     </>
   );
