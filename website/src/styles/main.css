@@ -1868,3 +1868,26 @@ body.modal-open {
 .legend-street {
   background: rgba(7, 27, 51, 0.28);
 }
+
+.map-toolbar button,
+.map-toolbar button:nth-child(3),
+.map-toolbar button:nth-child(4) {
+  background: var(--metro-blue);
+}
+
+.map-route {
+  vector-effect: non-scaling-stroke;
+}
+
+.street-line,
+.tract-line {
+  vector-effect: non-scaling-stroke;
+}
+
+.map-stop {
+  vector-effect: non-scaling-stroke;
+}
+
+.area-label {
+  vector-effect: non-scaling-stroke;
+}

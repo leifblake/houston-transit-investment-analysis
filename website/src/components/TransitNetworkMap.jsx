@@ -274,12 +274,33 @@ export default function TransitNetworkMap() {
     }
 
     const zoom = d3.zoom().scaleExtent([1, 12]).on("zoom", (event) => {
+      const k = event.transform.k;
+
       g.attr("transform", event.transform);
-      g.selectAll(".map-route").attr("stroke-width", 2.2 / event.transform.k);
-      g.selectAll(".map-stop").attr("r", Math.max(1, 2.1 / event.transform.k));
-      g.selectAll(".area-label").attr("font-size", Math.max(8, 13 / event.transform.k));
-      g.selectAll(".street-line").attr("stroke-width", 0.5 / event.transform.k);
-      g.selectAll(".tract-line").attr("stroke-width", 0.55 / event.transform.k);
+
+      g.selectAll(".map-route")
+        .attr("stroke-width", (route) => {
+          const mode = getRouteMode(route);
+          const baseWidth = mode === "bus" ? 2.1 : 3.2;
+          return Math.max(0.7, baseWidth / Math.sqrt(k));
+        });
+
+      g.selectAll(".map-stop")
+        .attr("r", Math.max(0.75, 2.1 / Math.sqrt(k)))
+        .attr("stroke-width", Math.max(0.25, 0.55 / Math.sqrt(k)));
+
+      g.selectAll(".area-label")
+        .attr("font-size", Math.max(5.5, 13 / Math.sqrt(k)))
+        .attr("stroke-width", Math.max(1.4, 5 / Math.sqrt(k)))
+        .attr("opacity", k > 7 ? 0.45 : 0.88);
+
+      g.selectAll(".street-line")
+        .attr("stroke-width", Math.max(0.18, 0.5 / Math.sqrt(k)))
+        .attr("opacity", k > 6 ? 0.18 : 0.28);
+
+      g.selectAll(".tract-line")
+        .attr("stroke-width", Math.max(0.18, 0.55 / Math.sqrt(k)))
+        .attr("opacity", k > 6 ? 0.08 : 0.16);
     });
 
     svg.call(zoom);
