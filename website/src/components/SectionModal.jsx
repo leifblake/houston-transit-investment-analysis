@@ -406,11 +406,11 @@ export default function SectionModal({ section, onClose }) {
 
             <div className="network-hero-card">
               <span>Transit Desert Analysis</span>
-              <h3>Population density, service access, and unmet mobility need</h3>
+              <h3>High need, low access, and uneven mobility</h3>
               <p>
-                This section combines Census demographics with transit network
-                data to identify places where many residents live but access to
-                transit remains limited.
+                This section compares transit access with demographic need. The
+                goal is not just to ask where transit exists, but where limited
+                service overlaps with residents who may depend on transit most.
               </p>
             </div>
           </header>
@@ -421,17 +421,19 @@ export default function SectionModal({ section, onClose }) {
               <h2>Finding the Places Transit Underserves</h2>
 
               <p>
-                Transit deserts emerge when high population need overlaps with
-                limited transit access. These areas may have long walks to
-                stops, infrequent service, weak connections to major
-                destinations, or limited opportunities to transfer between
-                routes.
+                Transit deserts emerge when high transportation need overlaps
+                with limited transit access. In this version of the analysis,
+                need includes population density, poverty, no-vehicle
+                households, and race/ethnicity patterns, while access is based
+                on nearby stops, route coverage, and distance to non-Park & Ride
+                transit.
               </p>
 
               <p>
-                Identifying these gaps helps move beyond simply mapping where
-                transit exists. The goal is to understand where the network
-                provides meaningful access—and where it falls short.
+                The framework is intentionally simple: <strong>High Need + Low
+                Access = Transit Desert</strong>. Users can switch between the
+                Transit Desert Score, Transit Access Score, and Transit Need
+                Score to see how the final pattern is constructed.
               </p>
             </div>
 
@@ -439,8 +441,7 @@ export default function SectionModal({ section, onClose }) {
               <div className="network-map-header">
                 <span>Transit Desert Map</span>
                 <p>
-                  Harris County tracts + population density + route proximity +
-                  stop access
+                  Census tracts + demographic need + local bus/rail access
                 </p>
               </div>
 
@@ -449,53 +450,88 @@ export default function SectionModal({ section, onClose }) {
               </div>
 
               <p className="map-caption section-three-caption">
-                This map compares Harris County tract population density with
-                proximity to METRO stops and routes. Darker red areas represent
-                places where population need and limited transit access overlap.
+                Census tracts are statistical neighborhoods defined by the U.S.
+                Census Bureau. While tract boundaries are not based on race,
+                historical housing policy, freeway construction, and patterns of
+                segregation have influenced the demographic composition of many
+                Houston neighborhoods. This map uses those tracts to compare
+                demographic need with local bus and rail access; Park & Ride
+                service is excluded because it primarily serves commuter trips
+                that usually begin with access to a car.
               </p>
             </div>
 
             <aside className="network-info-card">
-              <p className="chapter-kicker">01 / Population Need</p>
-              <h3>Where Many People Live</h3>
+              <p className="chapter-kicker">01 / Census Geography</p>
+              <h3>Why the Tracts Look Uneven</h3>
 
               <p>
-                Transit deserts matter most where many residents depend on
-                nearby service to reach jobs, school, healthcare, groceries, and
-                other daily destinations.
+                Census tracts are designed for population analysis, not equal
+                land area. Dense urban neighborhoods tend to have smaller
+                tracts, while suburban or lower-density areas often appear much
+                larger on the map.
+              </p>
+
+              <p>
+                The shapes may look irregular, but they allow demographic
+                measures such as poverty, race/ethnicity, household vehicle
+                access, and population density to be compared across Houston.
               </p>
             </aside>
 
             <aside className="network-info-card">
-              <p className="chapter-kicker">02 / Transit Access</p>
-              <h3>Where Service Is Limited</h3>
+              <p className="chapter-kicker">02 / Transportation Need</p>
+              <h3>Who May Depend on Transit Most?</h3>
 
               <p>
-                Access can be constrained by long walking distances to stops,
-                low route frequency, weak transfers, or routes that do not
-                connect well to major destinations.
+                The Transit Need Score includes population density, poverty
+                rate, no-vehicle households, and people of color rate. These
+                measures help identify places where transit access may matter
+                most for daily mobility.
+              </p>
+
+              <p>
+                This does not mean every resident in a high-need tract relies on
+                transit. Instead, it identifies where limited service could
+                create larger barriers to jobs, education, healthcare, and
+                essential trips.
               </p>
             </aside>
 
             <aside className="network-info-card">
-              <p className="chapter-kicker">03 / Gap Areas</p>
-              <h3>Where Gaps Appear</h3>
+              <p className="chapter-kicker">03 / Transit Access</p>
+              <h3>What Counts as Useful Access?</h3>
 
               <p>
-                Transit deserts occur when high population need and weak transit
-                coverage overlap. These locations become important candidates
-                for future investment.
+                Access is measured using nearby non-Park & Ride stops, route
+                coverage, and distance to the nearest METRO stop. Local bus and
+                rail service are included because they are more directly usable
+                by residents without needing a car.
+              </p>
+
+              <p>
+                Park & Ride routes are removed from this map because they are
+                designed mainly for commuters who can drive to a lot before
+                boarding. They are important regionally, but they do not measure
+                walk-up neighborhood access in the same way.
               </p>
             </aside>
 
             <aside className="network-info-card">
-              <p className="chapter-kicker">04 / Equity Impact</p>
-              <h3>Why This Matters</h3>
+              <p className="chapter-kicker">04 / Equity Question</p>
+              <h3>Where Do Need and Access Diverge?</h3>
 
               <p>
-                Identifying transit deserts helps reveal where new routes,
-                improved frequency, safer walksheds, or stronger transfer
-                connections could have the greatest public benefit.
+                The most important places are not simply the densest tracts or
+                the places farthest from transit. They are areas where
+                demographic need is high and transit access is comparatively
+                weak.
+              </p>
+
+              <p>
+                If high-need communities have weaker access than lower-need
+                areas with similar population levels, that pattern raises a
+                deeper equity question for future investment decisions.
               </p>
             </aside>
 
@@ -505,12 +541,22 @@ export default function SectionModal({ section, onClose }) {
               <p>
                 Transit desert analysis helps move the project from describing
                 the network to identifying where investment could matter most.
+                It connects service geography with who lives in each place.
               </p>
 
               <p>
-                By comparing population density with transit proximity and
-                service coverage, this section highlights places where future
-                improvements may have the largest equity impact.
+                By separating Transit Access from Transit Need, the map makes
+                the final Transit Desert Score easier to interpret. A high
+                desert score suggests a tract where future improvements may have
+                a larger equity impact because limited transit access overlaps
+                with stronger indicators of transportation need.
+              </p>
+
+              <p>
+                This framework also supports later investment recommendations:
+                new frequency, safer walksheds, stronger transfer points, or
+                route changes can be prioritized where they would improve access
+                for communities with the greatest mobility barriers.
               </p>
             </div>
           </section>
