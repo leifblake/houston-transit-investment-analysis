@@ -1957,85 +1957,7 @@ body.modal-open {
   opacity: 0.95;
 }
 
-/* SECTION 3: TRANSIT DESERTS */
-
-.desert-map-panel {
-  grid-column: span 2;
-  padding: clamp(1.35rem, 2.5vw, 2.25rem);
-  border-radius: 22px;
-  background: rgba(255, 250, 240, 0.82);
-  border: 1px solid var(--line);
-  box-shadow: 0 12px 34px rgba(7, 27, 51, 0.08);
-}
-
-.desert-map-placeholder {
-  position: relative;
-  min-height: 520px;
-  overflow: hidden;
-  border-radius: 18px;
-  border: 1px solid var(--line);
-  background:
-    radial-gradient(circle at 45% 48%, rgba(237, 27, 47, 0.35), transparent 15rem),
-    radial-gradient(circle at 63% 58%, rgba(237, 27, 47, 0.22), transparent 13rem),
-    repeating-linear-gradient(0deg, rgba(7, 27, 51, 0.055) 0 1px, transparent 1px 22px),
-    repeating-linear-gradient(90deg, rgba(7, 27, 51, 0.055) 0 1px, transparent 1px 22px),
-    var(--paper);
-}
-
-.desert-map-placeholder p {
-  position: absolute;
-  left: 1.25rem;
-  bottom: 1.25rem;
-  margin: 0;
-  padding: 0.7rem 1rem;
-  border-radius: 999px;
-  background: var(--metro-red);
-  color: white;
-  font-weight: 950;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.78rem;
-}
-
-.desert-hotspot {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(237, 27, 47, 0.34);
-  border: 2px solid rgba(237, 27, 47, 0.55);
-}
-
-.hotspot-one {
-  width: 220px;
-  height: 220px;
-  left: 28%;
-  top: 35%;
-}
-
-.hotspot-two {
-  width: 170px;
-  height: 170px;
-  left: 55%;
-  top: 46%;
-}
-
-.hotspot-three {
-  width: 130px;
-  height: 130px;
-  left: 68%;
-  top: 28%;
-}
-
-@media (max-width: 980px) {
-  .desert-map-panel {
-    grid-column: span 1;
-  }
-
-  .desert-map-placeholder {
-    min-height: 380px;
-  }
-}
-
-/* Fix Section 3 hero title overlap */
+/* SECTION 03 — TRANSIT DESERTS */
 
 .section-three-hero {
   grid-template-columns: minmax(420px, 0.95fr) minmax(440px, 1.05fr);
@@ -2051,11 +1973,276 @@ body.modal-open {
 .section-three-hero .network-hero-card {
   justify-self: end;
   max-width: 680px;
+  background: linear-gradient(
+    135deg,
+    var(--metro-blue),
+    #30498e 65%,
+    #7b345f
+  );
 }
 
 .section-three-hero .network-hero-card h3 {
   font-size: clamp(2.6rem, 4.2vw, 5rem);
   line-height: 0.92;
+}
+
+.desert-map-panel {
+  grid-column: span 2;
+  padding: clamp(1.35rem, 2.5vw, 2.25rem);
+  border-radius: 22px;
+  background: rgba(255, 250, 240, 0.82);
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 34px rgba(7, 27, 51, 0.08);
+}
+
+.desert-map-live {
+  position: relative;
+  width: 100%;
+  min-height: 640px;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(7, 27, 51, 0.045) 0 1px,
+      transparent 1px 22px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(7, 27, 51, 0.045) 0 1px,
+      transparent 1px 22px
+    ),
+    var(--paper);
+}
+
+.transit-desert-map {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  min-height: 640px;
+}
+
+.desert-insights {
+  position: relative;
+  z-index: 6;
+  padding: 1.35rem;
+  background:
+    radial-gradient(circle at bottom right, rgba(237, 27, 47, 0.35), transparent 45%),
+    linear-gradient(145deg, var(--metro-blue), var(--metro-blue-dark));
+  color: white;
+}
+
+.desert-panel-label {
+  display: inline-flex;
+  margin: 0 0 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  background: var(--metro-red);
+  color: white;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+
+.desert-insights h3 {
+  margin: 0 0 0.85rem;
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.desert-insights p {
+  margin: 0 0 1.25rem;
+  color: rgba(255, 255, 255, 0.86);
+  line-height: 1.45;
+}
+
+.desert-stats {
+  display: grid;
+  gap: 0.8rem;
+  margin: 1.25rem 0;
+}
+
+.desert-stats div {
+  padding: 0.85rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.desert-stats strong {
+  display: block;
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: 1.9rem;
+  line-height: 1;
+}
+
+.desert-stats span {
+  display: block;
+  margin-top: 0.3rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.82rem;
+  line-height: 1.25;
+}
+
+.desert-legend {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1.25rem;
+  font-weight: 850;
+  font-size: 0.82rem;
+}
+
+.desert-legend span {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.desert-legend i {
+  width: 24px;
+  height: 10px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.desert-legend .high {
+  background: rgba(237, 27, 47, 0.9);
+}
+
+.desert-legend .medium {
+  background: rgba(237, 27, 47, 0.48);
+}
+
+.desert-legend .low {
+  background: rgba(0, 85, 164, 0.2);
+}
+
+.desert-legend .route {
+  height: 4px;
+  background: var(--metro-blue);
+}
+
+.desert-legend .stop {
+  width: 10px;
+  height: 10px;
+  background: #5f6b78;
+}
+
+.desert-map-stage {
+  position: relative;
+  min-height: 640px;
+}
+
+.desert-map-stage svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+}
+
+.desert-map-stage svg:active {
+  cursor: grabbing;
+}
+
+.desert-tract {
+  cursor: pointer;
+  transition: fill 150ms ease;
+}
+
+.desert-tract:hover {
+  fill: rgba(237, 27, 47, 0.88);
+}
+
+.desert-route {
+  fill: none;
+  stroke: var(--metro-blue);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.desert-stop {
+  fill: #5f6b78;
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+.desert-tooltip {
+  position: absolute;
+  z-index: 10;
+  max-width: 260px;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  background: rgba(255, 248, 235, 0.96);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  box-shadow: 0 14px 34px rgba(7, 27, 51, 0.18);
+  pointer-events: none;
+}
+
+.desert-tooltip strong,
+.desert-tooltip span {
+  display: block;
+}
+
+.desert-tooltip strong {
+  margin-bottom: 0.35rem;
+  font-family: "Oswald", Impact, sans-serif;
+  text-transform: uppercase;
+  color: var(--metro-blue-dark);
+}
+
+.desert-tooltip span {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+.selected-desert-card {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 8;
+  width: min(300px, calc(100% - 2rem));
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(255, 248, 235, 0.94);
+  border: 1px solid var(--line);
+  box-shadow: 0 14px 34px rgba(7, 27, 51, 0.14);
+}
+
+.selected-desert-card p {
+  margin: 0 0 0.35rem;
+  color: var(--metro-red);
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.selected-desert-card h4 {
+  margin: 0 0 0.7rem;
+  font-family: "Oswald", Impact, sans-serif;
+  color: var(--metro-blue-dark);
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.selected-desert-card span {
+  display: block;
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.section-three-caption {
+  position: static;
+  margin-top: 1rem;
 }
 
 @media (max-width: 980px) {
@@ -2070,5 +2257,25 @@ body.modal-open {
   .section-three-hero .network-hero-card {
     justify-self: stretch;
     max-width: none;
+  }
+
+  .desert-map-panel {
+    grid-column: span 1;
+  }
+
+  .transit-desert-map {
+    grid-template-columns: 1fr;
+  }
+
+  .desert-insights {
+    order: 2;
+  }
+
+  .desert-map-stage {
+    min-height: 420px;
+  }
+
+  .desert-map-live {
+    min-height: auto;
   }
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import TransitNetworkMap from "./TransitNetworkMap";
+import TransitDesertMap from "./TransitDesertMap";
 
 const sectionImage = `${import.meta.env.BASE_URL}images/section_1_img.jpg`;
 const redliningMap = `${import.meta.env.BASE_URL}images/houston_redlining_map.png`;
@@ -437,20 +438,20 @@ export default function SectionModal({ section, onClose }) {
             <div className="desert-map-panel wide">
               <div className="network-map-header">
                 <span>Transit Desert Map</span>
-                <p>Census tracts + population density + route proximity + stop access</p>
+                <p>
+                  Harris County tracts + population density + route proximity +
+                  stop access
+                </p>
               </div>
 
-              <div className="desert-map-placeholder">
-                <div className="desert-hotspot hotspot-one"></div>
-                <div className="desert-hotspot hotspot-two"></div>
-                <div className="desert-hotspot hotspot-three"></div>
-
-                <p>Transit Desert Map Placeholder</p>
+              <div className="desert-map-live">
+                <TransitDesertMap />
               </div>
 
-              <p className="map-caption">
-                This map will identify census tracts where population need is
-                high but transit access is comparatively limited.
+              <p className="map-caption section-three-caption">
+                This map compares Harris County tract population density with
+                proximity to METRO stops and routes. Darker red areas represent
+                places where population need and limited transit access overlap.
               </p>
             </div>
 
