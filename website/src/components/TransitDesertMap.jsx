@@ -22,7 +22,6 @@ const AREA_LABELS = [
 const MAP_MODES = {
   desert: {
     label: "Transit Desert Score",
-    shortLabel: "Desert",
     panelTitle: "Transit Desert Score",
     metricLabel: "High Need + Low Access",
     description:
@@ -32,7 +31,6 @@ const MAP_MODES = {
   },
   access: {
     label: "Transit Access Score",
-    shortLabel: "Access",
     panelTitle: "Transit Access Score",
     metricLabel: "Service Geography",
     description:
@@ -42,7 +40,6 @@ const MAP_MODES = {
   },
   need: {
     label: "Transit Need Score",
-    shortLabel: "Need",
     panelTitle: "Transit Need Score",
     metricLabel: "Demographic Need",
     description:
@@ -293,12 +290,21 @@ export default function TransitDesertMap() {
         .map((feature) => feature.properties.routeAccessCount)
         .filter(Number.isFinite);
 
-      const densityScale = d3.scaleLinear().domain(d3.extent(densities)).range([0, 1]);
-      const distanceScale = d3.scaleLinear().domain(d3.extent(distances)).range([0, 1]);
+      const densityScale = d3
+        .scaleLinear()
+        .domain(d3.extent(densities))
+        .range([0, 1]);
+
+      const distanceScale = d3
+        .scaleLinear()
+        .domain(d3.extent(distances))
+        .range([0, 1]);
+
       const stopDensityScale = d3
         .scaleLinear()
         .domain(d3.extent(stopCounts))
         .range([0, 1]);
+
       const routeAccessScale = d3
         .scaleLinear()
         .domain(d3.extent(routeCounts))
@@ -340,12 +346,20 @@ export default function TransitDesertMap() {
         (needScore, index) => needScore - rawAccessScores[index]
       );
 
-      const needScale = d3.scaleLinear().domain(d3.extent(rawNeedScores)).range([0, 1]);
+      const needScale = d3
+        .scaleLinear()
+        .domain(d3.extent(rawNeedScores))
+        .range([0, 1]);
+
       const accessScale = d3
         .scaleLinear()
         .domain(d3.extent(rawAccessScores))
         .range([0, 1]);
-      const gapScale = d3.scaleLinear().domain(d3.extent(rawGapScores)).range([0, 1]);
+
+      const gapScale = d3
+        .scaleLinear()
+        .domain(d3.extent(rawGapScores))
+        .range([0, 1]);
 
       enrichedTracts.features = enrichedTracts.features.map((feature, index) => {
         const needScore = clamp01(needScale(rawNeedScores[index]));
@@ -429,7 +443,7 @@ export default function TransitDesertMap() {
     const projection = d3.geoMercator().fitSize([width, height], tracts);
     const path = d3.geoPath(projection);
 
-    const g = svg.append("g");
+    const g = svg.append("g").attr("class", "desert-map-content");
 
     g.append("g")
       .attr("class", "desert-tract-layer")
@@ -496,34 +510,39 @@ export default function TransitDesertMap() {
       .attr("x", (label) => projection([label.lon, label.lat])?.[0])
       .attr("y", (label) => projection([label.lon, label.lat])?.[1])
       .attr("text-anchor", "middle")
+      .attr("font-size", 12)
+      .attr("stroke-width", 4)
       .text((label) => label.name);
 
-    const zoom = d3.zoom().scaleExtent([1, 10]).on("zoom", (event) => {
-      const k = event.transform.k;
-      g.attr("transform", event.transform);
+    const zoom = d3
+      .zoom()
+      .scaleExtent([1, 12])
+      .on("zoom", (event) => {
+        const k = event.transform.k;
 
-      g.selectAll(".desert-route").attr(
-        "stroke-width",
-        Math.max(0.65, 1.55 / Math.sqrt(k))
-      );
+        g.attr("transform", event.transform);
 
-      g.selectAll(".red-rail, .green-rail, .purple-rail").attr(
-        "stroke-width",
-        Math.max(1, 2.2 / Math.sqrt(k))
-      );
+        g.selectAll(".desert-route.local-bus")
+          .attr("stroke-width", Math.max(0.35, 1.55 / k))
+          .attr("opacity", Math.max(0.18, 0.48 / Math.sqrt(k)));
 
-      g.selectAll(".desert-stop").attr("r", Math.max(0.5, 1.2 / Math.sqrt(k)));
+        g.selectAll(".desert-route.red-rail, .desert-route.green-rail, .desert-route.purple-rail")
+          .attr("stroke-width", Math.max(0.75, 2.35 / k))
+          .attr("opacity", Math.max(0.45, 0.82 / Math.sqrt(k)));
 
-      g.selectAll(".desert-tract").attr(
-        "stroke-width",
-        Math.max(0.22, 0.55 / Math.sqrt(k))
-      );
+        g.selectAll(".desert-stop")
+          .attr("r", Math.max(0.35, 1.25 / k))
+          .attr("stroke-width", Math.max(0.25, 0.8 / k));
 
-      g.selectAll(".desert-area-label").attr(
-        "font-size",
-        Math.max(7, 12 / Math.sqrt(k))
-      );
-    });
+        g.selectAll(".desert-tract").attr(
+          "stroke-width",
+          Math.max(0.12, 0.55 / k)
+        );
+
+        g.selectAll(".desert-area-label")
+          .attr("font-size", Math.max(6.5, 12 / k))
+          .attr("stroke-width", Math.max(0.9, 4 / k));
+      });
 
     svg.call(zoom);
   }, [tracts, routes, stops, mode]);
