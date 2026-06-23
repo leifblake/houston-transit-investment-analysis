@@ -3,33 +3,52 @@ import * as d3 from "d3";
 
 const base = import.meta.env.BASE_URL;
 
+const AREA_LABELS = [
+  { name: "Downtown", lat: 29.7604, lon: -95.3698 },
+  { name: "Midtown", lat: 29.742, lon: -95.376 },
+  { name: "Medical Center", lat: 29.7078, lon: -95.4018 },
+  { name: "Uptown / Galleria", lat: 29.742, lon: -95.461 },
+  { name: "Westchase", lat: 29.735, lon: -95.556 },
+  { name: "Greenspoint", lat: 29.944, lon: -95.416 },
+  { name: "Northline", lat: 29.825, lon: -95.376 },
+  { name: "East End", lat: 29.742, lon: -95.321 },
+  { name: "Third Ward", lat: 29.735, lon: -95.356 },
+  { name: "Pasadena", lat: 29.691, lon: -95.209 },
+  { name: "Baytown", lat: 29.7355, lon: -94.9774 },
+  { name: "Katy", lat: 29.7858, lon: -95.8245 },
+  { name: "Sugar Land", lat: 29.6197, lon: -95.6349 },
+];
+
 const MAP_MODES = {
   desert: {
     label: "Transit Desert Score",
+    shortLabel: "Desert",
     panelTitle: "Transit Desert Score",
+    metricLabel: "High Need + Low Access",
     description:
-      "High need + low access. This combines population density, no-vehicle households, poverty, race/ethnicity, stop access, and route access.",
-    legendHigh: "Highest desert score",
-    legendMedium: "Moderate desert score",
-    legendLow: "Lower desert score",
+      "This score highlights where demographic need overlaps with weaker local bus and rail access.",
+    lowLabel: "Low concern",
+    highLabel: "High concern",
   },
   access: {
     label: "Transit Access Score",
+    shortLabel: "Access",
     panelTitle: "Transit Access Score",
+    metricLabel: "Service Geography",
     description:
-      "Purely transit service geography. This reflects nearby stops, route coverage, and distance to the nearest non-Park & Ride METRO stop.",
-    legendHigh: "Strongest access",
-    legendMedium: "Moderate access",
-    legendLow: "Lower access",
+      "This score reflects nearby stops, route coverage, and distance to the nearest non-Park & Ride METRO stop.",
+    lowLabel: "Weak access",
+    highLabel: "Strong access",
   },
   need: {
     label: "Transit Need Score",
+    shortLabel: "Need",
     panelTitle: "Transit Need Score",
+    metricLabel: "Demographic Need",
     description:
-      "Demographic need. This reflects population density, poverty rate, no-vehicle households, and people of color by census tract.",
-    legendHigh: "Highest need",
-    legendMedium: "Moderate need",
-    legendLow: "Lower need",
+      "This score reflects population density, poverty rate, no-vehicle households, and people of color by census tract.",
+    lowLabel: "Low need",
+    highLabel: "High need",
   },
 };
 
@@ -83,7 +102,7 @@ function getRouteCategory(row) {
   if (
     routeName.includes("red line") ||
     row.route_short_name === "700" ||
-    row.route_id === "700"
+    String(row.route_id) === "700"
   ) {
     return "red-rail";
   }
@@ -91,7 +110,7 @@ function getRouteCategory(row) {
   if (
     routeName.includes("green line") ||
     row.route_short_name === "800" ||
-    row.route_id === "800"
+    String(row.route_id) === "800"
   ) {
     return "green-rail";
   }
@@ -99,7 +118,7 @@ function getRouteCategory(row) {
   if (
     routeName.includes("purple line") ||
     row.route_short_name === "900" ||
-    row.route_id === "900"
+    String(row.route_id) === "900"
   ) {
     return "purple-rail";
   }
@@ -114,31 +133,32 @@ function getRouteClass(category) {
   return "desert-route local-bus";
 }
 
-function getScoreColor(score, mode) {
-  if (mode === "access") {
-    if (score >= 0.78) return "rgba(0, 85, 164, 0.68)";
-    if (score >= 0.58) return "rgba(0, 85, 164, 0.42)";
-    if (score >= 0.38) return "rgba(0, 85, 164, 0.24)";
-    return "rgba(237, 27, 47, 0.16)";
-  }
-
-  if (mode === "need") {
-    if (score >= 0.78) return "rgba(237, 27, 47, 0.72)";
-    if (score >= 0.58) return "rgba(237, 27, 47, 0.46)";
-    if (score >= 0.38) return "rgba(242, 140, 40, 0.36)";
-    return "rgba(0, 85, 164, 0.08)";
-  }
-
-  if (score >= 0.78) return "rgba(237, 27, 47, 0.76)";
-  if (score >= 0.58) return "rgba(237, 27, 47, 0.5)";
-  if (score >= 0.38) return "rgba(242, 140, 40, 0.38)";
-  return "rgba(0, 85, 164, 0.08)";
-}
-
 function getScoreForMode(properties, mode) {
   if (mode === "access") return properties.accessScore;
   if (mode === "need") return properties.needScore;
   return properties.desertScore;
+}
+
+function getScoreColor(score, mode) {
+  const safeScore = clamp01(score);
+
+  if (mode === "access") {
+    return d3.interpolateRgbBasis([
+      "#fff1df",
+      "#f6c5ad",
+      "#7fb0db",
+      "#1f78b4",
+      "#004b93",
+    ])(safeScore);
+  }
+
+  return d3.interpolateRgbBasis([
+    "#fff7bc",
+    "#fee391",
+    "#fdae61",
+    "#f46d43",
+    "#d7191c",
+  ])(safeScore);
 }
 
 export default function TransitDesertMap() {
@@ -160,7 +180,6 @@ export default function TransitDesertMap() {
       ]);
 
       const nonParkRideRouteRows = routeRows.filter((row) => !isParkRideText(row));
-
       const groupedRoutes = d3.group(nonParkRideRouteRows, (d) => d.route_id);
 
       const routeFeatures = Array.from(groupedRoutes, ([routeId, rows]) => {
@@ -205,7 +224,6 @@ export default function TransitDesertMap() {
         ...tractGeojson,
         features: tractGeojson.features.map((feature) => {
           const props = feature.properties;
-
           const centroid = [Number(props.INTPTLON), Number(props.INTPTLAT)];
 
           const landSqMiles = safeNumber(props.ALAND) / 2589988.11;
@@ -233,11 +251,11 @@ export default function TransitDesertMap() {
           let routeAccessCount = 0;
 
           for (const route of routeFeatures) {
-            const hasNearbyPoint = route.analysisCoordinates.some(
+            const hasNearbyRoute = route.analysisCoordinates.some(
               (coordinate) => milesBetween(centroid, coordinate) <= 0.75
             );
 
-            if (hasNearbyPoint) routeAccessCount += 1;
+            if (hasNearbyRoute) routeAccessCount += 1;
           }
 
           return {
@@ -275,39 +293,30 @@ export default function TransitDesertMap() {
         .map((feature) => feature.properties.routeAccessCount)
         .filter(Number.isFinite);
 
+      const densityScale = d3.scaleLinear().domain(d3.extent(densities)).range([0, 1]);
+      const distanceScale = d3.scaleLinear().domain(d3.extent(distances)).range([0, 1]);
+      const stopDensityScale = d3
+        .scaleLinear()
+        .domain(d3.extent(stopCounts))
+        .range([0, 1]);
+      const routeAccessScale = d3
+        .scaleLinear()
+        .domain(d3.extent(routeCounts))
+        .range([0, 1]);
+
       const rawNeedScores = enrichedTracts.features.map((feature) => {
         const props = feature.properties;
 
-        const densityScale = d3
-          .scaleLinear()
-          .domain(d3.extent(densities))
-          .range([0, 1]);
-
         return (
-          clamp01(densityScale(props.density)) * 0.3 +
-          props.noVehicleRate * 0.3 +
-          props.povertyRate * 0.2 +
-          props.peopleOfColorRate * 0.2
+          clamp01(densityScale(props.density)) * 0.2 +
+          props.noVehicleRate * 0.35 +
+          props.povertyRate * 0.3 +
+          props.peopleOfColorRate * 0.15
         );
       });
 
       const rawAccessScores = enrichedTracts.features.map((feature) => {
         const props = feature.properties;
-
-        const distanceScale = d3
-          .scaleLinear()
-          .domain(d3.extent(distances))
-          .range([0, 1]);
-
-        const stopDensityScale = d3
-          .scaleLinear()
-          .domain(d3.extent(stopCounts))
-          .range([0, 1]);
-
-        const routeAccessScale = d3
-          .scaleLinear()
-          .domain(d3.extent(routeCounts))
-          .range([0, 1]);
 
         const stopDensityScore = clamp01(
           stopDensityScale(props.stopsWithinHalfMile)
@@ -317,7 +326,8 @@ export default function TransitDesertMap() {
           routeAccessScale(props.routeAccessCount)
         );
 
-        const nearestStopAccessScore = 1 - clamp01(distanceScale(props.nearestStopMiles));
+        const nearestStopAccessScore =
+          1 - clamp01(distanceScale(props.nearestStopMiles));
 
         return (
           stopDensityScore * 0.35 +
@@ -330,14 +340,16 @@ export default function TransitDesertMap() {
         (needScore, index) => needScore - rawAccessScores[index]
       );
 
-      const gapScale = d3
+      const needScale = d3.scaleLinear().domain(d3.extent(rawNeedScores)).range([0, 1]);
+      const accessScale = d3
         .scaleLinear()
-        .domain(d3.extent(rawGapScores))
+        .domain(d3.extent(rawAccessScores))
         .range([0, 1]);
+      const gapScale = d3.scaleLinear().domain(d3.extent(rawGapScores)).range([0, 1]);
 
       enrichedTracts.features = enrichedTracts.features.map((feature, index) => {
-        const needScore = clamp01(rawNeedScores[index]);
-        const accessScore = clamp01(rawAccessScores[index]);
+        const needScore = clamp01(needScale(rawNeedScores[index]));
+        const accessScore = clamp01(accessScale(rawAccessScores[index]));
         const rawGapScore = rawGapScores[index];
         const desertScore = clamp01(gapScale(rawGapScore));
 
@@ -371,6 +383,11 @@ export default function TransitDesertMap() {
 
     const top = ranked[0]?.properties;
 
+    const totalPopulation = d3.sum(
+      tracts.features,
+      (feature) => feature.properties.population
+    );
+
     const avgDistance = d3.mean(
       tracts.features,
       (feature) => feature.properties.nearestStopMiles
@@ -381,22 +398,24 @@ export default function TransitDesertMap() {
       (feature) => feature.properties.noVehicleRate
     );
 
-    const avgPoverty = d3.mean(
-      tracts.features,
-      (feature) => feature.properties.povertyRate
+    const railLines = new Set(
+      routes
+        .filter((route) => route.category.includes("rail"))
+        .map((route) => route.category)
     );
 
     return {
-      tracts: tracts.features.length,
+      totalPopulation,
+      totalStops: stops.length,
+      railLines: railLines.size,
+      localRoutes: routes.filter((route) => route.category === "local-bus").length,
       topName: top?.NAMELSAD || "Highest-scoring tract",
       topScore: getScoreForMode(top || {}, mode) || 0,
       topPopulation: top?.population || 0,
-      topDensity: top?.density || 0,
       avgDistance: avgDistance || 0,
       avgNoVehicle: avgNoVehicle || 0,
-      avgPoverty: avgPoverty || 0,
     };
-  }, [tracts, mode]);
+  }, [tracts, routes, stops, mode]);
 
   useEffect(() => {
     if (!svgRef.current || !tracts || !routes.length) return;
@@ -468,20 +487,41 @@ export default function TransitDesertMap() {
       .attr("cy", (stop) => projection(stop.coordinates)?.[1])
       .attr("r", 1.25);
 
+    g.append("g")
+      .attr("class", "desert-area-label-layer")
+      .selectAll("text")
+      .data(AREA_LABELS)
+      .join("text")
+      .attr("class", "desert-area-label")
+      .attr("x", (label) => projection([label.lon, label.lat])?.[0])
+      .attr("y", (label) => projection([label.lon, label.lat])?.[1])
+      .attr("text-anchor", "middle")
+      .text((label) => label.name);
+
     const zoom = d3.zoom().scaleExtent([1, 10]).on("zoom", (event) => {
       const k = event.transform.k;
       g.attr("transform", event.transform);
 
       g.selectAll(".desert-route").attr(
         "stroke-width",
-        Math.max(0.7, 1.75 / Math.sqrt(k))
+        Math.max(0.65, 1.55 / Math.sqrt(k))
       );
 
-      g.selectAll(".desert-stop").attr("r", Math.max(0.55, 1.25 / Math.sqrt(k)));
+      g.selectAll(".red-rail, .green-rail, .purple-rail").attr(
+        "stroke-width",
+        Math.max(1, 2.2 / Math.sqrt(k))
+      );
+
+      g.selectAll(".desert-stop").attr("r", Math.max(0.5, 1.2 / Math.sqrt(k)));
 
       g.selectAll(".desert-tract").attr(
         "stroke-width",
-        Math.max(0.25, 0.55 / Math.sqrt(k))
+        Math.max(0.22, 0.55 / Math.sqrt(k))
+      );
+
+      g.selectAll(".desert-area-label").attr(
+        "font-size",
+        Math.max(7, 12 / Math.sqrt(k))
       );
     });
 
@@ -489,6 +529,8 @@ export default function TransitDesertMap() {
   }, [tracts, routes, stops, mode]);
 
   const activeMode = MAP_MODES[mode];
+  const gradientClass =
+    mode === "access" ? "desert-gradient access-gradient" : "desert-gradient";
 
   return (
     <div className="transit-desert-map">
@@ -525,16 +567,35 @@ export default function TransitDesertMap() {
           </button>
         </div>
 
+        <div className="desert-scale-block">
+          <p>{activeMode.metricLabel}</p>
+          <div className={gradientClass}></div>
+          <div className="desert-gradient-labels">
+            <span>{activeMode.lowLabel}</span>
+            <span>{activeMode.highLabel}</span>
+          </div>
+        </div>
+
         {insights && (
-          <div className="desert-stats">
+          <div className="desert-stats dashboard-stats">
             <div>
-              <strong>{insights.tracts}</strong>
-              <span>Harris County tracts</span>
+              <strong>{Math.round(insights.totalPopulation).toLocaleString()}</strong>
+              <span>Total population analyzed</span>
             </div>
 
             <div>
-              <strong>{insights.avgDistance.toFixed(2)} mi</strong>
-              <span>Average nearest-stop distance</span>
+              <strong>{insights.totalStops.toLocaleString()}</strong>
+              <span>Non-Park & Ride stops</span>
+            </div>
+
+            <div>
+              <strong>{insights.railLines}</strong>
+              <span>METRORail lines</span>
+            </div>
+
+            <div>
+              <strong>{insights.localRoutes}</strong>
+              <span>Local bus routes</span>
             </div>
 
             <div>
@@ -543,49 +604,50 @@ export default function TransitDesertMap() {
             </div>
 
             <div>
-              <strong>{insights.topPopulation.toLocaleString()}</strong>
-              <span>Population in highest-scoring tract</span>
+              <strong>{insights.avgDistance.toFixed(2)} mi</strong>
+              <span>Average nearest-stop distance</span>
             </div>
           </div>
         )}
-
-        <div className="desert-legend">
-          <span>
-            <i className="high"></i> {activeMode.legendHigh}
-          </span>
-          <span>
-            <i className="medium"></i> {activeMode.legendMedium}
-          </span>
-          <span>
-            <i className="low"></i> {activeMode.legendLow}
-          </span>
-          <span>
-            <i className="route local-bus"></i> Local bus route
-          </span>
-          <span>
-            <i className="route red-rail"></i> Red rail
-          </span>
-          <span>
-            <i className="route green-rail"></i> Green rail
-          </span>
-          <span>
-            <i className="route purple-rail"></i> Purple rail
-          </span>
-          <span>
-            <i className="stop"></i> Sampled stop
-          </span>
-        </div>
       </aside>
 
       <div className="desert-map-stage">
-        <div className="desert-map-mode-pill">{activeMode.label}</div>
-
         <svg
           ref={svgRef}
           viewBox="0 0 1200 620"
           role="img"
           aria-label={`${activeMode.label} map of Harris County`}
         />
+
+        <div className="desert-map-key">
+          <h4>{activeMode.label}</h4>
+          <div className={gradientClass}></div>
+          <div className="desert-key-labels">
+            <span>Very Low</span>
+            <span>Low</span>
+            <span>Moderate</span>
+            <span>High</span>
+            <span>Very High</span>
+          </div>
+
+          <div className="desert-route-key">
+            <span>
+              <i className="local-bus"></i> Local bus
+            </span>
+            <span>
+              <i className="red-rail"></i> Red rail
+            </span>
+            <span>
+              <i className="green-rail"></i> Green rail
+            </span>
+            <span>
+              <i className="purple-rail"></i> Purple rail
+            </span>
+            <span>
+              <i className="stop-dot"></i> Stop
+            </span>
+          </div>
+        </div>
 
         {tooltip && (
           <div
