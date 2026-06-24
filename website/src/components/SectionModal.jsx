@@ -440,9 +440,7 @@ export default function SectionModal({ section, onClose }) {
             <div className="desert-map-panel wide">
               <div className="network-map-header">
                 <span>Transit Desert Map</span>
-                <p>
-                  Census tracts + demographic need + local bus/rail access
-                </p>
+                <p>Census tracts + demographic need + local bus/rail access</p>
               </div>
 
               <div className="desert-map-live">
@@ -459,6 +457,43 @@ export default function SectionModal({ section, onClose }) {
                 service is excluded because it primarily serves commuter trips
                 that usually begin with access to a car.
               </p>
+            </div>
+
+            <div className="map-reading-grid wide">
+              <div className="map-reading-card">
+                <p className="chapter-kicker">Map 01 / Transit Desert Score</p>
+                <h3>High Need + Low Access</h3>
+                <p>
+                  The Transit Desert Score combines demographic need with weaker
+                  transit access. The darkest areas are places where residents
+                  may face stronger mobility barriers because need is high while
+                  nearby local bus and rail access is comparatively limited.
+                </p>
+              </div>
+
+              <div className="map-reading-card">
+                <p className="chapter-kicker">Map 02 / Transit Access Score</p>
+                <h3>Where Service Is Strongest</h3>
+                <p>
+                  The Transit Access Score focuses only on service geography:
+                  nearby stops, route coverage, and distance to local bus or rail
+                  service. Darker blue areas generally show stronger access,
+                  especially around the central route network and major transit
+                  corridors.
+                </p>
+              </div>
+
+              <div className="map-reading-card">
+                <p className="chapter-kicker">Map 03 / Transit Need Score</p>
+                <h3>Where Need Is Higher</h3>
+                <p>
+                  The Transit Need Score highlights census tracts with stronger
+                  indicators of transportation need, including population
+                  density, poverty, no-vehicle households, and people of color.
+                  This helps separate where transit exists from where transit may
+                  matter most.
+                </p>
+              </div>
             </div>
 
             <aside className="network-info-card">

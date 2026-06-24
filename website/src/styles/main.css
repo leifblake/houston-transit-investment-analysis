@@ -2768,3 +2768,46 @@ body.modal-open {
   padding: 1rem;
   overflow: visible;
 }
+
+/* SECTION 3 — THREE MAP READING CARDS */
+
+.map-reading-grid {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.map-reading-card {
+  background: rgba(255, 250, 240, 0.82);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: clamp(1.25rem, 2vw, 1.8rem);
+  box-shadow: 0 12px 34px rgba(7, 27, 51, 0.08);
+}
+
+.map-reading-card h3 {
+  margin: 0 0 0.8rem;
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: clamp(1.8rem, 2.4vw, 2.5rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--metro-blue-dark);
+}
+
+.map-reading-card p {
+  margin: 0;
+  font-size: clamp(0.98rem, 1.1vw, 1.1rem);
+  line-height: 1.55;
+}
+
+.map-reading-card .chapter-kicker {
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 980px) {
+  .map-reading-grid {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
+  }
+}
