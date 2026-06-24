@@ -2754,3 +2754,17 @@ body.modal-open {
     margin: 1rem;
   }
 }
+
+.selected-desert-card {
+  top: 1rem;
+  right: 1rem;
+  bottom: auto !important;
+  left: auto;
+
+  width: min(300px, calc(100% - 2rem));
+  height: auto;
+  max-height: none;
+
+  padding: 1rem;
+  overflow: visible;
+}
