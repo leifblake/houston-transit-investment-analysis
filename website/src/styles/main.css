@@ -2811,3 +2811,35 @@ body.modal-open {
     grid-template-columns: 1fr;
   }
 }
+
+.section-three-hero ~ .modal-narrative-grid .network-info-card {
+  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.section-three-hero ~ .modal-narrative-grid .network-info-card h3 {
+  font-size: clamp(2.35rem, 3.2vw, 3.55rem);
+  line-height: 0.9;
+  margin-bottom: 1.2rem;
+}
+
+.section-three-hero ~ .modal-narrative-grid .network-info-card p:not(.chapter-kicker) {
+  font-size: clamp(1.1rem, 1.35vw, 1.32rem);
+  line-height: 1.62;
+  max-width: 92%;
+}
+
+.section-three-hero ~ .modal-narrative-grid .network-info-card .chapter-kicker {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.section-three-hero ~ .modal-narrative-grid .network-info-card:nth-of-type(odd) h3 {
+  font-size: clamp(2.6rem, 3.6vw, 3.9rem);
+}
+
+.section-three-hero ~ .modal-narrative-grid .network-info-card:nth-of-type(odd) p:not(.chapter-kicker) {
+  font-size: clamp(1.15rem, 1.45vw, 1.4rem);
+}

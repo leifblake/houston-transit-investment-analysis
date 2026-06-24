@@ -489,7 +489,7 @@ export default function SectionModal({ section, onClose }) {
                 <p>
                   The Transit Need Score highlights census tracts with stronger
                   indicators of transportation need, including population
-                  density, poverty, no-vehicle households, and people of color.
+                  density, poverty, no-vehicle households, and percentage of people of color residing in an area.
                   This helps separate where transit exists from where transit may
                   matter most.
                 </p>
