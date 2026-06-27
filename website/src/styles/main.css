@@ -2843,3 +2843,44 @@ body.modal-open {
 .section-three-hero ~ .modal-narrative-grid .network-info-card:nth-of-type(odd) p:not(.chapter-kicker) {
   font-size: clamp(1.15rem, 1.45vw, 1.4rem);
 }
+
+.section-three-hero ~ .modal-narrative-grid .network-info-card {
+  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.section-three-hero ~ .modal-narrative-grid .network-info-card h3 {
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: clamp(3rem, 4.2vw, 4.75rem);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: var(--metro-blue-dark);
+  margin: 0 0 1.45rem;
+}
+
+.section-three-hero ~ .modal-narrative-grid .network-info-card p:not(.chapter-kicker) {
+  font-size: clamp(1.05rem, 1.18vw, 1.18rem);
+  line-height: 1.55;
+  max-width: 94%;
+}
+
+.section-three-hero ~ .modal-narrative-grid .network-info-card .chapter-kicker {
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.15rem;
+}
+
+.section-three-hero ~ .modal-narrative-grid .network-info-card:nth-of-type(2),
+.section-three-hero ~ .modal-narrative-grid .network-info-card:nth-of-type(4) {
+  background:
+    radial-gradient(circle at bottom right, rgba(237, 27, 47, 0.08), transparent 45%),
+    rgba(255, 250, 240, 0.92);
+}
+
+.section-three-hero ~ .modal-narrative-grid .network-info-card:nth-of-type(2) h3,
+.section-three-hero ~ .modal-narrative-grid .network-info-card:nth-of-type(4) h3 {
+  font-size: clamp(3.25rem, 4.7vw, 5.25rem);
+}

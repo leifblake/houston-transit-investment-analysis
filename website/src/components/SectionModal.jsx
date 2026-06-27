@@ -516,7 +516,11 @@ export default function SectionModal({ section, onClose }) {
 
             <aside className="network-info-card">
               <p className="chapter-kicker">02 / Transportation Need</p>
-              <h3>Who May Depend on Transit Most?</h3>
+              <h3>
+                Who Needs
+                <br />
+                Transit Most?
+              </h3>
 
               <p>
                 The Transit Need Score includes population density, poverty
@@ -554,7 +558,13 @@ export default function SectionModal({ section, onClose }) {
 
             <aside className="network-info-card">
               <p className="chapter-kicker">04 / Equity Question</p>
-              <h3>Where Do Need and Access Diverge?</h3>
+              <h3>
+                When Need
+                <br />
+                and Access
+                <br />
+                Don’t Match
+              </h3>
 
               <p>
                 The most important places are not simply the densest tracts or
