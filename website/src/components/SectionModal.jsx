@@ -76,6 +76,12 @@ const modalContent = {
     subtitle:
       "Transit deserts are places where many people live, but nearby transit service is limited, infrequent, or difficult to use.",
   },
+  "04": {
+    eyebrow: "Access Interpretation",
+    title: "Who Has Access?",
+    subtitle:
+      "Access is not just whether transit exists nearby. It depends on stop proximity, route frequency, high-productivity corridors, and rail access.",
+  },
 };
 
 function MapGallery() {
@@ -602,6 +608,335 @@ export default function SectionModal({ section, onClose }) {
                 new frequency, safer walksheds, stronger transfer points, or
                 route changes can be prioritized where they would improve access
                 for communities with the greatest mobility barriers.
+              </p>
+            </div>
+          </section>
+        </article>
+      </div>
+    );
+  }
+
+  if (section.number === "04") {
+    return (
+      <div className="modal-layer" role="dialog" aria-modal="true">
+        <button
+          className="modal-backdrop"
+          onClick={onClose}
+          aria-label="Close modal"
+        />
+
+        <article className="section-modal">
+          <button
+            className="modal-close"
+            onClick={onClose}
+            aria-label="Close section"
+          >
+            ×
+          </button>
+
+          <header className="modal-hero section-four-hero">
+            <div>
+              <p className="modal-eyebrow">{content.eyebrow}</p>
+
+              <div className="modal-title-row">
+                <span>{section.number}</span>
+                <h1>{content.title}</h1>
+              </div>
+
+              <p className="modal-subtitle">
+                The maps in the previous section measure transit need, service
+                availability, and the combined Transit Desert Score. This section
+                interprets those results to identify which neighborhoods have the
+                strongest access to transit, where mobility gaps remain, and which
+                communities could benefit most from future investment.
+              </p>
+            </div>
+
+            <div className="network-hero-card">
+              <span>Access Analysis</span>
+              <h3>From map exploration to policy interpretation</h3>
+              <p>
+                Section 3 shows the data visually. Section 4 explains what those
+                maps mean for access, equity, and future investment priorities.
+              </p>
+            </div>
+          </header>
+
+          <section className="modal-narrative-grid section-four-grid">
+            <div className="modal-chapter wide section-four-lead">
+              <p className="chapter-kicker">04 / Reading the Results</p>
+              <h2>Access Is More Than a Nearby Stop</h2>
+
+              <p>
+                A person can live near a stop and still have weak transit access
+                if service is infrequent, transfers are difficult, routes do not
+                connect to major destinations, or the nearest useful service is
+                too far to reach safely on foot.
+              </p>
+
+              <p>
+                For this reason, Section 4 does not repeat the interactive maps
+                from Section 3. Instead, it interprets them: the Transit Need map
+                shows where residents may depend on service most, the Transit
+                Access map shows where service geography is strongest, and the
+                Transit Desert map highlights where high need and lower access
+                overlap.
+              </p>
+            </div>
+
+            <aside className="section-four-callout">
+              <p className="chapter-kicker">Referenced Maps</p>
+              <h3>
+                See Section 3
+                <br />
+                For the Interactive Maps
+              </h3>
+              <p>
+                Use the Transit Desert, Transit Access, and Transit Need toggles
+                in Section 3 to explore the tract-level maps this section
+                interprets.
+              </p>
+            </aside>
+
+            <div className="section-four-map-reading wide">
+              <div className="section-four-reading-card">
+                <p className="chapter-kicker">Map 01 / Transit Need</p>
+                <h3>Where Transit May Matter Most</h3>
+                <p>
+                  The Transit Need map identifies neighborhoods where residents
+                  are more likely to rely on transit because of population
+                  density, poverty, limited vehicle ownership, and demographic
+                  equity indicators.
+                </p>
+              </div>
+
+              <div className="section-four-reading-card">
+                <p className="chapter-kicker">Map 02 / Transit Access</p>
+                <h3>Where Service Is Strongest</h3>
+                <p>
+                  The Transit Access map measures nearby local bus and rail access
+                  using stop proximity, route coverage, and distance to the
+                  nearest usable METRO service.
+                </p>
+              </div>
+
+              <div className="section-four-reading-card">
+                <p className="chapter-kicker">Map 03 / Transit Desert</p>
+                <h3>Where Gaps Become Visible</h3>
+                <p>
+                  The Transit Desert map combines need and access to highlight
+                  places where transportation need is high but service
+                  availability remains comparatively weak.
+                </p>
+              </div>
+            </div>
+
+            <div className="modal-chapter wide">
+              <p className="chapter-kicker">01 / What We Found</p>
+              <h2>Strong Access Clusters Around the Core Network</h2>
+
+              <p>
+                Downtown, Midtown, the Texas Medical Center, and nearby central
+                corridors generally show stronger accessibility because multiple
+                bus routes, rail lines, transfer points, and major destinations
+                overlap in a compact area.
+              </p>
+
+              <p>
+                Outer suburban areas tend to show weaker access because the
+                region is more spread out, destinations are farther apart, and
+                transit coverage becomes less dense. This does not mean no transit
+                exists there, but it does mean that useful access is harder to
+                provide consistently.
+              </p>
+
+              <p>
+                The most important gap areas are the places where these two
+                patterns collide: higher transportation need, but weaker access to
+                frequent or well-connected local transit service.
+              </p>
+            </div>
+
+            <aside className="section-four-stat-card">
+              <span>Core Finding</span>
+              <strong>High need alone is not enough.</strong>
+              <p>
+                The strongest investment cases appear where high need overlaps
+                with weak access, population density, and limited route
+                connectivity.
+              </p>
+            </aside>
+
+            <div className="section-four-ranking wide">
+              <div className="section-four-ranking-header">
+                <div>
+                  <p className="chapter-kicker">02 / Accessibility Ranking</p>
+                  <h2>Top Underserved Census Tracts</h2>
+                </div>
+
+                <p>
+                  This table summarizes the highest-priority tracts from the
+                  accessibility model. The final version can be connected
+                  directly to the exported Notebook 15 accessibility index.
+                </p>
+              </div>
+
+              <div className="access-ranking-table">
+                <div className="access-ranking-row access-ranking-head">
+                  <span>Rank</span>
+                  <span>Census Tract</span>
+                  <span>Population</span>
+                  <span>Density</span>
+                  <span>Access</span>
+                  <span>Underserved</span>
+                </div>
+
+                <div className="access-ranking-row">
+                  <span>01</span>
+                  <span>Export from Notebook 15</span>
+                  <span>Population</span>
+                  <span>People / sq mi</span>
+                  <span>Access score</span>
+                  <span>Underserved score</span>
+                </div>
+
+                <div className="access-ranking-row">
+                  <span>02</span>
+                  <span>Export from Notebook 15</span>
+                  <span>Population</span>
+                  <span>People / sq mi</span>
+                  <span>Access score</span>
+                  <span>Underserved score</span>
+                </div>
+
+                <div className="access-ranking-row">
+                  <span>03</span>
+                  <span>Export from Notebook 15</span>
+                  <span>Population</span>
+                  <span>People / sq mi</span>
+                  <span>Access score</span>
+                  <span>Underserved score</span>
+                </div>
+
+                <div className="access-ranking-row">
+                  <span>04</span>
+                  <span>Export from Notebook 15</span>
+                  <span>Population</span>
+                  <span>People / sq mi</span>
+                  <span>Access score</span>
+                  <span>Underserved score</span>
+                </div>
+
+                <div className="access-ranking-row">
+                  <span>05</span>
+                  <span>Export from Notebook 15</span>
+                  <span>Population</span>
+                  <span>People / sq mi</span>
+                  <span>Access score</span>
+                  <span>Underserved score</span>
+                </div>
+              </div>
+
+              <p className="ranking-note">
+                Notebook 15’s v2 framework defines accessibility using nearby
+                stops, route frequency, high-productivity route access, and
+                distance to METRORail. The ranking should be populated from the
+                final exported accessibility index once the production dataset is
+                finalized.
+              </p>
+            </div>
+
+            <aside className="network-info-card section-four-info">
+              <p className="chapter-kicker">03 / Method</p>
+              <h3>
+                Closest Stop
+                <br />
+                Does Not Equal
+                <br />
+                Good Access
+              </h3>
+
+              <p>
+                A nearby stop matters, but it is only one part of access. Useful
+                transit also depends on whether service runs often enough, whether
+                routes connect to major destinations, and whether riders can
+                transfer without long delays.
+              </p>
+            </aside>
+
+            <aside className="network-info-card section-four-info">
+              <p className="chapter-kicker">04 / Rail Access</p>
+              <h3>
+                Rail Changes
+                <br />
+                the Shape
+                <br />
+                of Access
+              </h3>
+
+              <p>
+                Rail corridors create strong anchors because they provide legible,
+                high-capacity service. But rail reaches only a limited part of the
+                region, so many neighborhoods still depend primarily on bus
+                connections.
+              </p>
+            </aside>
+
+            <aside className="network-info-card section-four-info">
+              <p className="chapter-kicker">05 / Equity</p>
+              <h3>
+                Who Benefits
+                <br />
+                From Better
+                <br />
+                Connections?
+              </h3>
+
+              <p>
+                The highest-priority areas are not simply the places with low
+                access. They are places where low access overlaps with higher
+                transportation need, limited vehicle availability, and population
+                density that could support stronger service.
+              </p>
+            </aside>
+
+            <aside className="network-info-card section-four-info">
+              <p className="chapter-kicker">06 / Future Feature</p>
+              <h3>
+                Before / After
+                <br />
+                Rail Access
+              </h3>
+
+              <p>
+                A future version of this project could compare current access with
+                proposed rail or BRT scenarios to estimate which neighborhoods
+                would gain the most from new high-capacity corridors.
+              </p>
+            </aside>
+
+            <div className="modal-takeaway">
+              <h2>Planning Implications</h2>
+
+              <p>
+                Based on the accessibility analysis, future investments may
+                provide the greatest benefit in areas where Transit Need is high,
+                Transit Access is comparatively low, population density supports
+                frequent service, and existing routes provide limited
+                connectivity.
+              </p>
+
+              <p>
+                Rather than recommending projects based only on existing ridership,
+                this framework identifies places where improved frequency, safer
+                walksheds, stronger transfers, bus-priority treatments, BRT, or
+                future rail study could produce a larger public benefit.
+              </p>
+
+              <p>
+                Planned future versions of this project will evaluate how proposed
+                rail extensions, increased bus frequency, and redesigned route
+                networks could change accessibility scores over time.
               </p>
             </div>
           </section>

@@ -2884,3 +2884,204 @@ body.modal-open {
 .section-three-hero ~ .modal-narrative-grid .network-info-card:nth-of-type(4) h3 {
   font-size: clamp(3.25rem, 4.7vw, 5.25rem);
 }
+
+/* SECTION 4 — WHO HAS ACCESS */
+
+.section-four-hero .modal-title-row h1 {
+  max-width: 780px;
+}
+
+.section-four-grid {
+  align-items: stretch;
+}
+
+.section-four-lead h2 {
+  max-width: 920px;
+}
+
+.section-four-callout,
+.section-four-stat-card {
+  border-radius: 24px;
+  padding: clamp(1.6rem, 2.4vw, 2.3rem);
+  background:
+    radial-gradient(circle at bottom right, rgba(237, 27, 47, 0.16), transparent 45%),
+    linear-gradient(145deg, var(--metro-blue), var(--metro-blue-dark));
+  color: white;
+  box-shadow: 0 18px 44px rgba(7, 27, 51, 0.14);
+}
+
+.section-four-callout h3,
+.section-four-stat-card strong {
+  display: block;
+  margin: 0 0 1rem;
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: clamp(2.6rem, 4vw, 4.5rem);
+  line-height: 0.88;
+  text-transform: uppercase;
+  color: white;
+}
+
+.section-four-callout p:not(.chapter-kicker),
+.section-four-stat-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+
+.section-four-stat-card span {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  background: var(--metro-red);
+  color: white;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+
+.section-four-map-reading {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.section-four-reading-card {
+  padding: clamp(1.35rem, 2vw, 1.9rem);
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 240, 0.9);
+  box-shadow: 0 12px 34px rgba(7, 27, 51, 0.08);
+}
+
+.section-four-reading-card h3 {
+  margin: 0 0 0.9rem;
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: clamp(2rem, 2.9vw, 3.15rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+  color: var(--metro-blue-dark);
+}
+
+.section-four-reading-card p:not(.chapter-kicker) {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.section-four-ranking {
+  grid-column: span 2;
+  padding: clamp(1.4rem, 2.2vw, 2rem);
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 240, 0.92);
+  box-shadow: 0 12px 34px rgba(7, 27, 51, 0.08);
+}
+
+.section-four-ranking-header {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.6fr);
+  gap: 1.5rem;
+  align-items: end;
+  margin-bottom: 1.35rem;
+}
+
+.section-four-ranking-header h2 {
+  margin: 0;
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: clamp(2.6rem, 4.2vw, 4.8rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: var(--metro-blue-dark);
+}
+
+.section-four-ranking-header p:not(.chapter-kicker) {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+.access-ranking-table {
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+}
+
+.access-ranking-row {
+  display: grid;
+  grid-template-columns: 0.45fr 1.4fr 0.9fr 0.9fr 0.9fr 1fr;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.58);
+  border-bottom: 1px solid rgba(7, 27, 51, 0.08);
+  color: var(--ink);
+  font-weight: 750;
+}
+
+.access-ranking-row:last-child {
+  border-bottom: 0;
+}
+
+.access-ranking-head {
+  background: var(--metro-blue-dark);
+  color: white;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.78rem;
+}
+
+.access-ranking-row span:first-child {
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: 1.25rem;
+  color: var(--metro-red);
+}
+
+.access-ranking-head span:first-child {
+  color: white;
+}
+
+.ranking-note {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.section-four-info {
+  min-height: 420px;
+}
+
+.section-four-info h3 {
+  font-size: clamp(2.8rem, 4.3vw, 4.9rem);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+}
+
+.section-four-info p:not(.chapter-kicker) {
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 980px) {
+  .section-four-map-reading,
+  .section-four-ranking {
+    grid-column: span 1;
+  }
+
+  .section-four-map-reading {
+    grid-template-columns: 1fr;
+  }
+
+  .section-four-ranking-header {
+    grid-template-columns: 1fr;
+  }
+
+  .access-ranking-row {
+    grid-template-columns: 1fr;
+  }
+}
